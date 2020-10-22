@@ -1,0 +1,17 @@
+C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\bin\Debug\netcoreapp3.1\KCKProjektWPF.exe
+C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\bin\Debug\netcoreapp3.1\KCKProjektWPF.deps.json
+C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\bin\Debug\netcoreapp3.1\KCKProjektWPF.runtimeconfig.json
+C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\bin\Debug\netcoreapp3.1\KCKProjektWPF.runtimeconfig.dev.json
+C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\bin\Debug\netcoreapp3.1\KCKProjektWPF.dll
+C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\bin\Debug\netcoreapp3.1\KCKProjektWPF.pdb
+C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\obj\Debug\netcoreapp3.1\KCKProjektWPF.csprojAssemblyReference.cache
+C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\obj\Debug\netcoreapp3.1\App.g.cs
+C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\obj\Debug\netcoreapp3.1\KCKProjektWPF_MarkupCompile.cache
+C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\obj\Debug\netcoreapp3.1\KCKProjektWPF_MarkupCompile.lref
+C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\obj\Debug\netcoreapp3.1\MainWindow.baml
+C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\obj\Debug\netcoreapp3.1\KCKProjektWPF.g.resources
+C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\obj\Debug\netcoreapp3.1\KCKProjektWPF.AssemblyInfoInputs.cache
+C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\obj\Debug\netcoreapp3.1\KCKProjektWPF.AssemblyInfo.cs
+C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\obj\Debug\netcoreapp3.1\KCKProjektWPF.dll
+C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\obj\Debug\netcoreapp3.1\KCKProjektWPF.pdb

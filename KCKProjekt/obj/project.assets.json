@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {}
+    ".NETCoreApp,Version=v3.1": {
+      "KCKProjectAPI/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/KCKProjectAPI.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/KCKProjectAPI.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "KCKProjectAPI/1.0.0": {
+      "type": "project",
+      "path": "../KCKProjectAPI/KCKProjectAPI.csproj",
+      "msbuildProject": "../KCKProjectAPI/KCKProjectAPI.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": []
+    ".NETCoreApp,Version=v3.1": [
+      "KCKProjectAPI >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\user\\.nuget\\packages\\": {},
@@ -36,7 +55,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\user\\source\\repos\\KCKProjekt\\KCKProjectAPI\\KCKProjectAPI.csproj": {
+              "projectPath": "C:\\Users\\user\\source\\repos\\KCKProjekt\\KCKProjectAPI\\KCKProjectAPI.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
