@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using KCKProjectAPI;
-using KCKProjectAPI.Extensions;
+
 
 namespace KCKProjekt
 {
@@ -13,7 +13,7 @@ namespace KCKProjekt
         public static List<Key> ownedKeys = new List<Key>();
         public static List<Door> doors = new List<Door>();
         public static List<Coin> coins = new List<Coin>();
-        private static Mutex mut1 = new Mutex();
+
         private static int points = 0;
         //private static ConditionVariable
         private static int x = 0;
@@ -34,39 +34,72 @@ namespace KCKProjekt
                 Console.Out.WriteLine(mlist.FragmentToString(2, i, 3));
             }
 
+            Coin coin  = new Coin(1,1,1);
+            object moneyMutex = new object();
 
+            Thread Coin = new Thread((() => ThreadProcClass.ThreadProcCoin(ref coin,in moneyMutex)));
 
+            Coin.Start();
 
-            Key k = new Key(10,1,1);
-            keys.Add(k);
+            for (int i=0;i<10000;i++)
+            {
+                lock (moneyMutex)
+                {
+                    Console.WriteLine(coin.ToString());
+                    for (int r = 0; r < 10000; r++) ;
+                }
+            }
 
-            k = new Key(7,2,2);
-            keys.Add(k);
+            //Player p = new Player();
+            //object mutex = new object();
+            //Thread player = new Thread(() => ThreadProcClass.ThreadProcPlayer(ref p,ref mutex));
+            //player.Start();
+            //while (true)
+            //{
+            //    lock (mutex)
+            //    {
+            //        Console.WriteLine(p.ToString());
+            //        Console.WriteLine();
+            //        //Thread.Sleep(100);
+            //    }
 
-            Door d = new Door(10,3,3);
-            doors.Add(d);
+            //    if (!player.IsAlive)
+            //    {
+            //        break;
+            //    } 
 
-            d = new Door(7,5,5);
+            //}
 
-            doors.Add(d);
+            //Key k = new Key(10, 1, 1);
+            //keys.Add(k);
 
-            PickUps pick = new PickUps();
+            //k = new Key(7, 2, 2);
+            //keys.Add(k);
+
+            //Door d = new Door(10, 3, 3);
+            //doors.Add(d);
+
+            //d = new Door(7, 5, 5);
+
+            //doors.Add(d);
+
+            //PickUps pick = new PickUps();
             //zbierz klucz z mapy
 
             //sprawdz czy mozesz otworzyc drzwi
-            IPickup own = pick.PickupKey(1, 1,keys);
-            ownedKeys.Add((Key)own);
-            Console.Out.WriteLine(keys.ToStringExtend());
-            Console.Out.WriteLine(ownedKeys.ToStringExtend());
-            Console.Out.WriteLine(doors.ToStringExtend());
+            //IPickup own = pick.PickupKey(1, 1, keys);
+            //ownedKeys.Add((Key)own);
+            //Console.Out.WriteLine(keys.ToStringExtend());
+            //Console.Out.WriteLine(ownedKeys.ToStringExtend());
+            //Console.Out.WriteLine(doors.ToStringExtend());
 
-            pick.unlockTheDoor(3, 3,doors,ownedKeys);
+            //pick.unlockTheDoor(3, 3, doors, ownedKeys);
 
-            Console.Out.WriteLine(keys.ToStringExtend());
-            Console.Out.WriteLine(ownedKeys.ToStringExtend());
-            Console.Out.WriteLine(doors.ToStringExtend());
+            //Console.Out.WriteLine(keys.ToStringExtend());
+            //Console.Out.WriteLine(ownedKeys.ToStringExtend());
+            //Console.Out.WriteLine(doors.ToStringExtend());
 
-            //pick.unlockTheDoor(3, 3,doors,ownedKeys);
+            //pick.unlockTheDoor(3, 3, doors, ownedKeys);
 
             //Console.Out.WriteLine(keys.ToString());
             //Console.Out.WriteLine(ownedKeys.ToString());

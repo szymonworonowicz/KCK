@@ -4,9 +4,14 @@ using System.Text;
 
 namespace KCKProjectAPI
 {
-    class Player
+    public class Player
     {
         public int X { get; set; }
         public int Y { get; set; }
+
+        public override string ToString()
+        {
+            return $"{X}{Y}";
+        }
     }
 }
