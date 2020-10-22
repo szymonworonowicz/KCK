@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,69 +10,41 @@ namespace KCKProjectAPI
 {
     public class Map
     {
-        private LinkedList<LinkedList<IField>> map { get; set; }
+        public List<LinkedList<IField>> map { get; private set; }
         private int WidthMap { get; set; }
         private int HeightMap { get; set; }
-        private int idGenerator = 1;
-        public Map()
+        private int dGenerator = 1;
+
+
+
+        public Map(string path)
         {
-            WidthMap = 10;
-            HeightMap = 8;
-            map = new LinkedList<LinkedList<IField>>();
-            for(int i = 0;i<2;i++)
+            map = new List<LinkedList<IField>>();
+            int y = 0;
+            using(StreamReader str = new StreamReader(path))
             {
-                map.AddLast(new LinkedList<IField>());
-                for(int u =0;u<10;u++)
+                string line = "";
+                while((line=str.ReadLine())!=null)
                 {
-                    IField d = new Path(idGenerator++,u,i);
-                    d.y = i;
-                    d.x = u;
+                    LinkedList<IField> temp = new LinkedList<IField>();
 
-                    map.ElementAt(i).AddLast(d);
-
+                    for(int i=0;i<line.Length;i++)
+                    {
+                        switch (line[i]) 
+                        {
+                            case '#':
+                                temp.AddLast(new Wall(i, y));
+                                break;
+                            case ' ':
+                                temp.AddLast(new Path(i, y));
+                                break;
+                        }
+                    }
+                    map.Add(temp);
                 }
             }
-            for (int i = 0; i < 2; i++)
-            {
-                map.AddLast(new LinkedList<IField>());
-                for (int u = 0; u < 10; u++)
-                {
 
-                    IField d = new Wall(idGenerator++,u,i+2);
-                    d.y = i+2;
-                    d.x = u;
-                    map.ElementAt(i+2
-                        
-                        
-                        ).AddLast(d);
-
-                }
-            }
-            for (int i = 0; i < 2; i++)
-            {
-                map.AddLast(new LinkedList<IField>());
-                for (int u = 0; u < 10; u++)
-                {
-
-                    IField d = new Path(idGenerator++,u,i+4);
-                    d.y = i+4;
-                    d.x = u;
-                    map.ElementAt(i+4).AddLast(d);
-
-                }
-            }
-            for (int i = 0; i < 2; i++)
-            {
-                map.AddLast(new LinkedList<IField>());
-                for (int u = 0; u < 10; u++)
-                {
-                    Path d = new Path(idGenerator++,u,i+6);
-                    d.y = i+6;
-                    d.x = u;
-                    map.ElementAt(i+6).AddLast(d);
-
-                }
-            }
+            
         }
         private void AddField(IField f)
         {

@@ -8,7 +8,7 @@ namespace KCKProjectAPI
 {
     public class Path :IField
     {
-        public Path(int _id,int _x, int _y):base(_id,_x,_y,"Path")
+        public Path(int _x, int _y):base(_x,_y," ")
         {
             
         }

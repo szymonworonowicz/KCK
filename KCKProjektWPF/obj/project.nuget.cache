@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "ornRYXEBBYvOlhqkqIWLr7BStpqaMWYCnl0OhSANaGnvn5YagoyKR6t8AotFJjC/Egbpvr92lU2kMjHhMZx5tA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Julia\\Source\\Repos\\KCK\\KCKProjektWPF\\KCKProjektWPF.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Julia\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\Julia\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}

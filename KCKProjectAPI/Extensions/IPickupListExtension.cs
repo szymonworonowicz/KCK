@@ -38,7 +38,7 @@ namespace KCKProjectAPI.Extensions
             list.RemoveAll(item => item.id == id);
         }
 
-        public static string ToStringExtend<T>(this List<T> list) where T :IPickup
+        public static string ToStringExtend<T>(this List<T> list) where T : IPickup
         {
             StringBuilder str = new StringBuilder();
 

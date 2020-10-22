@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 using KCKProjectAPI;
-
+using KCKProjectAPI.Extensions;
 
 namespace KCKProjekt
 {
@@ -22,37 +23,50 @@ namespace KCKProjekt
 
         static void Main(string[] args)
         {
+            
+            Map mlist = new Map("map2.txt");
 
-            FieldType ft;
-            ft = new FieldType(new KCKProjectAPI.Path(1,1,1));
-            Map mlist = new Map();
+            var map = mlist.map;
 
-
-            Console.Out.WriteLine(mlist.ToString());
-            for (int i = 0; i < 5; ++i)
+            for(int i=0;i<map.Count;i++)
             {
-                Console.Out.WriteLine(mlist.FragmentToString(2, i, 3));
-            }
-
-            Coin coin  = new Coin(1,1,1);
-            object moneyMutex = new object();
-
-            Thread Coin = new Thread((() => ThreadProcClass.ThreadProcCoin(ref coin,in moneyMutex)));
-
-            Coin.Start();
-
-            for (int i=0;i<10000;i++)
-            {
-                lock (moneyMutex)
+                foreach (var elem in map[i])
                 {
-                    Console.WriteLine(coin.ToString());
-                    for (int r = 0; r < 10000; r++) ;
+                    Console.Write(elem);
                 }
+                Console.Write('\n');
             }
+
+            Console.SetCursorPosition(2, 2);
+            Console.Write("K");
+            Console.CursorVisible = false;
+
+            //Console.Out.WriteLine(mlist.ToString());
+            //for (int i = 0; i < 5; ++i)
+            //{
+            //    Console.Out.WriteLine(mlist.FragmentToString(2, i, 3));
+            //}
+
+
+            //Coin coin  = new Coin(1,1,1);
+            //object moneyMutex = new object();
+
+            //Thread Coin = new Thread((() => ThreadProcClass.ThreadProcCoin(ref coin,in moneyMutex)));
+
+            //Coin.Start();
+
+            //for (int i=0;i<10000;i++)
+            //{
+            //    lock (moneyMutex)
+            //    {
+            //        Console.WriteLine(coin.ToString());
+            //        for (int r = 0; r < 10000; r++) ;
+            //    }
+            //}
 
             //Player p = new Player();
             //object mutex = new object();
-            //Thread player = new Thread(() => ThreadProcClass.ThreadProcPlayer(ref p,ref mutex));
+            //Thread player = new Thread(() => ThreadProcClass.ThreadProcPlayer(ref p, ref mutex));
             //player.Start();
             //while (true)
             //{
@@ -66,7 +80,7 @@ namespace KCKProjekt
             //    if (!player.IsAlive)
             //    {
             //        break;
-            //    } 
+            //    }
 
             //}
 
@@ -84,9 +98,9 @@ namespace KCKProjekt
             //doors.Add(d);
 
             //PickUps pick = new PickUps();
-            //zbierz klucz z mapy
+            ////zbierz klucz z mapy
 
-            //sprawdz czy mozesz otworzyc drzwi
+            ////sprawdz czy mozesz otworzyc drzwi
             //IPickup own = pick.PickupKey(1, 1, keys);
             //ownedKeys.Add((Key)own);
             //Console.Out.WriteLine(keys.ToStringExtend());
@@ -99,7 +113,7 @@ namespace KCKProjekt
             //Console.Out.WriteLine(ownedKeys.ToStringExtend());
             //Console.Out.WriteLine(doors.ToStringExtend());
 
-            //pick.unlockTheDoor(3, 3, doors, ownedKeys);
+            //pick.unlockTheDoor(5, 5, doors, ownedKeys);
 
             //Console.Out.WriteLine(keys.ToString());
             //Console.Out.WriteLine(ownedKeys.ToString());

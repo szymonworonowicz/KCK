@@ -9,7 +9,7 @@ namespace KCKProjectAPI
     class Wall :IField
     {
 
-        public Wall(int _id, int _x, int _y) : base(_id, _x, _y, "Wall")
+        public Wall( int _x, int _y) : base(_x, _y, "#")
         {
 
         }
