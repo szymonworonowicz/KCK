@@ -23,12 +23,12 @@ namespace KCKProjekt
 
         static void Main(string[] args)
         {
-            
+
             Map mlist = new Map("map2.txt");
 
             var map = mlist.map;
 
-            for(int i=0;i<map.Count;i++)
+            for (int i = 0; i < map.Count; i++)
             {
                 foreach (var elem in map[i])
                 {
@@ -41,21 +41,21 @@ namespace KCKProjekt
             Console.Write("K");
             Console.CursorVisible = false;
 
-            //Console.Out.WriteLine(mlist.ToString());
-            //for (int i = 0; i < 5; ++i)
-            //{
-            //    Console.Out.WriteLine(mlist.FragmentToString(2, i, 3));
-            //}
+            ///Console.Out.WriteLine(mlist.ToString());
+            /*for (int i = 0; i < 5; ++i)
+            {
+                Console.Out.WriteLine(mlist.FragmentToString(2, i, 3));
+            }*/
 
 
-            //Coin coin  = new Coin(1,1,1);
+            //Coin coin = new Coin(1, 1, 1);
             //object moneyMutex = new object();
 
-            //Thread Coin = new Thread((() => ThreadProcClass.ThreadProcCoin(ref coin,in moneyMutex)));
+            //Thread Coin = new Thread((() => ThreadProcClass.ThreadProcCoin(ref coin, in moneyMutex)));
 
             //Coin.Start();
 
-            //for (int i=0;i<10000;i++)
+            //for (int i = 0; i < 10000; i++)
             //{
             //    lock (moneyMutex)
             //    {
@@ -64,25 +64,25 @@ namespace KCKProjekt
             //    }
             //}
 
-            //Player p = new Player();
-            //object mutex = new object();
-            //Thread player = new Thread(() => ThreadProcClass.ThreadProcPlayer(ref p, ref mutex));
-            //player.Start();
-            //while (true)
-            //{
-            //    lock (mutex)
-            //    {
-            //        Console.WriteLine(p.ToString());
-            //        Console.WriteLine();
-            //        //Thread.Sleep(100);
-            //    }
+            /*Player p = new Player();
+            object mutex = new object();
+            Thread player = new Thread(() => ThreadProcClass.ThreadProcPlayer(ref p, ref mutex));
+            player.Start();
+            while (true)
+            {
+                lock (mutex)
+                {
+                    Console.WriteLine(p.ToString());
+                    Console.WriteLine();
+                    //Thread.Sleep(100);
+                }
 
-            //    if (!player.IsAlive)
-            //    {
-            //        break;
-            //    }
+                if (!player.IsAlive)
+                {
+                    break;
+                }
 
-            //}
+            }*/
 
             //Key k = new Key(10, 1, 1);
             //keys.Add(k);

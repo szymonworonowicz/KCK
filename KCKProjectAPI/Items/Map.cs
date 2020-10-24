@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using KCKProjectAPI.Builders;
 
 namespace KCKProjectAPI
 {
@@ -17,33 +17,36 @@ namespace KCKProjectAPI
 
 
 
-        public Map(string path)
+        public Map(string path) 
         {
-            map = new List<LinkedList<IField>>();
+            IBuilder builder = new ConsoleBuilder();
+            //map = new List<LinkedList<IField>>();
             int y = 0;
             using(StreamReader str = new StreamReader(path))
             {
                 string line = "";
                 while((line=str.ReadLine())!=null)
                 {
-                    LinkedList<IField> temp = new LinkedList<IField>();
-
+                    //LinkedList<IField> temp = new LinkedList<IField>();
+                    
                     for(int i=0;i<line.Length;i++)
                     {
                         switch (line[i]) 
                         {
                             case '#':
-                                temp.AddLast(new Wall(i, y));
+                                
+                                builder.AddWall(i, y);
                                 break;
                             case ' ':
-                                temp.AddLast(new Path(i, y));
+                                builder.AddPath(i, y);
                                 break;
                         }
                     }
-                    map.Add(temp);
+                    y++;
+                    //map.Add(temp);
                 }
             }
-
+            map = builder.getMap();
             
         }
         private void AddField(IField f)
