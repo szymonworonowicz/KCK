@@ -5,6 +5,7 @@ namespace KCKProjectAPI
 {
     public class ThreadProcClass
     {
+       
         public static void ThreadProcCoin(ref Coin coin,in object m)
         {
             Action<int, int, char> act = Cursor.CursorFun;
@@ -18,7 +19,7 @@ namespace KCKProjectAPI
 
             }
         }
-
+        
         public static void ThreadProcPlayer(ref Player player,ref object mutex)
         {
             while (true)

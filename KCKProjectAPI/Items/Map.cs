@@ -14,7 +14,7 @@ namespace KCKProjectAPI
         private int WidthMap { get; set; }
         private int HeightMap { get; set; }
         private int dGenerator = 1;
-
+        
 
 
         public Map(string path) 
@@ -133,7 +133,25 @@ namespace KCKProjectAPI
         public string FragmentToString(int x, int y, int len)
         {
             LinkedList<IField> fragment = GetFragmentLine(x, y, len);
-            string fragmentString = String.Join(", ", fragment);
+
+            string fragmentString = "";
+            if (fragment!=null)
+            {
+                fragmentString = String.Join("", fragment);
+
+                
+            }
+            int minus = x;
+            while(minus++ <0)
+            {
+                fragmentString = " " + fragmentString;
+            }
+            
+            
+            while(fragmentString.Length<len)
+            {
+                fragmentString += " ";
+            }
             return fragmentString;
         }
         public override string ToString()

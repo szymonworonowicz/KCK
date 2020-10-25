@@ -20,14 +20,16 @@ namespace KCKProjekt
         private static int x = 0;
         private static int y = 0;
         List<IField> listf = new List<IField>();
-
+        public static int width=30;
+        public static int height=30;
         static void Main(string[] args)
         {
 
-            Map mlist = new Map("map2.txt");
+              Map mlist = new Map("map2.txt");
 
             var map = mlist.map;
 
+            /*
             for (int i = 0; i < map.Count; i++)
             {
                 foreach (var elem in map[i])
@@ -40,11 +42,11 @@ namespace KCKProjekt
             Console.SetCursorPosition(2, 2);
             Console.Write("K");
             Console.CursorVisible = false;
-
+*/
             ///Console.Out.WriteLine(mlist.ToString());
-            /*for (int i = 0; i < 5; ++i)
+            /*for (int i = -10; i < 5; ++i)
             {
-                Console.Out.WriteLine(mlist.FragmentToString(2, i, 3));
+                Console.Out.WriteLine(mlist.FragmentToString(-10, i, 15));
             }*/
 
 
@@ -64,14 +66,45 @@ namespace KCKProjekt
             //    }
             //}
 
-            /*Player p = new Player();
+            Player p = new Player();
             object mutex = new object();
             Thread player = new Thread(() => ThreadProcClass.ThreadProcPlayer(ref p, ref mutex));
             player.Start();
+            List<String> prevMap = new List<String>();
+            List<String> currentMap = new List<String>();
+            for(int i = 0;i<height;++i)
+            {
+                currentMap.Add(new String());
+                for(int u = 0;u<height;++u)
+                {
+
+                }
+            }
+            Cursor c = new Cursor();
             while (true)
             {
+                prevMap = currentMap;
+                currentMap = new List<string>();
+                
                 lock (mutex)
                 {
+                    //NIE DOKONCZONE NIE DZIALA JESZCZE
+                   /* int consoleX = 0;
+                    int consoleY = 0;
+                    for ( int i = p.Y - 10; i < p.Y + 10; ++i)
+                    {
+                        currentMap[consoleY] = mlist.FragmentToString(x, i, 21);
+                        for(int u=0;u<currentMap[i].Length;++i)
+                        {
+                            if (currentMap[consoleY][consoleX] != prevMap[consoleY][consoleX])
+                            {
+                                Cursor.CursorFun(consoleX, consoleY, currentMap[consoleY][consoleX]);
+                            }
+                            consoleY++;
+                        }
+                        consoleX++;
+
+                    }*/
                     Console.WriteLine(p.ToString());
                     Console.WriteLine();
                     //Thread.Sleep(100);
@@ -82,7 +115,8 @@ namespace KCKProjekt
                     break;
                 }
 
-            }*/
+            }
+            
 
             //Key k = new Key(10, 1, 1);
             //keys.Add(k);
