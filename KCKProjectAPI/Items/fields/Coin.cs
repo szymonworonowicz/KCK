@@ -8,20 +8,20 @@ namespace KCKProjectAPI
 {
     public class Coin : IPickup
     {
-        public Coin(int id,int x,int y):base(id,x,y,"x")
+        public Coin(int id,int x,int y):base(id,x,y,"+")
         {
 
         }
 
         public void Rotate()
         {
-            if (this.type == "x")
+            if (this.type == "+")
             {
-                this.type = "+";
+                this.type = "x";
                 return;
             }
 
-            this.type = "x";
+            this.type = "+";
         }
 
         public override string ToString()

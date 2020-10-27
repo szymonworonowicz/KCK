@@ -9,13 +9,13 @@ namespace KCKProjectAPI
        
         public static void ThreadProcCoin(ref Coin coin,in object m)
         {
-            Action<int, int, char> act = Cursor.CursorFun;
             while (true)
             {
                 lock (m)
                 {
                     coin.Rotate();
-                    for (int i = 0; i < 10000; i++);
+                    Thread.Sleep(100);
+                    Cursor.CursorFun(coin.x,coin.y,coin.type[0]);
                 }
 
             }
@@ -68,6 +68,7 @@ namespace KCKProjectAPI
                         break;
                     }
 
+                    
                 }
                 
             }

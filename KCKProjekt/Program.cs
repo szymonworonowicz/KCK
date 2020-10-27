@@ -50,12 +50,12 @@ namespace KCKProjekt
             }*/
 
 
-            //Coin coin = new Coin(1, 1, 1);
-            //object moneyMutex = new object();
+            Coin coin = new Coin(1, 15, 17);
+            object moneyMutex = new object();
 
-            //Thread Coin = new Thread((() => ThreadProcClass.ThreadProcCoin(ref coin, in moneyMutex)));
+            Thread Coin = new Thread((() => ThreadProcClass.ThreadProcCoin(ref coin, in moneyMutex)));
 
-            //Coin.Start();
+            Coin.Start();
 
             //for (int i = 0; i < 10000; i++)
             //{
@@ -90,6 +90,7 @@ namespace KCKProjekt
                 //currentMap = new List<string>();
                 lock (mutex)
                 {
+
                     if (change == true)
                     {
                         Cursor.CursorFun(prev.X,prev.Y,' ');
