@@ -25,11 +25,11 @@ namespace KCKProjekt
         static void Main(string[] args)
         {
 
-              Map mlist = new Map("map2.txt");
+            Map mlist = new Map("map2.txt");
 
             var map = mlist.map;
 
-            /*
+
             for (int i = 0; i < map.Count; i++)
             {
                 foreach (var elem in map[i])
@@ -39,10 +39,10 @@ namespace KCKProjekt
                 Console.Write('\n');
             }
 
-            Console.SetCursorPosition(2, 2);
-            Console.Write("K");
+            //Console.SetCursorPosition(2, 2);
+            //Console.Write("K");
             Console.CursorVisible = false;
-*/
+
             ///Console.Out.WriteLine(mlist.ToString());
             /*for (int i = -10; i < 5; ++i)
             {
@@ -66,28 +66,41 @@ namespace KCKProjekt
             //    }
             //}
 
-            Player p = new Player();
+            Player p = new Player{X = 2,Y=9};
             object mutex = new object();
-            Thread player = new Thread(() => ThreadProcClass.ThreadProcPlayer(ref p, ref mutex));
+            bool change = false;
+            Thread player = new Thread(() => ThreadProcClass.ThreadProcPlayer(ref p, ref mutex,ref change,ref mlist));
             player.Start();
             List<String> prevMap = new List<String>();
             List<String> currentMap = new List<String>();
-            for(int i = 0;i<height;++i)
-            {
-                currentMap.Add(new String());
-                for(int u = 0;u<height;++u)
-                {
+            //for(int i = 0;i<height;++i)
+            //{
+            //    currentMap.Add(new String());
+            //    for(int u = 0;u<height;++u)
+            //    {
 
-                }
-            }
-            Cursor c = new Cursor();
+            //    }
+            //}
+            //Cursor c = new Cursor();
+            Cursor.CursorFun(p.X, p.Y, 'P');
+            Player prev = new Player(p);
             while (true)
             {
-                prevMap = currentMap;
-                currentMap = new List<string>();
-                
+               // prevMap = currentMap;
+                //currentMap = new List<string>();
                 lock (mutex)
                 {
+                    if (change == true)
+                    {
+                        Cursor.CursorFun(prev.X,prev.Y,' ');
+                        Cursor.CursorFun(p.X,p.Y,'P');
+                        prev = new Player(p);
+                        change = false;
+                    }
+                    else
+                    {
+                        p = new Player(prev);
+                    }
                     //NIE DOKONCZONE NIE DZIALA JESZCZE
                    /* int consoleX = 0;
                     int consoleY = 0;
@@ -105,9 +118,7 @@ namespace KCKProjekt
                         consoleX++;
 
                     }*/
-                    Console.WriteLine(p.ToString());
-                    Console.WriteLine();
-                    //Thread.Sleep(100);
+                   //Thread.Sleep(100);
                 }
 
                 if (!player.IsAlive)

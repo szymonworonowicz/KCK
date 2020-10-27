@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading;
 
 namespace KCKProjectAPI
@@ -20,33 +21,53 @@ namespace KCKProjectAPI
             }
         }
         
-        public static void ThreadProcPlayer(ref Player player,ref object mutex)
+        public static void ThreadProcPlayer(ref Player player,ref object mutex,ref bool change,ref Map map)
         {
             while (true)
             {
-                ConsoleKey key = Console.ReadKey().Key;
+                ConsoleKey key = Console.ReadKey(true).Key;
                 lock (mutex)
                 {
-                    if (key == ConsoleKey.W)
+                    if (key == ConsoleKey.UpArrow)
                     {
-                        player.Y--;
+                        if (map.map[player.Y - 1].ElementAt(player.X) is Path)
+                        {
+                            player.Y--;
+                            change = true;
+                        }
+
                     }
-                    else if (key == ConsoleKey.S)
+                    else if (key == ConsoleKey.DownArrow)
                     {
-                        player.Y++;
+                        if (map.map[player.Y + 1].ElementAt(player.X) is Path)
+                        {
+                            player.Y++;
+                            change = true;
+                        }
+
                     }
-                    else if (key == ConsoleKey.A)
+                    else if (key == ConsoleKey.LeftArrow)
                     {
-                        player.X--;
+                        if (map.map[player.Y].ElementAt(player.X - 1) is Path)
+                        {
+                            player.X--;
+                            change = true;
+                        }
                     }
-                    else if (key == ConsoleKey.D)
+                    else if (key == ConsoleKey.RightArrow)
                     {
-                        player.X++;
+                        if (map.map[player.Y].ElementAt(player.X + 1) is Path)
+                        {
+                            player.X++;
+                            change = true;
+                        }
+
                     }
                     else if (key == ConsoleKey.P)
                     {
                         break;
                     }
+
                 }
                 
             }

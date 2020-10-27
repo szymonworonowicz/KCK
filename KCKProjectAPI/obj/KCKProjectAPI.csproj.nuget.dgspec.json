@@ -1,26 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Geoff\\Source\\Repos\\KCK\\KCKProjectAPI\\KCKProjectAPI.csproj": {}
+    "C:\\Users\\user\\source\\repos\\KCKProjekt\\KCKProjectAPI\\KCKProjectAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Geoff\\Source\\Repos\\KCK\\KCKProjectAPI\\KCKProjectAPI.csproj": {
+    "C:\\Users\\user\\source\\repos\\KCKProjekt\\KCKProjectAPI\\KCKProjectAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Geoff\\Source\\Repos\\KCK\\KCKProjectAPI\\KCKProjectAPI.csproj",
+        "projectUniqueName": "C:\\Users\\user\\source\\repos\\KCKProjekt\\KCKProjectAPI\\KCKProjectAPI.csproj",
         "projectName": "KCKProjectAPI",
-        "projectPath": "C:\\Users\\Geoff\\Source\\Repos\\KCK\\KCKProjectAPI\\KCKProjectAPI.csproj",
-        "packagesPath": "C:\\Users\\Geoff\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Geoff\\Source\\Repos\\KCK\\KCKProjectAPI\\obj\\",
+        "projectPath": "C:\\Users\\user\\source\\repos\\KCKProjekt\\KCKProjectAPI\\KCKProjectAPI.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\source\\repos\\KCKProjekt\\KCKProjectAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Geoff\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
@@ -60,7 +58,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

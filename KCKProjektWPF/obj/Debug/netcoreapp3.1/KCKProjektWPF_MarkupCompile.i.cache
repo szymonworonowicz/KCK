@@ -1,20 +1,20 @@
 ﻿KCKProjektWPF
-1.0.0.0
+
 
 winexe
 C#
 .cs
-C:\Users\Geoff\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\
+C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\obj\Debug\netcoreapp3.1\
 KCKProjektWPF
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
-C:\Users\Geoff\Source\Repos\KCK\KCKProjektWPF\App.xaml
+C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\App.xaml
 11151548125
 
-51342418748
-193106082977
+41998609843
+1931175189823
 MainWindow.xaml;
 
-False
+True
 
