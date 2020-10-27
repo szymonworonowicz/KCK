@@ -4,7 +4,7 @@ using System.Text;
 
 namespace KCKProjectAPI.Builders
 {
-    abstract class IBuilder
+    public abstract class IBuilder
     {
         protected List<LinkedList<IField>> mymap { get; private set; }
         public abstract void AddWall(int x, int y);

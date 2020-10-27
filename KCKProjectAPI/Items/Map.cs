@@ -14,15 +14,14 @@ namespace KCKProjectAPI
         private int WidthMap { get; set; }
         private int HeightMap { get; set; }
         private int dGenerator = 1;
-        
+        private string path = "";
 
 
-        public Map(string path) 
+        public Map(string path,IBuilder builder)
         {
-            IBuilder builder = new ConsoleBuilder();
-            //map = new List<LinkedList<IField>>();
+            this.path = path;
             int y = 0;
-            using(StreamReader str = new StreamReader(path))
+            using(StreamReader str = new StreamReader($"{path}.txt"))
             {
                 string line = "";
                 while((line=str.ReadLine())!=null)
@@ -49,6 +48,36 @@ namespace KCKProjectAPI
             map = builder.getMap();
             
         }
+
+        public void GetElems(ref List<Key> keys, ref List<Door> doors, ref List<Coin> coins)
+        {
+            using (StreamReader str = new StreamReader($"{path}elems.txt"))
+            {
+                string line="";
+
+                while ((line = str.ReadLine()) != null)
+                {
+                    var elems = line.Split(' ');
+
+                    int.TryParse(elems[1], out int id);
+                    int.TryParse(elems[2], out int x);
+                    int.TryParse(elems[3], out int y);
+                    switch (elems[0])
+                    {
+                        case "Key":
+                            keys.Add(new Key(id,x,y));
+                            break;
+                        case "Door":
+                            doors.Add(new Door(id,x,y));
+                            break;
+                        case "Coin":
+                            coins.Add(new Coin(id,x,y));
+                            break;
+                    }
+                }
+            }
+        }
+
         private void AddField(IField f)
         {
             foreach(LinkedList<IField> list in map)

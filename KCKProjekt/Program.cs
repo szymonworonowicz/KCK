@@ -4,32 +4,37 @@ using System.IO;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 using KCKProjectAPI;
+using KCKProjectAPI.Builders;
 using KCKProjectAPI.Extensions;
+using KCKProjectAPI.Items;
 
 namespace KCKProjekt
 {
     class Program
     {
-        public static List<Key> keys = new List<Key>();
-        public static List<Key> ownedKeys = new List<Key>();
-        public static List<Door> doors = new List<Door>();
-        public static List<Coin> coins = new List<Coin>();
+        private static List<Key> keys = new List<Key>();
+        private static List<Key> ownedKeys = new List<Key>();
+        private static List<Door> doors = new List<Door>();
+        private static List<Coin> coins = new List<Coin>();
+        private static List<ThreadInfo> coinThreads = new List<ThreadInfo>();
 
         private static int points = 0;
         //private static ConditionVariable
         private static int x = 0;
         private static int y = 0;
         List<IField> listf = new List<IField>();
-        public static int width=30;
-        public static int height=30;
+
         static void Main(string[] args)
         {
+            object writer = new object(); // mutex do wyisywania
+            IBuilder builder = new ConsoleBuilder();
+            Map mlist = new Map("map2", builder);
 
-            Map mlist = new Map("map2.txt");
 
             var map = mlist.map;
+            mlist.GetElems(ref keys, ref doors, ref coins);
 
-
+            //write map
             for (int i = 0; i < map.Count; i++)
             {
                 foreach (var elem in map[i])
@@ -39,8 +44,33 @@ namespace KCKProjekt
                 Console.Write('\n');
             }
 
-            //Console.SetCursorPosition(2, 2);
-            //Console.Write("K");
+            //write elems
+            foreach (var key in keys)
+            {
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Cursor.CursorFun(key.x, key.y, 'K');
+            }
+
+            foreach (var door in doors)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Cursor.CursorFun(door.x, door.y, 'D');
+            }
+
+
+            foreach (var coin in coins)
+            {
+                ThreadInfo info = new ThreadInfo()
+                {
+                    CoinId = coin.id,
+                    Thread = new Thread(() => ThreadProcClass.ThreadProcCoin(coin, ref writer))
+                };
+                info.Thread.Start();
+                coinThreads.Add(info);
+            }
+
+            Console.ForegroundColor = ConsoleColor.White;
+
             Console.CursorVisible = false;
 
             ///Console.Out.WriteLine(mlist.ToString());
@@ -50,26 +80,12 @@ namespace KCKProjekt
             }*/
 
 
-            Coin coin = new Coin(1, 15, 17);
-            object moneyMutex = new object();
 
-            Thread Coin = new Thread((() => ThreadProcClass.ThreadProcCoin(ref coin, in moneyMutex)));
-
-            Coin.Start();
-
-            //for (int i = 0; i < 10000; i++)
-            //{
-            //    lock (moneyMutex)
-            //    {
-            //        Console.WriteLine(coin.ToString());
-            //        for (int r = 0; r < 10000; r++) ;
-            //    }
-            //}
-
-            Player p = new Player{X = 2,Y=9};
+            Player p = new Player { X = 2, Y = 9 };
             object mutex = new object();
+
             bool change = false;
-            Thread player = new Thread(() => ThreadProcClass.ThreadProcPlayer(ref p, ref mutex,ref change,ref mlist));
+            Thread player = new Thread(() => ThreadProcClass.ThreadProcPlayer(ref p, ref mutex, ref change, ref mlist));
             player.Start();
             List<String> prevMap = new List<String>();
             List<String> currentMap = new List<String>();
@@ -86,40 +102,43 @@ namespace KCKProjekt
             Player prev = new Player(p);
             while (true)
             {
-               // prevMap = currentMap;
+                // prevMap = currentMap;
                 //currentMap = new List<string>();
                 lock (mutex)
                 {
 
                     if (change == true)
                     {
-                        Cursor.CursorFun(prev.X,prev.Y,' ');
-                        Cursor.CursorFun(p.X,p.Y,'P');
+                        //lock (writer)
+                        //{
+                        Cursor.CursorFun(prev.X, prev.Y, ' ');
+                        Cursor.CursorFun(p.X, p.Y, 'P');
                         prev = new Player(p);
                         change = false;
+                        //}
                     }
                     else
                     {
                         p = new Player(prev);
                     }
                     //NIE DOKONCZONE NIE DZIALA JESZCZE
-                   /* int consoleX = 0;
-                    int consoleY = 0;
-                    for ( int i = p.Y - 10; i < p.Y + 10; ++i)
-                    {
-                        currentMap[consoleY] = mlist.FragmentToString(x, i, 21);
-                        for(int u=0;u<currentMap[i].Length;++i)
-                        {
-                            if (currentMap[consoleY][consoleX] != prevMap[consoleY][consoleX])
-                            {
-                                Cursor.CursorFun(consoleX, consoleY, currentMap[consoleY][consoleX]);
-                            }
-                            consoleY++;
-                        }
-                        consoleX++;
+                    /* int consoleX = 0;
+                     int consoleY = 0;
+                     for ( int i = p.Y - 10; i < p.Y + 10; ++i)
+                     {
+                         currentMap[consoleY] = mlist.FragmentToString(x, i, 21);
+                         for(int u=0;u<currentMap[i].Length;++i)
+                         {
+                             if (currentMap[consoleY][consoleX] != prevMap[consoleY][consoleX])
+                             {
+                                 Cursor.CursorFun(consoleX, consoleY, currentMap[consoleY][consoleX]);
+                             }
+                             consoleY++;
+                         }
+                         consoleX++;
 
-                    }*/
-                   //Thread.Sleep(100);
+                     }*/
+                    //Thread.Sleep(100);
                 }
 
                 if (!player.IsAlive)
@@ -128,7 +147,7 @@ namespace KCKProjekt
                 }
 
             }
-            
+
 
             //Key k = new Key(10, 1, 1);
             //keys.Add(k);

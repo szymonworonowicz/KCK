@@ -7,11 +7,11 @@ namespace KCKProjectAPI
     public class ThreadProcClass
     {
        
-        public static void ThreadProcCoin(ref Coin coin,in object m)
+        public static void ThreadProcCoin(Coin coin,ref object writer)
         {
             while (true)
             {
-                lock (m)
+                lock (writer)
                 {
                     coin.Rotate();
                     Thread.Sleep(100);
@@ -68,7 +68,6 @@ namespace KCKProjectAPI
                         break;
                     }
 
-                    
                 }
                 
             }
