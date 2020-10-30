@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v3.1": {
       "KCKProjektWPF/1.0.0": {
+        "dependencies": {
+          "KCKProjectAPI": "1.0.0"
+        },
         "runtime": {
           "KCKProjektWPF.dll": {}
+        }
+      },
+      "KCKProjectAPI/1.0.0": {
+        "runtime": {
+          "KCKProjectAPI.dll": {}
         }
       }
     }
   },
   "libraries": {
     "KCKProjektWPF/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "KCKProjectAPI/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

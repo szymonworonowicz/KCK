@@ -87,8 +87,8 @@ namespace KCKProjekt
             bool change = false;
             Thread player = new Thread(() => ThreadProcClass.ThreadProcPlayer(ref p, ref mutex, ref change, ref mlist));
             player.Start();
-            List<String> prevMap = new List<String>();
-            List<String> currentMap = new List<String>();
+            List<string> prevMap = new List<string>();
+            List<string> currentMap = new List<string>();
             //for(int i = 0;i<height;++i)
             //{
             //    currentMap.Add(new String());
@@ -109,13 +109,13 @@ namespace KCKProjekt
 
                     if (change == true)
                     {
-                        //lock (writer)
-                        //{
-                        Cursor.CursorFun(prev.X, prev.Y, ' ');
+                        lock (writer)
+                        {
+                            Cursor.CursorFun(prev.X, prev.Y, ' ');
                         Cursor.CursorFun(p.X, p.Y, 'P');
                         prev = new Player(p);
                         change = false;
-                        //}
+                        }
                     }
                     else
                     {

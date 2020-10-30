@@ -1,0 +1,29 @@
+﻿<Window x:Class="KCKProjektWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KCKProjektWPF"
+        mc:Ignorable="d"
+        Title="Strona Startowa" Height="450" Width="800" Background="Black">
+    <Grid Name="Menu" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image Margin="5" Grid.ColumnSpan="2" Source="./logo.png" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        <Label Margin="5" Foreground="White" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+               FontSize="48" FontFamily="Italic" FontWeight="Bold">Ucieczka z PB</Label>
+        <Button Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="50,10,50,10" Background="Black" Foreground="White" BorderBrush="Black" FontSize="24" FontFamily="Italic">Nowa Gra</Button>
+        <Button Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="50,10,50,10" Background="Black" Foreground="White" BorderBrush="Black" FontSize="24" FontFamily="Italic">Opcje</Button>
+        <Button Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="50,10,50,10" Background="Black" Foreground="White" BorderBrush="Black" FontSize="24" FontFamily="Italic">Exit</Button>
+        
+    </Grid>
+</Window>
