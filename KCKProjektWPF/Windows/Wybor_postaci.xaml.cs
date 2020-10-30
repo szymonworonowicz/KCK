@@ -18,7 +18,7 @@ namespace KCKProjektWPF
     /// </summary>
     public partial class Wybor_postaci : Window
     {
-        string postacurl = "./../Image/mario";
+        public string postacurl { get; set; } = "pack://application:,,,/KCKProjektWPF;component/Image/mario.png";
         public Wybor_postaci()
         {
             InitializeComponent();
@@ -29,19 +29,13 @@ namespace KCKProjektWPF
             Image img = sender as Image;
             postacurl = img.Source.ToString();
 
-            Exit();
+            this.Hide();
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
-            Exit();
+            this.Hide();
         }
 
-        private void Exit()
-        {
-            var window = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
-
-            window.Content = new OpcjePg(postacurl);
-        }
     }
 }

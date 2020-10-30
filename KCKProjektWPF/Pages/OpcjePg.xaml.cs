@@ -19,15 +19,11 @@ namespace KCKProjektWPF
     /// </summary>
     public partial class OpcjePg : Page
     {
-        private string postacUrl="";
+        private string postacUrl = "";
         public OpcjePg()
         {
             InitializeComponent();
 
-        }
-        public OpcjePg(string PostacUrl)
-        {
-            this.postacUrl = PostacUrl;
         }
         private void Exit(object sender, RoutedEventArgs e)
         {
@@ -39,12 +35,12 @@ namespace KCKProjektWPF
         private void Wybor_Postaci_Click(object sender, RoutedEventArgs e)
         {
             var window = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
-            Window win = new Wybor_postaci()
+            Wybor_postaci win = new Wybor_postaci()
             {
                 Owner = window,
             };
-
             win.ShowDialog();
+            postacUrl = win.postacurl;
         }
     }
 }
