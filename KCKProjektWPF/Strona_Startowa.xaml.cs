@@ -24,5 +24,11 @@ namespace KCKProjektWPF
         {
             InitializeComponent();
         }
+
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }
