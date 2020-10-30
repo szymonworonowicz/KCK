@@ -85,7 +85,7 @@ namespace KCKProjektWPF {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/KCKProjektWPF_gljlvksg_wpftmp;component/windows/wybor_postaci.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/KCKProjektWPF;component/windows/wybor_postaci.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Windows\Wybor_postaci.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
