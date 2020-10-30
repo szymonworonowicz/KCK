@@ -39,3 +39,10 @@ C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\Strona_Sta
 C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\Strona_Startowa.baml
 C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\bin\Debug\netcoreapp3.1\logo.png
 C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\KCKProjektWPF_Content.g.cs
+C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\OpcjePg.g.cs
+C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\Startowa.g.cs
+C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\Wybor_postaci.g.cs
+C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\OpcjePg.baml
+C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\Startowa.baml
+C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\Wybor_postaci.baml
+C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\bin\Debug\netcoreapp3.1\Image\logo.png

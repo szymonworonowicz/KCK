@@ -22,13 +22,12 @@ namespace KCKProjektWPF
     {
         public MainWindow()
         {
+
             InitializeComponent();
+
+            this.Content = new Startowa();
         }
 
 
-        private void Exit_Click(object sender, RoutedEventArgs e)
-        {
-            Environment.Exit(0);
-        }
     }
 }

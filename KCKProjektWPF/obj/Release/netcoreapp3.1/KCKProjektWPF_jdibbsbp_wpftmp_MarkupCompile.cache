@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Release\netcoreapp3.1\
+C:\Users\Julia\source\repos\KCK\KCKProjektWPF\obj\Release\netcoreapp3.1\
 KCKProjektWPF_jdibbsbp_wpftmp
 none
 false
 TRACE;RELEASE;NETCOREAPP;NETCOREAPP3_1
-C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\App.xaml
-1-2100693025
+C:\Users\Julia\source\repos\KCK\KCKProjektWPF\App.xaml
+51482632641
 12069302599
-6549449097
-386-616478089
-Strona_Startowa.xaml;
+101656866062
+386-298695563
+Opcje.xaml;OpcjePg.xaml;Startowa.xaml;Strona_Startowa.xaml;Wybor_postaci.xaml;
 
 True
 
