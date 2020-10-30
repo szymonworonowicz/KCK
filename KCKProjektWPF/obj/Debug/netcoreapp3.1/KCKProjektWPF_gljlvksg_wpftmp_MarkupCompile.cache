@@ -1,20 +1,20 @@
-﻿KCKProjektWPF
+﻿KCKProjektWPF_gljlvksg_wpftmp
 
 
 winexe
 C#
 .cs
 C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\
-KCKProjektWPF
+KCKProjektWPF_gljlvksg_wpftmp
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
 C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\App.xaml
 41716320270
-51888518480
-6-337275539
-193366400130
+21131487040
+12-1475441264
+386732800260
 Pages\OpcjePg.xaml;Pages\Startowa.xaml;Strona_Startowa.xaml;Windows\Wybor_postaci.xaml;
 
-False
+True
 

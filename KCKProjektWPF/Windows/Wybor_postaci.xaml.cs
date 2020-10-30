@@ -9,29 +9,39 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace KCKProjektWPF
 {
     /// <summary>
-    /// Interaction logic for OpcjePg.xaml
+    /// Interaction logic for Wybor_postaci.xaml
     /// </summary>
-    public partial class OpcjePg : Page
+    public partial class Wybor_postaci : Window
     {
-        
-        public OpcjePg()
+        string postacurl = "./../Image/mario";
+        public Wybor_postaci()
         {
             InitializeComponent();
-
         }
 
+        private void Image_Clicked(object sender, MouseButtonEventArgs e)
+        {
+            Image img = sender as Image;
+            postacurl = img.Source.ToString();
 
-        private void Exit(object sender, RoutedEventArgs e)
+            Exit();
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Exit();
+        }
+
+        private void Exit()
         {
             var window = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
 
-            window.Content = new Startowa();
+            window.Content = new OpcjePg(postacurl);
         }
     }
 }

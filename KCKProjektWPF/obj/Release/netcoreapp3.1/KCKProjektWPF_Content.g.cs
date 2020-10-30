@@ -9,6 +9,9 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("image/logo.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("image/mario.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("image/pacman.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("image/sonic.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("logo.png")]
 
 

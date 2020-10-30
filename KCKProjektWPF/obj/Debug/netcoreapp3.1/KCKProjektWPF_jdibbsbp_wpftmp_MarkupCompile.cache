@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
 C:\Users\Julia\source\repos\KCK\KCKProjektWPF\App.xaml
-51482632641
+41716320270
 12069302599
-101656866062
+9-1589930144
 386-1934089012
-Opcje.xaml;OpcjePg.xaml;Startowa.xaml;Strona_Startowa.xaml;Wybor_postaci.xaml;
+Pages\OpcjePg.xaml;Pages\Startowa.xaml;Strona_Startowa.xaml;Windows\Wybor_postaci.xaml;
 
 True
 

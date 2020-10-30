@@ -8,6 +8,9 @@
 
   <ItemGroup>
     <None Remove="Image\logo.png" />
+    <None Remove="Image\mario.png" />
+    <None Remove="Image\pacman.png" />
+    <None Remove="Image\sonic.png" />
     <None Remove="logo.png" />
   </ItemGroup>
 
@@ -17,6 +20,15 @@
 
   <ItemGroup>
     <Content Include="Image\logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Image\mario.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Image\pacman.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Image\sonic.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="logo.png">
