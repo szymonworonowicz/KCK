@@ -1,11 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uqf5bxCLcMongewtPI7NCXhCVU0Hdk6178v1NFo+wRsqnA1MFtvs/3JRbWaT84JLBxDoxwrBiVJCiVdiu8kSeg==",
+  "dgSpecHash": "9Dvp3G1PkEV1TxX8H0Lm//MdnDxik91+n9U2rtp2n17PAPKxkOyOrICxJ9eLzSZkRI5PRf2uI3cNTRWxOhUofA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Julia\\Source\\Repos\\KCK\\KCKProjekt\\KCKProjektConsole.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Julia\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
-    "C:\\Users\\Julia\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\Geoff\\Source\\Repos\\KCK\\KCKProjekt\\KCKProjektConsole.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }
