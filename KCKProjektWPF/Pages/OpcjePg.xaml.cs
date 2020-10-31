@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KCKProjektWPF.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,7 @@ namespace KCKProjektWPF
     public partial class OpcjePg : Page
     {
         private string postacUrl = "";
+        private int poziomTTrudnosci = 1;
         public OpcjePg()
         {
             InitializeComponent();
@@ -40,7 +42,18 @@ namespace KCKProjektWPF
                 Owner = window,
             };
             win.ShowDialog();
-            postacUrl = win.postacurl;
+            postacUrl = win.postacUrl;
+        }
+
+        private void Poziom_Trudnosci_Click(object sender, RoutedEventArgs e)
+        {
+            var window = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
+            Wybor_poziomu win = new Wybor_poziomu()
+            {
+                Owner = window,
+            };
+            win.ShowDialog();
+            poziomTTrudnosci = win.poziom ;
         }
     }
 }

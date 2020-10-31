@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,23 +10,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace KCKProjektWPF
+namespace KCKProjektWPF.Windows
 {
     /// <summary>
     /// Interaction logic for Wybor_postaci.xaml
     /// </summary>
     public partial class Wybor_postaci : Window
     {
-        public string postacurl { get; set; } = "pack://application:,,,/KCKProjektWPF;component/Image/mario.png";
+        public string postacUrl { get; set; } = "pack://application:,,,/KCKProjektWPF;component/Image/mario.png";
         public Wybor_postaci()
         {
             InitializeComponent();
         }
-
         private void Image_Clicked(object sender, MouseButtonEventArgs e)
         {
             Image img = sender as Image;
-            postacurl = img.Source.ToString();
+            postacUrl = img.Source.ToString();
 
             this.Hide();
         }
@@ -36,6 +34,5 @@ namespace KCKProjektWPF
         {
             this.Hide();
         }
-
     }
 }

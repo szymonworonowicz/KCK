@@ -7,7 +7,21 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Windows\Wybor_postaci.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Windows\Wybor_poziomu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="Strona_Startowa.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\Wybor_postaci.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\Wybor_poziomu.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
