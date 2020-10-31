@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 .vs
 KCKProjectApi/obj
 KCKProject/obj
 KCKProjectWPF/obj 
+=======
+.vs 
+KCKProjectAPI\obj
+KCKProjekt\obj
+KCKProjektWPF\obj
+>>>>>>> wpf

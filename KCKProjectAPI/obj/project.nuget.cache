@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "rOpwme6kfA5g/b7ytXsO89SkYBj9B0ryBau8PPx8maTO0l7RKNy7f9h6WFNVJR3eHXP5T1Ng32mW/IRMheKDVQ==",
+  "dgSpecHash": "pRWovi/XPPDQOIc56WCZbgtTEYonbO8c6h8sz+x0xPk2vN/q/ER3pbFF1UhXRKz/0sXG7QgOGKLla1InS0NiXQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Geoff\\Source\\Repos\\KCK\\KCKProjectAPI\\KCKProjectAPI.csproj",
+  "projectFilePath": "C:\\Users\\Julia\\Source\\Repos\\KCK\\KCKProjectAPI\\KCKProjectAPI.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Geoff\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Users\\Julia\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Julia\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
   ],
   "logs": []
 }
