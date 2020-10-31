@@ -7,7 +7,8 @@ using KCKProjectAPI;
 using KCKProjectAPI.Builders;
 using KCKProjectAPI.Extensions;
 using KCKProjectAPI.Items;
-
+using KCKProjectAPI.directory;
+using KCKProjektConsole;
 namespace KCKProjekt
 {
     class Program
@@ -23,12 +24,17 @@ namespace KCKProjekt
         private static int x = 0;
         private static int y = 0;
         List<IField> listf = new List<IField>();
+       
+        
 
         static void Main(string[] args)
         {
+            Menu.printMessage("proszę wybrać mapę");
+            string path = Menu.getMap(8);
+            
             object writer = new object(); // mutex do wyisywania
             IBuilder builder = new ConsoleBuilder();
-            Map mlist = new Map("map2", builder);
+            Map mlist = new Map(path, builder);
 
 
             var map = mlist.map;

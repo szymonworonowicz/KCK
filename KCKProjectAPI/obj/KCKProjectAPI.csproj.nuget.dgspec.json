@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\source\\repos\\KCKProjekt\\KCKProjectAPI\\KCKProjectAPI.csproj": {}
+    "C:\\Users\\Julia\\Source\\Repos\\KCK\\KCKProjectAPI\\KCKProjectAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\source\\repos\\KCKProjekt\\KCKProjectAPI\\KCKProjectAPI.csproj": {
+    "C:\\Users\\Julia\\Source\\Repos\\KCK\\KCKProjectAPI\\KCKProjectAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\source\\repos\\KCKProjekt\\KCKProjectAPI\\KCKProjectAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Julia\\Source\\Repos\\KCK\\KCKProjectAPI\\KCKProjectAPI.csproj",
         "projectName": "KCKProjectAPI",
-        "projectPath": "C:\\Users\\user\\source\\repos\\KCKProjekt\\KCKProjectAPI\\KCKProjectAPI.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\source\\repos\\KCKProjekt\\KCKProjectAPI\\obj\\",
+        "projectPath": "C:\\Users\\Julia\\Source\\Repos\\KCK\\KCKProjectAPI\\KCKProjectAPI.csproj",
+        "packagesPath": "C:\\Users\\Julia\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Julia\\Source\\Repos\\KCK\\KCKProjectAPI\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Julia\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -58,7 +55,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
