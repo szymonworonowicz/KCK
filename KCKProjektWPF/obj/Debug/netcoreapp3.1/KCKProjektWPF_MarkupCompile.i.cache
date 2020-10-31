@@ -1,19 +1,19 @@
 ﻿KCKProjektWPF
-
+1.0.0.0
 
 winexe
 C#
 .cs
-C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\
+C:\Users\Geoff\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\
 KCKProjektWPF
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
-C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\App.xaml
+C:\Users\Geoff\Source\Repos\KCK\KCKProjektWPF\App.xaml
 41716320270
 51888518480
-7-881687062
-193366400130
+81922853920
+193106082977
 Pages\OpcjePg.xaml;Pages\Startowa.xaml;Strona_Startowa.xaml;Windows\Wybor_postaci.xaml;
 
 False

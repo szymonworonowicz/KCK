@@ -21,7 +21,7 @@ namespace KCKProjectAPI
         {
             this.path = path;
             int y = 0;
-            using(StreamReader str = new StreamReader($"{path}.txt"))
+            using(StreamReader str = new StreamReader($"./maps/{path}.txt"))
             {
                 string line = "";
                 while((line=str.ReadLine())!=null)
@@ -51,7 +51,7 @@ namespace KCKProjectAPI
 
         public void GetElems(ref List<Key> keys, ref List<Door> doors, ref List<Coin> coins)
         {
-            using (StreamReader str = new StreamReader($"{path}elems.txt"))
+            using (StreamReader str = new StreamReader($"./maps/{path}elems.txt"))
             {
                 string line="";
 
