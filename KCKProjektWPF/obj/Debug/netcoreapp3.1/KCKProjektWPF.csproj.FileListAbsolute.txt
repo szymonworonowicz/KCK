@@ -103,3 +103,5 @@ C:\Users\Geoff\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\KCKProjekt
 C:\Users\Geoff\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\KCKProjektWPF.pdb
 C:\Users\Geoff\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\KCKProjektWPF.genruntimeconfig.cache
 >>>>>>> 74ada74ebaec9dec6e5467a86079062ad573292e
+C:\Users\Geoff\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\Windows\Wybor_poziomu.g.cs
+C:\Users\Geoff\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\Windows\Wybor_poziomu.baml
