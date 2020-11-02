@@ -29,6 +29,7 @@ namespace KCKProjekt
 
         static void Main(string[] args)
         {
+            Menu.getMenu();
             Menu.printMessage("proszę wybrać mapę");
             string path = Menu.getMap(8);
             

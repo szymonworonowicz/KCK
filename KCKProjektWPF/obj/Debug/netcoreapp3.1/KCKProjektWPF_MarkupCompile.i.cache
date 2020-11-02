@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\obj\Debug\netcoreapp3.1\
+C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\
 KCKProjektWPF
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
-C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\App.xaml
+C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\App.xaml
 5880545619
 51888518480
-81342383833
-1931175189823
+8-2118348244
+193366400130
 Pages\OpcjePg.xaml;Pages\Startowa.xaml;Strona_Startowa.xaml;Windows\Wybor_postaci.xaml;Windows\Wybor_poziomu.xaml;
 
-True
+False
 

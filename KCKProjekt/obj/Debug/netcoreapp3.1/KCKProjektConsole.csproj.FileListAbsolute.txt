@@ -21,7 +21,6 @@ C:\Users\Julia\Source\Repos\KCK\KCKProjekt\bin\Debug\netcoreapp3.1\KCKProjektCon
 C:\Users\Julia\Source\Repos\KCK\KCKProjekt\bin\Debug\netcoreapp3.1\KCKProjectAPI.dll
 C:\Users\Julia\Source\Repos\KCK\KCKProjekt\bin\Debug\netcoreapp3.1\KCKProjectAPI.pdb
 C:\Users\Julia\Source\Repos\KCK\KCKProjekt\obj\Debug\netcoreapp3.1\KCKProjektConsole.csprojAssemblyReference.cache
-C:\Users\Julia\Source\Repos\KCK\KCKProjekt\obj\Debug\netcoreapp3.1\KCKProjektConsole.csproj.CoreCompileInputs.cache
 C:\Users\Julia\Source\Repos\KCK\KCKProjekt\obj\Debug\netcoreapp3.1\KCKProjektConsole.AssemblyInfoInputs.cache
 C:\Users\Julia\Source\Repos\KCK\KCKProjekt\obj\Debug\netcoreapp3.1\KCKProjektConsole.AssemblyInfo.cs
 C:\Users\Julia\Source\Repos\KCK\KCKProjekt\obj\Debug\netcoreapp3.1\KCKProjektConsole.csproj.CopyComplete
@@ -44,3 +43,9 @@ C:\Users\Geoff\Source\Repos\KCK\KCKProjekt\obj\Debug\netcoreapp3.1\KCKProjektCon
 C:\Users\Geoff\Source\Repos\KCK\KCKProjekt\obj\Debug\netcoreapp3.1\KCKProjektConsole.dll
 C:\Users\Geoff\Source\Repos\KCK\KCKProjekt\obj\Debug\netcoreapp3.1\KCKProjektConsole.pdb
 C:\Users\Geoff\Source\Repos\KCK\KCKProjekt\obj\Debug\netcoreapp3.1\KCKProjektConsole.genruntimeconfig.cache
+C:\Users\Julia\Source\Repos\KCK\KCKProjekt\obj\Debug\netcoreapp3.1\KCKProjektConsole.csproj.CoreCompileInputs.cache
+C:\Users\Julia\Source\Repos\KCK\KCKProjekt\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+C:\Users\Julia\Source\Repos\KCK\KCKProjekt\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
+C:\Users\Julia\Source\Repos\KCK\KCKProjekt\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Julia\Source\Repos\KCK\KCKProjekt\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Julia\Source\Repos\KCK\KCKProjekt\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll

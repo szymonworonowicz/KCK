@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "uqf5bxCLcMongewtPI7NCXhCVU0Hdk6178v1NFo+wRsqnA1MFtvs/3JRbWaT84JLBxDoxwrBiVJCiVdiu8kSeg==",
+  "dgSpecHash": "mDbKS9cWZn9W5Sd9gAHDjBIUmpxeUunPE1DHhbrBhlEbGBC0kWeXi//oiNxrkyEWVqpsNpANsMSiNKWSayGXTQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Julia\\Source\\Repos\\KCK\\KCKProjekt\\KCKProjektConsole.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Julia\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\Julia\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\Julia\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
     "C:\\Users\\Julia\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
     "C:\\Users\\Julia\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512"
   ],

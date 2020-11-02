@@ -13,8 +13,18 @@ namespace KCKProjectAPI
         }
         public static void writeString (int x,int y,string writeThis)
         {
-            Console.SetCursorPosition(x, y);
-            Console.Out.Write(writeThis);
+            try
+            {
+                Console.SetCursorPosition(x, y);
+                Console.Out.Write(writeThis);
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+
+                throw ex;
+            }
+
+
         }
         public static void setCursorPosition(int x, int y)
         {

@@ -9,27 +9,12 @@ KCKProjektWPF
 none
 false
 TRACE;RELEASE;NETCOREAPP;NETCOREAPP3_1
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> wpf
 C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\App.xaml
 5880545619
 51888518480
 7-1573936721
 193-982878219
 Pages\OpcjePg.xaml;Pages\Startowa.xaml;Strona_Startowa.xaml;Windows\Wybor_postaci.xaml;Windows\Wybor_poziomu.xaml;
-<<<<<<< HEAD
-=======
-C:\Users\Geoff\Source\Repos\KCK\KCKProjektWPF\App.xaml
-41716320270
-51888518480
-6-337275539
-193-1172934217
-Pages\OpcjePg.xaml;Pages\Startowa.xaml;Strona_Startowa.xaml;Windows\Wybor_postaci.xaml;
->>>>>>> 74ada74ebaec9dec6e5467a86079062ad573292e
-=======
->>>>>>> wpf
 
 True
 
