@@ -7,6 +7,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Drawing;
 using System.Threading;
+using System.Diagnostics;
 
 namespace KCKProjektConsole
 {
@@ -83,7 +84,7 @@ namespace KCKProjektConsole
             Cursor.writeString(0, 0, s);
         }
 
-        public static void getMenu()
+        public static int getMenu(int poziom = 1)
         {
             object mutex = new object();//mutex
             Console.CursorVisible = false;
@@ -98,7 +99,7 @@ namespace KCKProjektConsole
                 }
             }
             int y = 36, x = 100;
-            napis[] napisy = new napis[3];
+            napis[] napisy = new napis[4];
             printMenu(x, y, logo, ref napisy);
 
             ConsoleKey key;
@@ -124,12 +125,12 @@ namespace KCKProjektConsole
                         case ConsoleKey.DownArrow:
                             Cursor.writeString(napisy[id].x - 2, napisy[id].y, "  ");
                             Cursor.writeString(napisy[id].x + napisy[id].text.Length, napisy[id].y, "  ");
-                            id = (id + 1) == 3 ? 0 : id + 1;
+                            id = (id + 1) == 4 ? 0 : id + 1;
                             break;
                         case ConsoleKey.UpArrow:
                             Cursor.writeString(napisy[id].x - 2, napisy[id].y, "  ");
                             Cursor.writeString(napisy[id].x + napisy[id].text.Length, napisy[id].y, "  ");
-                            id = (id - 1) < 0 ? 2 : id - 1;
+                            id = (id - 1) < 0 ? 3 : id - 1;
                             break;
                     }
                 }
@@ -138,9 +139,38 @@ namespace KCKProjektConsole
 
             } while (key != ConsoleKey.Enter);
             cancel.Cancel();
-            ;
+            return ChooseOption(id);
         }
 
+        private static int ChooseOption(int id)
+        {
+            if (id == 0)
+            {
+                return 1;
+            }
+            else if (id == 1)
+            {
+                return Option();
+            }
+            else if (id == 2)
+            {
+                About();
+                getMenu();
+            }
+            else if (id == 3)
+            {
+                Environment.Exit(0);
+            }
+            return 1;
+        }
+        private static int Option()
+        {
+            return 1;
+        }
+        private static void About()
+        {
+
+        }
         private static void printMenu(int x, int y, List<string> logo, ref napis[] napisy)
         {
             Console.SetWindowSize(x, y);
@@ -165,12 +195,14 @@ namespace KCKProjektConsole
             }
 
             ConsoleHelper.SetCurrentFont("Consolas", 24);
-            napisy[0] = new napis(ox - 4, oy - 2, "Nowa Gra");
-            napisy[1] = new napis(ox - 2, oy, "Opcje");
-            napisy[2] = new napis(ox - 3, oy + 2, "Wyjscie");
-            Cursor.writeString(ox - 4, oy - 2, "Nowa Gra");
-            Cursor.writeString(ox - 2, oy, "Opcje");
-            Cursor.writeString(ox - 3, oy + 2, "Wyjscie");
+            napisy[0] = new napis(ox - 4, oy - 3, "Nowa Gra");
+            napisy[1] = new napis(ox - 2, oy - 1, "Opcje");
+            napisy[2] = new napis(ox - 2, oy + 1, "O grze");
+            napisy[3] = new napis(ox - 3, oy + 3, "Wyjscie");
+            Cursor.writeString(ox - 4, oy - 3, "Nowa Gra");
+            Cursor.writeString(ox - 2, oy - 1, "Opcje");
+            Cursor.writeString(ox - 2, oy + 1, "O grze");
+            Cursor.writeString(ox - 3, oy + 3, "Wyjscie");
         }
 
         private static void UpdateConsoleMenuSize(ref int x, ref int y, ref object mutex, ref List<string> logo, ref napis[] napisy, ref int id, CancellationTokenSource cancel)
@@ -193,7 +225,7 @@ namespace KCKProjektConsole
                             x = Console.WindowWidth;
                             y = Console.WindowHeight;
                         }
-                        catch (ArgumentOutOfRangeException ex)
+                        catch (ArgumentOutOfRangeException)
                         {
 
                             if (Console.WindowWidth < 0)
