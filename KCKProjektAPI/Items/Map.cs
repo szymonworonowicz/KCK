@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using KCKProjectAPI.Builders;
 
 namespace KCKProjectAPI
@@ -48,7 +49,36 @@ namespace KCKProjectAPI
             map = builder.getMap() as List<LinkedList<IField>>;
             
         }
+        public Grid getMap(string path, IBuilder builder)
+        {
+            this.path = path;
+            int y = 0;
+            using (StreamReader str = new StreamReader($"./maps/{path}.txt"))
+            {
+                string line = "";
+                while ((line = str.ReadLine()) != null)
+                {
+                    //LinkedList<IField> temp = new LinkedList<IField>();
 
+                    for (int i = 0; i < line.Length; i++)
+                    {
+                        switch (line[i])
+                        {
+                            case '#':
+
+                                builder.AddWall(i, y);
+                                break;
+                            case ' ':
+                                builder.AddPath(i, y);
+                                break;
+                        }
+                    }
+                    y++;
+                    //map.Add(temp);
+                }
+            }
+            return (Grid)builder.getMap();
+        }
         public void GetElems(ref List<Key> keys, ref List<Door> doors, ref List<Coin> coins)
         {
             using (StreamReader str = new StreamReader($"./maps/{path}elems.txt"))

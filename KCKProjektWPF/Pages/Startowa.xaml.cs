@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KCKProjektWPF.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +34,12 @@ namespace KCKProjektWPF
             var window = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
             window.Content = new OpcjePg();
 
+        }
+
+        private void start_game(object sender, RoutedEventArgs e)
+        {
+            var window = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
+            window.Content = new GameViewPg();
         }
     }
 }

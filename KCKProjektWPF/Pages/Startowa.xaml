@@ -81,7 +81,7 @@
             </TextBlock>
 
 
-            <Button Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="50,10,50,10" Background="Black" Foreground="White" BorderBrush="Black" FontSize="24" FontFamily="Italic" Content="Nowa Gra">
+            <Button Click="start_game" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="50,10,50,10" Background="Black" Foreground="White" BorderBrush="Black" FontSize="24" FontFamily="Italic" Content="Nowa Gra">
                 <Button.RenderTransform>
                     <ScaleTransform x:Name="Scaleb1" ScaleX="0.96" ScaleY="1.06"></ScaleTransform>
                 </Button.RenderTransform>

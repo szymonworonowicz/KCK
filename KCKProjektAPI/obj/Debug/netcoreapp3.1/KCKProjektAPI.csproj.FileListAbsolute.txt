@@ -6,3 +6,12 @@ C:\Users\user\source\repos\KCKProjekt\KCKProjektAPI\bin\Debug\netcoreapp3.1\KCKP
 C:\Users\user\source\repos\KCKProjekt\KCKProjektAPI\bin\Debug\netcoreapp3.1\KCKProjektAPI.pdb
 C:\Users\user\source\repos\KCKProjekt\KCKProjektAPI\obj\Debug\netcoreapp3.1\KCKProjektAPI.dll
 C:\Users\user\source\repos\KCKProjekt\KCKProjektAPI\obj\Debug\netcoreapp3.1\KCKProjektAPI.pdb
+C:\Users\Geoff\Source\Repos\KCK\KCKProjektAPI\bin\Debug\netcoreapp3.1\KCKProjektAPI.deps.json
+C:\Users\Geoff\Source\Repos\KCK\KCKProjektAPI\bin\Debug\netcoreapp3.1\KCKProjektAPI.dll
+C:\Users\Geoff\Source\Repos\KCK\KCKProjektAPI\bin\Debug\netcoreapp3.1\KCKProjektAPI.pdb
+C:\Users\Geoff\Source\Repos\KCK\KCKProjektAPI\obj\Debug\netcoreapp3.1\KCKProjektAPI.csprojAssemblyReference.cache
+C:\Users\Geoff\Source\Repos\KCK\KCKProjektAPI\obj\Debug\netcoreapp3.1\KCKProjektAPI.AssemblyInfoInputs.cache
+C:\Users\Geoff\Source\Repos\KCK\KCKProjektAPI\obj\Debug\netcoreapp3.1\KCKProjektAPI.AssemblyInfo.cs
+C:\Users\Geoff\Source\Repos\KCK\KCKProjektAPI\obj\Debug\netcoreapp3.1\KCKProjektAPI.csproj.CoreCompileInputs.cache
+C:\Users\Geoff\Source\Repos\KCK\KCKProjektAPI\obj\Debug\netcoreapp3.1\KCKProjektAPI.dll
+C:\Users\Geoff\Source\Repos\KCK\KCKProjektAPI\obj\Debug\netcoreapp3.1\KCKProjektAPI.pdb
