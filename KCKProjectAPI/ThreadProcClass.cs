@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-
+using KCKProjectAPI.Extensions;
 namespace KCKProjectAPI
 {
     public class ThreadProcClass
@@ -36,7 +37,18 @@ namespace KCKProjectAPI
                         {
                             player.Y--;
                             change = true;
+/*                            try
+                            {
+                                Key key = (Key)keys.GetId(player.Y, player.X);
+                                ownedKeys.Add(key);
+                            }
+                            catch(Exception e)
+                            {
+                                
+                            }*/
+                            
                         }
+                        
 
                     }
                     else if (key == ConsoleKey.DownArrow)

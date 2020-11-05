@@ -13,7 +13,7 @@ namespace KCKProjektConsole
 {
     public static class Menu
     {
-
+        private delegate void TestDelegate(int x, int y, List<string>logo, ref napis[] napisy);
         private struct napis
         {
             public int x;
@@ -86,6 +86,9 @@ namespace KCKProjektConsole
 
         public static int getMenu(int poziom = 1)
         {
+            
+        string[] menus = { "main menu","difficulties","about","game","pause" };
+            
             object mutex = new object();//mutex
             Console.CursorVisible = false;
             List<string> logo = new List<string>();
@@ -100,12 +103,37 @@ namespace KCKProjektConsole
             }
             int y = 36, x = 100;
             napis[] napisy = new napis[4];
-            printMenu(x, y, logo, ref napisy);
-
+            //printMenu(x, y, logo, ref napisy);
+            //printDifficulties(x, y, logo, ref napisy);
+            /*List<object> list = new List<object>();
+            list.Add(x);
+            list.Add(y);
+            list.Add(logo);
+            list.Add(ref napisy);*/
+            //typeof(Menu).GetMethod("printDifficulties").Invoke(null, new object[] { x, y, logo,  napisy });
+            /*System.Reflection.MethodInfo m = typeof(Menu).GetMethod("printMenu");
+            TestDelegate td = (TestDelegate)Delegate.CreateDelegate(typeof(TestDelegate), typeof(Menu), m);
+            td.Invoke(x,y,logo,ref napisy);*/
+            string currentMenu = "main menu";
+            switch (currentMenu)
+            {
+                case "main menu":
+                    
+                    printMenu(x, y, logo, ref napisy);
+                    break;
+                    
+                case "difficulties":
+                    
+                    printDifficulties(x, y, logo, ref napisy);
+                    break;
+                case "about":
+                    printAbout(x, y, logo, ref napisy);
+                    break;
+            }
             ConsoleKey key;
             int id = 0;
             CancellationTokenSource cancel = new CancellationTokenSource();
-            Thread mainmenu = new Thread(() => UpdateConsoleMenuSize(ref x, ref y, ref mutex, ref logo, ref napisy, ref id, cancel));//zmieniaanie asynchronicznie szerokosci okna
+            Thread mainmenu = new Thread(() => UpdateConsoleMenuSize(ref x, ref y, ref mutex, ref logo, ref napisy, ref id, cancel,currentMenu));//zmieniaanie asynchronicznie szerokosci okna
 
             mainmenu.Start();
 
@@ -171,6 +199,7 @@ namespace KCKProjektConsole
         {
 
         }
+        
         private static void printMenu(int x, int y, List<string> logo, ref napis[] napisy)
         {
             Console.SetWindowSize(x, y);
@@ -204,8 +233,75 @@ namespace KCKProjektConsole
             Cursor.writeString(ox - 2, oy + 1, "O grze");
             Cursor.writeString(ox - 3, oy + 3, "Wyjscie");
         }
+        private static void printAbout(int x, int y, List<string> logo, ref napis[] napisy)
+        {
+            Console.SetWindowSize(x, y);
+            Console.ForegroundColor = ConsoleColor.Magenta;
 
-        private static void UpdateConsoleMenuSize(ref int x, ref int y, ref object mutex, ref List<string> logo, ref napis[] napisy, ref int id, CancellationTokenSource cancel)
+            int ox = x / 2;
+            int oy = y / 2;
+            int logoWidth = logo[0].Length;
+            int logoHeight = logo.Count;
+            try
+            {
+                for (int i = 0; i < logo.Count; i++)
+                {
+
+                    Cursor.writeString(ox - logoWidth / 2, oy - 10 + i, logo[i]);
+                }
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+
+                throw ex;
+            }
+
+            ConsoleHelper.SetCurrentFont("Consolas", 24);
+            napisy[0] = new napis(ox - 4, oy - 3, "autorzy");
+            napisy[1] = new napis(ox - 6, oy - 1, "Julia Gejdel");
+            napisy[2] = new napis(ox - 7, oy + 1, "Paweł Krzywosz");
+            napisy[2] = new napis(ox - 8, oy + 1, "Szymon Woronowicz");
+            napisy[3] = new napis(ox - 3, oy + 3, "Wyjscie");
+            Cursor.writeString(ox - 4, oy - 3, "autorzy");
+            Cursor.writeString(ox - 6, oy - 1, "Julia Gejdel");
+            Cursor.writeString(ox - 7, oy + 1, "Paweł Krzywosz");
+            Cursor.writeString(ox - 8, oy + 1, "Szymon Woronowicz");
+            Cursor.writeString(ox - 3, oy + 3, "Wyjscie");
+        }
+        private static void printDifficulties(int x, int y, List<string> logo, ref napis[] napisy)
+        {
+            Console.SetWindowSize(x, y);
+            Console.ForegroundColor = ConsoleColor.Magenta;
+
+            int ox = x / 2;
+            int oy = y / 2;
+            int logoWidth = logo[0].Length;
+            int logoHeight = logo.Count;
+            try
+            {
+                for (int i = 0; i < logo.Count; i++)
+                {
+
+                    Cursor.writeString(ox - logoWidth / 2, oy - 10 + i, logo[i]);
+                }
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+
+                throw ex;
+            }
+
+            ConsoleHelper.SetCurrentFont("Consolas", 24);
+            napisy[0] = new napis(ox - 3, oy - 3, "łatwy");
+            napisy[1] = new napis(ox - 3, oy - 1, "średni");
+            napisy[2] = new napis(ox - 3, oy + 1, "trudny");
+            napisy[3] = new napis(ox - 3, oy + 3, "Wyjscie");
+            Cursor.writeString(ox - 3, oy - 3, "łatwy");
+            Cursor.writeString(ox - 3, oy - 1, "średni");
+            Cursor.writeString(ox - 3, oy + 1, "trudny");
+            Cursor.writeString(ox - 3, oy + 3, "Wyjscie");
+        }
+        private static void UpdateConsoleMenuSize(ref int x, ref int y, ref object mutex, ref List<string> logo, ref napis[] napisy, ref int id, CancellationTokenSource cancel,string currentmenu)
         {
             while (true)
             {
@@ -218,7 +314,25 @@ namespace KCKProjektConsole
                             Console.Clear();
                             Thread.Sleep(10);
                             Console.ForegroundColor = ConsoleColor.White;
-                            printMenu(Console.WindowWidth, Console.WindowHeight, logo, ref napisy);
+
+                            //printMenu(Console.WindowWidth, Console.WindowHeight, logo, ref napisy);
+                            
+                            switch (currentmenu)
+                            {
+                                case "main menu":
+
+                                    printMenu(x, y, logo, ref napisy);
+                                    break;
+
+                                case "difficulties":
+
+                                    printDifficulties(x, y, logo, ref napisy);
+                                    break;
+                                case "about":
+                                    printAbout(x, y, logo, ref napisy);
+                                    break;
+                            }
+                            //printDifficulties(Console.WindowWidth, Console.WindowHeight, logo, ref napisy);
                             Console.ForegroundColor = ConsoleColor.Yellow;
                             Cursor.writeString(napisy[id].x - 2, napisy[id].y, "->");
                             Cursor.writeString(napisy[id].x + napisy[id].text.Length, napisy[id].y, "<-");

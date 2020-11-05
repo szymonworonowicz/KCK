@@ -49,3 +49,8 @@ C:\Users\Julia\Source\Repos\KCK\KCKProjekt\bin\Debug\netcoreapp3.1\System.Drawin
 C:\Users\Julia\Source\Repos\KCK\KCKProjekt\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\Julia\Source\Repos\KCK\KCKProjekt\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
 C:\Users\Julia\Source\Repos\KCK\KCKProjekt\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Geoff\Source\Repos\KCK\KCKProjekt\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+C:\Users\Geoff\Source\Repos\KCK\KCKProjekt\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
+C:\Users\Geoff\Source\Repos\KCK\KCKProjekt\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Geoff\Source\Repos\KCK\KCKProjekt\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Geoff\Source\Repos\KCK\KCKProjekt\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll

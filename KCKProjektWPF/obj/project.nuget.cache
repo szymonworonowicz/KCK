@@ -1,11 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ornRYXEBBYvOlhqkqIWLr7BStpqaMWYCnl0OhSANaGnvn5YagoyKR6t8AotFJjC/Egbpvr92lU2kMjHhMZx5tA==",
+  "dgSpecHash": "eO4VG5llhIf3T53ehxm5UVfz6u3Gwl9gXX46aSPq1VcUV7YdC80XWvI0pl1ZA8L1ojG9laYz/IvGHyqqehIcWg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Julia\\Source\\Repos\\KCK\\KCKProjektWPF\\KCKProjektWPF.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Julia\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
-    "C:\\Users\\Julia\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\Geoff\\Source\\Repos\\KCK\\KCKProjektWPF\\KCKProjektWPF.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

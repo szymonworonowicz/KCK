@@ -1,14 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "mDbKS9cWZn9W5Sd9gAHDjBIUmpxeUunPE1DHhbrBhlEbGBC0kWeXi//oiNxrkyEWVqpsNpANsMSiNKWSayGXTQ==",
+  "dgSpecHash": "5H8JIT1aPoeRLu5uMJpIJrCV/nlZuz3iJ2cWScm7+p2p+oF/Fj9Pd6XOAG1EToEr9qAt23aFy4yi4m7jHB64Xg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Julia\\Source\\Repos\\KCK\\KCKProjekt\\KCKProjektConsole.csproj",
+  "projectFilePath": "C:\\Users\\Geoff\\Source\\Repos\\KCK\\KCKProjekt\\KCKProjektConsole.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Julia\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
-    "C:\\Users\\Julia\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
-    "C:\\Users\\Julia\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
-    "C:\\Users\\Julia\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
-    "C:\\Users\\Julia\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512"
+    "C:\\Users\\Geoff\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\Geoff\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\Geoff\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }

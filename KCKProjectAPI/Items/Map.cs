@@ -45,7 +45,7 @@ namespace KCKProjectAPI
                     //map.Add(temp);
                 }
             }
-            map = builder.getMap() as List<LinkedList<IField> ;
+            map = builder.getMap() as List<LinkedList<IField>>;
             
         }
 
