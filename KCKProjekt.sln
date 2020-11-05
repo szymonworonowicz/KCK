@@ -7,12 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KCKProjektConsole", "KCKPro
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KCKProjektWPF", "KCKProjektWPF\KCKProjektWPF.csproj", "{67C7CAD2-AC1A-4AEA-BC92-E048D604E85F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KCKProjectAPI", "KCKProjectAPI\KCKProjectAPI.csproj", "{813E3F74-60E6-49ED-88E5-D9613DE8E78C}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7E130F02-5EAB-4FEC-AE52-F43F7CB28105}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KCKProjektAPI", "KCKProjektAPI\KCKProjektAPI.csproj", "{D84F50DB-F2ED-4E81-B32E-BFC7182CE167}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,10 +28,10 @@ Global
 		{67C7CAD2-AC1A-4AEA-BC92-E048D604E85F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67C7CAD2-AC1A-4AEA-BC92-E048D604E85F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67C7CAD2-AC1A-4AEA-BC92-E048D604E85F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{813E3F74-60E6-49ED-88E5-D9613DE8E78C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{813E3F74-60E6-49ED-88E5-D9613DE8E78C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{813E3F74-60E6-49ED-88E5-D9613DE8E78C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{813E3F74-60E6-49ED-88E5-D9613DE8E78C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D84F50DB-F2ED-4E81-B32E-BFC7182CE167}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D84F50DB-F2ED-4E81-B32E-BFC7182CE167}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D84F50DB-F2ED-4E81-B32E-BFC7182CE167}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D84F50DB-F2ED-4E81-B32E-BFC7182CE167}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

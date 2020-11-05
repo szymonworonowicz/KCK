@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\KCKProjectAPI\KCKProjectAPI.csproj" />
+    <ProjectReference Include="..\KCKProjektAPI\KCKProjektAPI.csproj" />
   </ItemGroup>
 
 </Project>

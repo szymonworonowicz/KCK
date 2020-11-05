@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v3.1": {
       "KCKProjektConsole/1.0.0": {
         "dependencies": {
-          "KCKProjectAPI": "1.0.0",
+          "KCKProjektAPI": "1.0.0",
           "System.Drawing.Common": "4.7.0"
         },
         "runtime": {
@@ -19,51 +19,17 @@
       "Microsoft.Win32.SystemEvents/4.7.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll": {
-            "assemblyVersion": "4.0.2.0",
-            "fileVersion": "4.700.19.56404"
-          }
-        },
-        "runtimeTargets": {
-          "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll": {
-            "rid": "win",
-            "assetType": "runtime",
-            "assemblyVersion": "4.0.2.0",
-            "fileVersion": "4.700.19.56404"
-          }
         }
       },
       "System.Drawing.Common/4.7.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0",
           "Microsoft.Win32.SystemEvents": "4.7.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Drawing.Common.dll": {
-            "assemblyVersion": "4.0.0.1",
-            "fileVersion": "4.6.26919.2"
-          }
-        },
-        "runtimeTargets": {
-          "runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll": {
-            "rid": "unix",
-            "assetType": "runtime",
-            "assemblyVersion": "4.0.2.0",
-            "fileVersion": "4.700.19.56404"
-          },
-          "runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll": {
-            "rid": "win",
-            "assetType": "runtime",
-            "assemblyVersion": "4.0.2.0",
-            "fileVersion": "4.700.19.56404"
-          }
         }
       },
-      "KCKProjectAPI/1.0.0": {
+      "KCKProjektAPI/1.0.0": {
         "runtime": {
-          "KCKProjectAPI.dll": {}
+          "KCKProjektAPI.dll": {}
         }
       }
     }
@@ -95,7 +61,7 @@
       "path": "system.drawing.common/4.7.0",
       "hashPath": "system.drawing.common.4.7.0.nupkg.sha512"
     },
-    "KCKProjectAPI/1.0.0": {
+    "KCKProjektAPI/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

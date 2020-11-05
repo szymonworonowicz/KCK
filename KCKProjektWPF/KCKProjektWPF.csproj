@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\KCKProjectAPI\KCKProjectAPI.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Include="Image\logo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -34,6 +30,10 @@
     <Content Include="logo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KCKProjektAPI\KCKProjektAPI.csproj" />
   </ItemGroup>
 
 </Project>

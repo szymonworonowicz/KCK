@@ -52,8 +52,6 @@ C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\bin\Debug\netcoreapp3.1\Imag
 C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\bin\Debug\netcoreapp3.1\Image\pacman.png
 C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\bin\Debug\netcoreapp3.1\Image\sonic.png
 C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\bin\Debug\netcoreapp3.1\logo.png
-C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\bin\Debug\netcoreapp3.1\KCKProjectAPI.dll
-C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\bin\Debug\netcoreapp3.1\KCKProjectAPI.pdb
 C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\obj\Debug\netcoreapp3.1\Pages\OpcjePg.g.cs
 C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\obj\Debug\netcoreapp3.1\Pages\Startowa.g.cs
 C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\obj\Debug\netcoreapp3.1\Strona_Startowa.g.cs
@@ -68,3 +66,5 @@ C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\obj\Debug\netcoreapp3.1\Wind
 C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\obj\Debug\netcoreapp3.1\Windows\Wybor_poziomu.baml
 C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\Windows\Wybor_poziomu.g.cs
 C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\Windows\Wybor_poziomu.baml
+C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\bin\Debug\netcoreapp3.1\KCKProjektAPI.dll
+C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\bin\Debug\netcoreapp3.1\KCKProjektAPI.pdb

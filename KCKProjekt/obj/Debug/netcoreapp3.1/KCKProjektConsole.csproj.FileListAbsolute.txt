@@ -9,8 +9,6 @@ C:\Users\user\source\repos\KCKProjekt\KCKProjekt\obj\Debug\netcoreapp3.1\KCKProj
 C:\Users\user\source\repos\KCKProjekt\KCKProjekt\obj\Debug\netcoreapp3.1\KCKProjektConsole.AssemblyInfo.cs
 C:\Users\user\source\repos\KCKProjekt\KCKProjekt\obj\Debug\netcoreapp3.1\KCKProjektConsole.dll
 C:\Users\user\source\repos\KCKProjekt\KCKProjekt\obj\Debug\netcoreapp3.1\KCKProjektConsole.pdb
-C:\Users\user\source\repos\KCKProjekt\KCKProjekt\bin\Debug\netcoreapp3.1\KCKProjectAPI.dll
-C:\Users\user\source\repos\KCKProjekt\KCKProjekt\bin\Debug\netcoreapp3.1\KCKProjectAPI.pdb
 C:\Users\user\source\repos\KCKProjekt\KCKProjekt\obj\Debug\netcoreapp3.1\KCKProjektConsole.csproj.CopyComplete
 C:\Users\Julia\Source\Repos\KCK\KCKProjekt\bin\Debug\netcoreapp3.1\KCKProjektConsole.exe
 C:\Users\Julia\Source\Repos\KCK\KCKProjekt\bin\Debug\netcoreapp3.1\KCKProjektConsole.deps.json
@@ -54,3 +52,5 @@ C:\Users\Geoff\Source\Repos\KCK\KCKProjekt\bin\Debug\netcoreapp3.1\System.Drawin
 C:\Users\Geoff\Source\Repos\KCK\KCKProjekt\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\Geoff\Source\Repos\KCK\KCKProjekt\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
 C:\Users\Geoff\Source\Repos\KCK\KCKProjekt\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\user\source\repos\KCKProjekt\KCKProjekt\bin\Debug\netcoreapp3.1\KCKProjektAPI.dll
+C:\Users\user\source\repos\KCKProjekt\KCKProjekt\bin\Debug\netcoreapp3.1\KCKProjektAPI.pdb
