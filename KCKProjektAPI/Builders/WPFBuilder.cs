@@ -22,7 +22,7 @@ namespace KCKProjectAPI.Builders
             {
                 mymap.RowDefinitions.Add(new RowDefinition());
             }
-            while (mymap.ColumnDefinitions.Count <= y)
+            while (mymap.ColumnDefinitions.Count <= x)
             {
                 mymap.ColumnDefinitions.Add(new ColumnDefinition());
             }
@@ -42,7 +42,7 @@ namespace KCKProjectAPI.Builders
             {
                 mymap.RowDefinitions.Add(new RowDefinition());
             }
-            while (mymap.ColumnDefinitions.Count <= y)
+            while (mymap.ColumnDefinitions.Count <= x)
             {
                 mymap.ColumnDefinitions.Add(new ColumnDefinition());
             }
