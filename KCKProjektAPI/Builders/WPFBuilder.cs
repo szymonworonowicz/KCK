@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Shapes;
 
 namespace KCKProjectAPI.Builders
 {
@@ -24,13 +26,13 @@ namespace KCKProjectAPI.Builders
             {
                 mymap.ColumnDefinitions.Add(new ColumnDefinition());
             }
-            TextBlock tb = new TextBlock();
-            tb.Text = "a";
-            mymap.Children.Add(tb);
+            Rectangle rect = new Rectangle();
+            rect.Fill = new SolidColorBrush(Colors.White);
+            mymap.Children.Add(rect);
             //Grid.SetRow(tb,y);
             //Grid.SetColumn(tb,x);
-            tb.SetValue(Grid.RowProperty, y);
-            tb.SetValue(Grid.ColumnProperty, x);
+            rect.SetValue(Grid.RowProperty, y);
+            rect.SetValue(Grid.ColumnProperty, x);
 
         }
 
@@ -44,11 +46,13 @@ namespace KCKProjectAPI.Builders
             {
                 mymap.ColumnDefinitions.Add(new ColumnDefinition());
             }
-            TextBlock tb = new TextBlock();
-            tb.Text = "b";
-            mymap.Children.Add(tb);
-            tb.SetValue(Grid.RowProperty, y);
-            tb.SetValue(Grid.ColumnProperty, x);
+            //TextBlock tb = new TextBlock();
+            //tb.Text = "b";
+            Rectangle rect = new Rectangle();
+            rect.Fill = new SolidColorBrush(Colors.Black);
+            mymap.Children.Add(rect);
+            rect.SetValue(Grid.RowProperty, y);
+            rect.SetValue(Grid.ColumnProperty, x);
            
             //Grid.SetColumn(tb, x);
         }
