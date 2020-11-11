@@ -28,6 +28,7 @@ namespace KCKProjektWPF.Pages
             //Map m = new Map("map2", new WPFBuilder());
             Map m = new Map("map2", new WPFBuilder());
             grid = m.getMap() as Grid;
+
             InitializeComponent();
             mygrid.Children.Add(grid);
             

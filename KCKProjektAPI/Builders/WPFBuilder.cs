@@ -1,73 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 namespace KCKProjectAPI.Builders
 {
     public class WPFBuilder : IBuilder
     {
-        private class RectangleWallClone : ICloneable
-        {
-            private Rectangle rect;
 
-            public RectangleWallClone(Rectangle rect)
-            {
-                this.rect = new Rectangle();
 
-            }
-            public object Clone()
-            {
-                this.rect.StrokeThickness = 1.0;
-                this.rect.Fill = new SolidColorBrush(Colors.White);
-                var inst = rect.GetType().GetMethod("MemberwiseClone", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
-
-                return inst?.Invoke(rect, null);
-            }
-        }
-        private class RectanglePathClone : ICloneable
-        {
-            private  Rectangle rect;
-            public RectanglePathClone(Rectangle rect)
-            {
-                this.rect = rect;
-
-            }
-            public object Clone()
-            {
-                this.rect.StrokeThickness = 1.0;
-                this.rect.Fill = new SolidColorBrush(Colors.Black);
-
-                var inst = rect.GetType().GetMethod("MemberwiseClone", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
-
-                return inst?.Invoke(rect, null);
-            }
-        }
         Grid mymap { get; set; }
-        private readonly RectangleWallClone rectwall;
-        private readonly RectanglePathClone rectpath;
+
 
         public WPFBuilder() : base()
         {
             mymap = new Grid();
-            rectwall = new RectangleWallClone(new Rectangle());
-            rectpath = new RectanglePathClone(new Rectangle());
+
         }
         public override void AddPath(int x, int y)
         {
             while (mymap.RowDefinitions.Count <= y)
             {
-                mymap.RowDefinitions.Add(new RowDefinition());
+                var row = new RowDefinition();
+                row.Height = new GridLength(1, GridUnitType.Star);
+                mymap.RowDefinitions.Add(row);
             }
             while (mymap.ColumnDefinitions.Count <= x)
             {
-                mymap.ColumnDefinitions.Add(new ColumnDefinition());
+               var col = new ColumnDefinition();
+                col.Width = new GridLength(1, GridUnitType.Star);
+                mymap.ColumnDefinitions.Add(col);
             }
             Rectangle obj = new Rectangle();
             obj.Fill = new SolidColorBrush(Colors.Black);
-            obj.StrokeThickness = 2.0;
+            obj.StrokeThickness = 1;
+            obj.Stroke = new SolidColorBrush(Colors.Black);
             //Grid.SetRow(tb,y);
             //Grid.SetColumn(tb,x);
             mymap.Children.Add(obj);
@@ -80,14 +52,24 @@ namespace KCKProjectAPI.Builders
         {
             while (mymap.RowDefinitions.Count <= y)
             {
-                mymap.RowDefinitions.Add(new RowDefinition());
+                var row = new RowDefinition();
+                row.Height = new GridLength(1, GridUnitType.Star);
+                mymap.RowDefinitions.Add(row);
             }
             while (mymap.ColumnDefinitions.Count <= x)
             {
-                mymap.ColumnDefinitions.Add(new ColumnDefinition());
+                var col = new ColumnDefinition();
+                col.Width = new GridLength(1, GridUnitType.Star);
+                mymap.ColumnDefinitions.Add(col);
             }
             Rectangle rect = new Rectangle();
-            rect.Fill = new SolidColorBrush(Colors.White);
+            //rect.Fill = new SolidColorBrush(Colors.Red);
+            string directory = Directory.GetCurrentDirectory();
+            rect.Fill = new ImageBrush
+            {
+                ImageSource = new BitmapImage(new Uri($@"{directory}/Builders/WpfGraphics/cegla.png")),
+                Stretch = Stretch.UniformToFill
+            };
             mymap.Children.Add(rect);
             rect.SetValue(Grid.RowProperty, y);
             rect.SetValue(Grid.ColumnProperty, x);
