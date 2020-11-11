@@ -38,9 +38,11 @@ namespace KCKProjekt
             Map mlist = new Map(path, builder);
 
 
-            var map = mlist.map;
+            var map = mlist.getMap() as List<LinkedList<IField>>;
             mlist.GetElems(ref keys, ref doors, ref coins);
 
+            Console.Clear();
+            Console.SetWindowSize(150, 30);
             //write map
             for (int i = 0; i < map.Count; i++)
             {

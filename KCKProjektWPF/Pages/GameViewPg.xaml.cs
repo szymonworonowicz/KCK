@@ -24,10 +24,13 @@ namespace KCKProjektWPF.Pages
         private Grid grid { get; set; }
         public GameViewPg()
         {
-            Map m = new Map("map2", new ConsoleBuilder());
-            grid = m.getMap("map2", new WPFBuilder());
+            //Map m = new Map("map2", new ConsoleBuilder());
+            //Map m = new Map("map2", new WPFBuilder());
+            Map m = new Map("map2", new WPFBuilder());
+            grid = m.getMap() as Grid;
             InitializeComponent();
             mygrid.Children.Add(grid);
+            
         }
     }
 }

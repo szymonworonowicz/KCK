@@ -19,8 +19,6 @@ C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\bin\Debug\netcoreapp3.1\KCKProjekt
 C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\bin\Debug\netcoreapp3.1\KCKProjektWPF.runtimeconfig.dev.json
 C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\bin\Debug\netcoreapp3.1\KCKProjektWPF.dll
 C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\bin\Debug\netcoreapp3.1\KCKProjektWPF.pdb
-C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\bin\Debug\netcoreapp3.1\KCKProjectAPI.dll
-C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\bin\Debug\netcoreapp3.1\KCKProjectAPI.pdb
 C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\KCKProjektWPF.csprojAssemblyReference.cache
 C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\App.g.cs
 C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\KCKProjektWPF_MarkupCompile.cache
@@ -106,3 +104,7 @@ C:\Users\Geoff\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\KCKProjekt
 C:\Users\Geoff\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\KCKProjektWPF.dll
 C:\Users\Geoff\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\KCKProjektWPF.pdb
 C:\Users\Geoff\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\KCKProjektWPF.genruntimeconfig.cache
+C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\bin\Debug\netcoreapp3.1\KCKProjektAPI.dll
+C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\bin\Debug\netcoreapp3.1\KCKProjektAPI.pdb
+C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\Pages\GameViewPg.g.cs
+C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\Pages\GameViewPg.baml

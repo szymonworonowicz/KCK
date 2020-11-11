@@ -26,6 +26,7 @@ namespace KCKProjectAPI
         
         public static void ThreadProcPlayer(ref Player player,ref object mutex,ref bool change,ref Map map)
         {
+            var readmap = map.builder.getMap() as List<LinkedList<IField>>;
             while (true)
             {
                 ConsoleKey key = Console.ReadKey(true).Key;
@@ -33,7 +34,7 @@ namespace KCKProjectAPI
                 {
                     if (key == ConsoleKey.UpArrow)
                     {
-                        if (map.map[player.Y - 1].ElementAt(player.X) is Path)
+                        if (readmap[player.Y - 1].ElementAt(player.X) is Path)
                         {
                             player.Y--;
                             change = true;
@@ -53,7 +54,7 @@ namespace KCKProjectAPI
                     }
                     else if (key == ConsoleKey.DownArrow)
                     {
-                        if (map.map[player.Y + 1].ElementAt(player.X) is Path)
+                        if (readmap[player.Y + 1].ElementAt(player.X) is Path)
                         {
                             player.Y++;
                             change = true;
@@ -62,7 +63,7 @@ namespace KCKProjectAPI
                     }
                     else if (key == ConsoleKey.LeftArrow)
                     {
-                        if (map.map[player.Y].ElementAt(player.X - 1) is Path)
+                        if (readmap[player.Y].ElementAt(player.X - 1) is Path)
                         {
                             player.X--;
                             change = true;
@@ -70,7 +71,7 @@ namespace KCKProjectAPI
                     }
                     else if (key == ConsoleKey.RightArrow)
                     {
-                        if (map.map[player.Y].ElementAt(player.X + 1) is Path)
+                        if (readmap[player.Y].ElementAt(player.X + 1) is Path)
                         {
                             player.X++;
                             change = true;

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -16,42 +17,48 @@ namespace KCKProjectAPI
         private int HeightMap { get; set; }
         private int dGenerator = 1;
         private string path = "";
+        public IBuilder builder;
 
+        public Map()
+        {
+
+        }
 
         public Map(string path,IBuilder builder)
         {
             this.path = path;
-            int y = 0;
-            using(StreamReader str = new StreamReader($"./maps/{path}.txt"))
-            {
-                string line = "";
-                while((line=str.ReadLine())!=null)
-                {
-                    //LinkedList<IField> temp = new LinkedList<IField>();
+            this.builder = builder;
+            //this.path = path;
+            //int y = 0;
+            //using(StreamReader str = new StreamReader($"./maps/{path}.txt"))
+            //{
+            //    string line = "";
+            //    while((line=str.ReadLine())!=null)
+            //    {
+            //        //LinkedList<IField> temp = new LinkedList<IField>();
                     
-                    for(int i=0;i<line.Length;i++)
-                    {
-                        switch (line[i]) 
-                        {
-                            case '#':
+            //        for(int i=0;i<line.Length;i++)
+            //        {
+            //            switch (line[i]) 
+            //            {
+            //                case '#':
                                 
-                                builder.AddWall(i, y);
-                                break;
-                            case ' ':
-                                builder.AddPath(i, y);
-                                break;
-                        }
-                    }
-                    y++;
-                    //map.Add(temp);
-                }
-            }
-            map = builder.getMap() as List<LinkedList<IField>>;
+            //                    builder.AddWall(i, y);
+            //                    break;
+            //                case ' ':
+            //                    builder.AddPath(i, y);
+            //                    break;
+            //            }
+            //        }
+            //        y++;
+            //        //map.Add(temp);
+            //    }
+            //}
+            //map = builder.getMap();
             
         }
-        public Grid getMap(string path, IBuilder builder)
+        public object getMap()
         {
-            this.path = path;
             int y = 0;
             using (StreamReader str = new StreamReader($"./maps/{path}.txt"))
             {
@@ -77,7 +84,7 @@ namespace KCKProjectAPI
                     //map.Add(temp);
                 }
             }
-            return (Grid)builder.getMap();
+            return builder.getMap();
         }
         public void GetElems(ref List<Key> keys, ref List<Door> doors, ref List<Coin> coins)
         {
