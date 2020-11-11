@@ -13,8 +13,8 @@ namespace KCKProjectAPI
     public class Map
     {
         public List<LinkedList<IField>> map { get; private set; }
-        private int WidthMap { get; set; }
-        private int HeightMap { get; set; }
+        public int WidthMap { get; private set; }
+        public int HeightMap { get; private set; }
         private int dGenerator = 1;
         private string path = "";
         public IBuilder builder;
@@ -66,8 +66,9 @@ namespace KCKProjectAPI
                 while ((line = str.ReadLine()) != null)
                 {
                     //LinkedList<IField> temp = new LinkedList<IField>();
-
-                    for (int i = 0; i < line.Length; i++)
+                    HeightMap++;
+                    int i = 0;
+                    for (i = 0; i < line.Length; i++)
                     {
                         switch (line[i])
                         {
@@ -79,7 +80,9 @@ namespace KCKProjectAPI
                                 builder.AddPath(i, y);
                                 break;
                         }
+                        
                     }
+                    WidthMap = i;
                     y++;
                     //map.Add(temp);
                 }

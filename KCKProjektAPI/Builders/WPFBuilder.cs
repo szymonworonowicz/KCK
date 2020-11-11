@@ -14,65 +14,41 @@ namespace KCKProjectAPI.Builders
     {
 
 
-        Grid mymap { get; set; }
+        Canvas mymap { get; set; }
 
 
         public WPFBuilder() : base()
         {
-            mymap = new Grid();
+            mymap = new Canvas();
 
         }
         public override void AddPath(int x, int y)
         {
-            while (mymap.RowDefinitions.Count <= y)
-            {
-                var row = new RowDefinition();
-                row.Height = new GridLength(1, GridUnitType.Star);
-                mymap.RowDefinitions.Add(row);
-            }
-            while (mymap.ColumnDefinitions.Count <= x)
-            {
-               var col = new ColumnDefinition();
-                col.Width = new GridLength(1, GridUnitType.Star);
-                mymap.ColumnDefinitions.Add(col);
-            }
             Rectangle obj = new Rectangle();
             obj.Fill = new SolidColorBrush(Colors.Black);
-            obj.StrokeThickness = 1;
-            obj.Stroke = new SolidColorBrush(Colors.Black);
-            //Grid.SetRow(tb,y);
-            //Grid.SetColumn(tb,x);
+            obj.Width = 10;
+            obj.Height = 20;
             mymap.Children.Add(obj);
-            obj.SetValue(Grid.RowProperty, y);
-            obj.SetValue(Grid.ColumnProperty, x);
+            obj.SetValue(Canvas.TopProperty, y==0?1.0:y*20+1);
+            obj.SetValue(Canvas.LeftProperty, x == 0 ? 1.0 : x * 10 + 1);
 
         }
 
         public override void AddWall(int x, int y)
         {
-            while (mymap.RowDefinitions.Count <= y)
-            {
-                var row = new RowDefinition();
-                row.Height = new GridLength(1, GridUnitType.Star);
-                mymap.RowDefinitions.Add(row);
-            }
-            while (mymap.ColumnDefinitions.Count <= x)
-            {
-                var col = new ColumnDefinition();
-                col.Width = new GridLength(1, GridUnitType.Star);
-                mymap.ColumnDefinitions.Add(col);
-            }
             Rectangle rect = new Rectangle();
             //rect.Fill = new SolidColorBrush(Colors.Red);
             string directory = Directory.GetCurrentDirectory();
+            rect.Width = 10;
+            rect.Height = 20;
             rect.Fill = new ImageBrush
             {
                 ImageSource = new BitmapImage(new Uri($@"{directory}/Builders/WpfGraphics/cegla.png")),
                 Stretch = Stretch.UniformToFill
             };
             mymap.Children.Add(rect);
-            rect.SetValue(Grid.RowProperty, y);
-            rect.SetValue(Grid.ColumnProperty, x);
+            rect.SetValue(Canvas.TopProperty, y == 0 ? 1.0 : y * 20 + 1);
+            rect.SetValue(Canvas.LeftProperty, x == 0 ? 1.0 : x * 10 + 1);
 
 
             //Grid.SetColumn(tb, x);
