@@ -35,7 +35,7 @@ namespace KCKProjektWPF.Pages
         private List<Door> doors;
         private List<Coin> coins;
         private List<Key> ownedKeys;
-        private List<Rectangle> coinsTransform = new List<Rectangle>();
+
         public GameViewPg(string postacUrl, int poziom)
         {
             this.postacUrl = postacUrl;
@@ -53,24 +53,9 @@ namespace KCKProjektWPF.Pages
 
             m.GetElems(ref keys, ref doors, ref coins);
 
-
-            foreach(var coin in coins)
-            {
-                Image img = new Image()
-                {
-                    Height = 20,
-                    Width = 10
-                };
-                var image = new BitmapImage();
-                image.BeginInit();
-                image.UriSource = new Uri(@"pack://application:,,,/KCKProjektWPF;component/Image/coin2.gif");
-                image.EndInit();
-                ImageBehavior.SetAnimatedSource(img, image);
-                canvas.Children.Add(img);
-                img.SetValue(Canvas.TopProperty, coin.y * 20.0 + 1);
-                img.SetValue(Canvas.LeftProperty, coin.y * 10.0 + 1);
-            }
-
+            SetAnimationElement(coins, @"pack://application:,,,/KCKProjektWPF;component/Image/coin.gif");
+            SetAnimationElement(keys, @"pack://application:,,,/KCKProjektWPF;component/Image/key3.gif");
+            SetDors();
 
             ImageSource imageSource = new BitmapImage(new Uri(postacUrl));
             transformImageBrush.ImageSource = imageSource;
@@ -84,6 +69,7 @@ namespace KCKProjektWPF.Pages
                 Width = 10,
                 Height = 20
             };
+
             canvas.Children.Add(player);
             player.SetValue(Canvas.TopProperty, 201.0);
             player.SetValue(Canvas.LeftProperty, 21.0);
@@ -128,6 +114,42 @@ namespace KCKProjektWPF.Pages
 
         }
 
+        private void SetDors()
+        {
+            foreach (Door door in doors)
+            {
+                Image img = new Image()
+                {
+                    Source = new BitmapImage(new Uri(@"pack://application:,,,/KCKProjektWPF;component/Image/drzwi.png")),
+                    Width = 10,
+                    Height = 20
+                };
+                canvas.Children.Add(img);
+                img.SetValue(Canvas.TopProperty, door.y * 20.0 + 1);
+                img.SetValue(Canvas.LeftProperty, door.x * 10.0 + 1);
+            }
+        }
+
+        private void SetAnimationElement<T>(List<T> listofElems, string pathToElem) where T : IPickup
+        {
+            foreach (T elem in listofElems)
+            {
+                Image img = new Image()
+                {
+                    Height = 30,
+                    Width = 20
+                };
+                var image = new BitmapImage();
+                image.BeginInit();
+                image.UriSource = new Uri(pathToElem);
+                image.EndInit();
+                ImageBehavior.SetAnimatedSource(img, image);
+                canvas.Children.Add(img);
+                img.SetValue(Canvas.TopProperty, elem.y * 20.0 + 1);
+                img.SetValue(Canvas.LeftProperty, elem.x * 10.0 + 1);
+            }
+        }
+
         private void CanvasKeyPreview(object sender, KeyEventArgs e)
         {
             double Y = (double)player.GetValue(Canvas.TopProperty);
@@ -157,119 +179,135 @@ namespace KCKProjektWPF.Pages
 
         private void TransformPlayerUp(double Y, double X)
         {
-            foreach (Rectangle rectangle in canvas.Children)
+            foreach (UIElement element in canvas.Children)
             {
-                double y = (double) rectangle.GetValue(Canvas.TopProperty);
-                double x = (double) rectangle.GetValue(Canvas.LeftProperty);
-                if (y == Y - 20 && x == X)
+                if (element is Rectangle rectangle)
                 {
-                    try
+                    double y = (double)rectangle.GetValue(Canvas.TopProperty);
+                    double x = (double)rectangle.GetValue(Canvas.LeftProperty);
+                    if (y == Y - 20 && x == X)
                     {
-                        if (((SolidColorBrush) rectangle.Fill).Color == Colors.Black)
+                        try
                         {
-                            player.SetValue(Canvas.TopProperty, Y - 20);
+                            if (((SolidColorBrush)rectangle.Fill).Color == Colors.Black)
+                            {
+                                player.SetValue(Canvas.TopProperty, Y - 20);
+                            }
+                        }
+                        catch (InvalidCastException)
+                        {
+                            return;
                         }
                     }
-                    catch (InvalidCastException)
-                    {
-                        return;
-                    }
                 }
+
             }
         }
 
         private void TransformPlayerDown(double Y, double X)
         {
-            foreach (Rectangle rectangle in canvas.Children)
+            foreach (UIElement element in canvas.Children)
             {
-                double y = (double) rectangle.GetValue(Canvas.TopProperty);
-                double x = (double) rectangle.GetValue(Canvas.LeftProperty);
-                if (y == Y + 20 && x == X)
+                if (element is Rectangle rectangle)
                 {
-                    try
+                    double y = (double)rectangle.GetValue(Canvas.TopProperty);
+                    double x = (double)rectangle.GetValue(Canvas.LeftProperty);
+                    if (y == Y + 20 && x == X)
                     {
-                        if (((SolidColorBrush) rectangle.Fill).Color == Colors.Black)
+                        try
                         {
-                            player.SetValue(Canvas.TopProperty, Y + 20);
+                            if (((SolidColorBrush)rectangle.Fill).Color == Colors.Black)
+                            {
+                                player.SetValue(Canvas.TopProperty, Y + 20);
+                            }
+                        }
+                        catch (InvalidCastException)
+                        {
+                            return;
                         }
                     }
-                    catch (InvalidCastException)
-                    {
-                        return;
-                    }
                 }
+
             }
         }
 
         private void TransformPlayerLeft(double Y, double X)
         {
-            foreach (Rectangle rectangle in canvas.Children)
+            foreach (UIElement element in canvas.Children)
             {
-                double y = (double) rectangle.GetValue(Canvas.TopProperty);
-                double x = (double) rectangle.GetValue(Canvas.LeftProperty);
-                if (y == Y && x == X - 10)
+                if (element is Rectangle rectangle)
                 {
-                    try
+                    double y = (double)rectangle.GetValue(Canvas.TopProperty);
+                    double x = (double)rectangle.GetValue(Canvas.LeftProperty);
+                    if (y == Y && x == X - 10)
                     {
-                        if (((SolidColorBrush) rectangle.Fill).Color == Colors.Black)
+                        try
                         {
-                            if (!left)
+                            if (((SolidColorBrush)rectangle.Fill).Color == Colors.Black)
                             {
-                                ScaleTransform scale = new ScaleTransform();
-                                scale.CenterX = 5;
-                                scale.CenterY = 10;
-                                scale.ScaleX = -1;
+                                if (!left)
+                                {
+                                    ScaleTransform scale = new ScaleTransform();
+                                    scale.CenterX = 5;
+                                    scale.CenterY = 10;
+                                    scale.ScaleX = -1;
 
-                                transformImageBrush.Transform = scale;
+                                    transformImageBrush.Transform = scale;
 
-                                player.Fill = transformImageBrush;
-                                left = true;
+                                    player.Fill = transformImageBrush;
+                                    left = true;
+                                }
+
+                                player.SetValue(Canvas.LeftProperty, X - 10);
                             }
-
-                            player.SetValue(Canvas.LeftProperty, X - 10);
+                        }
+                        catch (InvalidCastException)
+                        {
+                            return;
                         }
                     }
-                    catch (InvalidCastException)
-                    {
-                        return;
-                    }
                 }
+
             }
         }
 
         private void TransformPlayerRight(double X, double Y)
         {
-            foreach (Rectangle rectangle in canvas.Children)
+            foreach (UIElement element in canvas.Children)
             {
-                double y = (double) rectangle.GetValue(Canvas.TopProperty);
-                double x = (double) rectangle.GetValue(Canvas.LeftProperty);
-                if (y == Y && x == X + 10)
+                if (element is Rectangle rectangle)
                 {
-                    try
+                    double y = (double)rectangle.GetValue(Canvas.TopProperty);
+                    double x = (double)rectangle.GetValue(Canvas.LeftProperty);
+                    if (y == Y && x == X + 10)
                     {
-                        if (((SolidColorBrush) rectangle.Fill).Color == Colors.Black)
+                        try
                         {
-                            if (left)
+                            if (((SolidColorBrush)rectangle.Fill).Color == Colors.Black)
                             {
-                                ScaleTransform scale = new ScaleTransform();
-                                scale.CenterX = 5;
-                                scale.CenterY = 10;
-                                scale.ScaleX = 1;
+                                if (left)
+                                {
+                                    ScaleTransform scale = new ScaleTransform();
+                                    scale.CenterX = 5;
+                                    scale.CenterY = 10;
+                                    scale.ScaleX = 1;
 
-                                transformImageBrush.Transform = scale;
+                                    transformImageBrush.Transform = scale;
 
-                                player.Fill = transformImageBrush;
-                                left = false;
+                                    player.Fill = transformImageBrush;
+                                    left = false;
+                                }
+
+                                player.SetValue(Canvas.LeftProperty, X + 10);
                             }
-
-                            player.SetValue(Canvas.LeftProperty, X + 10);
+                        }
+                        catch (InvalidCastException)
+                        {
+                            return;
                         }
                     }
-                    catch (InvalidCastException)
-                    {
-                        return;
-                    }
                 }
+
             }
         }
     }

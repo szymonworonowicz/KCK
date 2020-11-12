@@ -10,7 +10,15 @@
       Title="GameViewPg"
       Background="White">
 
-    <Grid Name="mygrid" Background="Black">
-      
+    <Grid Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition ></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Foreground="White"  Grid.Row="0" HorizontalAlignment="Center" VerticalContentAlignment="Top" >Nacisnij P w celu pauzy gry , Q w celu wyjscia do menu</Label>
+        <Grid Name="mygrid" Background="Black" Grid.Row="1">
+            
+        </Grid>
     </Grid>
+    
 </Page>

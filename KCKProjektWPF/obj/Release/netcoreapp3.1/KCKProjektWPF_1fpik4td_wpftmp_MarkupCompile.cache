@@ -1,20 +1,20 @@
-﻿KCKProjektWPF
+﻿KCKProjektWPF_1fpik4td_wpftmp
 
 
 winexe
 C#
 .cs
-C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\
-KCKProjektWPF
+C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Release\netcoreapp3.1\
+KCKProjektWPF_1fpik4td_wpftmp
 none
 false
-TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
+TRACE;RELEASE;NETCOREAPP;NETCOREAPP3_1
 C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\App.xaml
 6-1538023822
-9-227750169
-9860293494
-194-794523795
+7-191646008
+16-44518349
+388916039308
 Pages\GameViewPg.xaml;Pages\OpcjePg.xaml;Pages\Startowa.xaml;Strona_Startowa.xaml;Windows\Wybor_postaci.xaml;Windows\Wybor_poziomu.xaml;
 
-False
+True
 

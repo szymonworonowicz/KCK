@@ -112,4 +112,6 @@ C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\obj\Debug\netcoreapp3.1\Page
 C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\bin\Debug\netcoreapp3.1\Image\coin.gif
 C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\bin\Debug\netcoreapp3.1\WpfAnimatedGif.dll
 C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\KCKProjektWPF.csproj.CoreCompileInputs.cache
-C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\bin\Debug\netcoreapp3.1\Image\coin2.gif
+C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\bin\Debug\netcoreapp3.1\Image\key.gif
+C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\bin\Debug\netcoreapp3.1\Image\key3.gif
+C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\bin\Debug\netcoreapp3.1\Image\drzwi.png
