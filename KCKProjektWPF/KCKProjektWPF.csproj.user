@@ -10,6 +10,9 @@
     <Compile Update="Pages\GameViewPg.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Windows\PauseWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Windows\Wybor_postaci.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -22,6 +25,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Strona_Startowa.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\PauseWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Windows\Wybor_postaci.xaml">

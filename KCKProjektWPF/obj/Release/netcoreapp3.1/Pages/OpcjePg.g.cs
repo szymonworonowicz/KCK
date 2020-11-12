@@ -117,7 +117,7 @@ namespace KCKProjektWPF {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/KCKProjektWPF_uv3rcxvk_wpftmp;component/pages/opcjepg.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/KCKProjektWPF_yzrvxgso_wpftmp;component/pages/opcjepg.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Pages\OpcjePg.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

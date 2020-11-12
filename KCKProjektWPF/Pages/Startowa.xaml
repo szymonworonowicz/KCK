@@ -4,8 +4,9 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:KCKProjektWPF"
+      xmlns:gif="http://wpfanimatedgif.codeplex.com"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="650" d:DesignWidth="800"
       Title="Startowa">
 
     <Grid>
@@ -31,29 +32,7 @@
                 <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition Height="auto"></RowDefinition>
             </Grid.RowDefinitions>
-            <Image Name="Logo" Margin="5" Grid.ColumnSpan="2" Grid.Row="0"  Source="./../Image/logo.png" VerticalAlignment="Center" HorizontalAlignment="Center" Height="150" Width="300" >
-                <Image.RenderTransform>
-                    <ScaleTransform x:Name="Scale" ScaleX="0.96" ScaleY="1.06"></ScaleTransform>
-                </Image.RenderTransform>
-                <Image.Triggers>
-                    <EventTrigger RoutedEvent="Image.Loaded">
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <DoubleAnimation
-                                   Storyboard.TargetName="Scale"
-                                    Storyboard.TargetProperty="ScaleX"
-                                    From="0.96" To="1.06" Duration="0:0:0.5"                                    
-                                    AutoReverse="True" RepeatBehavior="Forever"/>
-                                <DoubleAnimation
-                                   Storyboard.TargetName="Scale"
-                                    Storyboard.TargetProperty="ScaleY"
-                                    From="0.96" To="1.06" Duration="0:0:0.5"                                    
-                                    AutoReverse="True" RepeatBehavior="Forever"/>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger>
-                </Image.Triggers>
-            </Image>
+            <Image Grid.ColumnSpan="2" Margin="5" gif:ImageBehavior.AnimatedSource="pack://application:,,,/KCKProjektWPF;component/Image/escape.gif" Height="200" Width="200"></Image>
 
             <TextBlock Grid.Row="1" Grid.ColumnSpan="2"  Name="Start" Margin="5" Foreground="White"  HorizontalAlignment="Center" VerticalAlignment="Center" 
                             FontSize="48" FontFamily="Italic" FontWeight="Bold" Text="Ucieczka z PB">

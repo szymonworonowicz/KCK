@@ -115,3 +115,6 @@ C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\KCKProjekt
 C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\bin\Debug\netcoreapp3.1\Image\key.gif
 C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\bin\Debug\netcoreapp3.1\Image\key3.gif
 C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\bin\Debug\netcoreapp3.1\Image\drzwi.png
+C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\Windows\PauseWindow.g.cs
+C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\Windows\PauseWindow.baml
+C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\bin\Debug\netcoreapp3.1\Image\escape.gif

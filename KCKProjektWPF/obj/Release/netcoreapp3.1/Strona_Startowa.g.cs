@@ -61,7 +61,7 @@ namespace KCKProjektWPF {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/KCKProjektWPF_uv3rcxvk_wpftmp;component/strona_startowa.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/KCKProjektWPF_yzrvxgso_wpftmp;component/strona_startowa.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Strona_Startowa.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

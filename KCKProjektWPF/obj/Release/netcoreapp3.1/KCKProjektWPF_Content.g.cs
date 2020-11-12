@@ -10,6 +10,7 @@
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("image/coin.gif")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("image/drzwi.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("image/escape.gif")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("image/key.gif")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("image/key3.gif")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("image/logo.png")]

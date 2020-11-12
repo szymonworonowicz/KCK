@@ -1,5 +1,6 @@
 ﻿using KCKProjectAPI;
 using KCKProjectAPI.Builders;
+using KCKProjektWPF.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -170,7 +171,15 @@ namespace KCKProjektWPF.Pages
                     break;
                 case System.Windows.Input.Key.Up:
                     TransformPlayerUp(Y, X);
-
+                    break;
+                case System.Windows.Input.Key.Q:
+                    MainWindow window= e.OriginalSource as MainWindow;
+                    window.Content = new Startowa();
+                    window.KeyDown -= CanvasKeyPreview;
+                    break;
+                case System.Windows.Input.Key.P:
+                    PauseWindow pause = new PauseWindow();
+                    pause.ShowDialog();
                     break;
             }
             Thread.Sleep(50);

@@ -9,6 +9,7 @@
   <ItemGroup>
     <None Remove="Image\coin.gif" />
     <None Remove="Image\drzwi.png" />
+    <None Remove="Image\escape.gif" />
     <None Remove="Image\key.gif" />
     <None Remove="Image\key3.gif" />
     <None Remove="Image\logo.png" />
@@ -23,6 +24,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Image\drzwi.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Image\escape.gif">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Image\key.gif">

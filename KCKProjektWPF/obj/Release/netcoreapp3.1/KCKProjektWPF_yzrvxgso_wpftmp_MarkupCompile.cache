@@ -1,19 +1,19 @@
-﻿KCKProjektWPF
+﻿KCKProjektWPF_yzrvxgso_wpftmp
 
 
 winexe
 C#
 .cs
 C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Release\netcoreapp3.1\
-KCKProjektWPF
+KCKProjektWPF_yzrvxgso_wpftmp
 none
 false
 TRACE;RELEASE;NETCOREAPP;NETCOREAPP3_1
 C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\App.xaml
 71377169231
 102052753916
-9-232603150
-1941710563103
+18-171549167
+388916039308
 Pages\GameViewPg.xaml;Pages\OpcjePg.xaml;Pages\Startowa.xaml;Strona_Startowa.xaml;Windows\PauseWindow.xaml;Windows\Wybor_postaci.xaml;Windows\Wybor_poziomu.xaml;
 
 True

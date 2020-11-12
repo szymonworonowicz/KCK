@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
 C:\Users\Julia\source\repos\KCK\KCKProjektWPF\App.xaml
-6-1538023822
+71377169231
 12069302599
-11152050412
-3851604096763
-Pages\GameViewPg.xaml;Pages\OpcjePg.xaml;Pages\Startowa.xaml;Strona_Startowa.xaml;Windows\Wybor_postaci.xaml;Windows\Wybor_poziomu.xaml;
+12-1485257755
+386615039809
+Pages\GameViewPg.xaml;Pages\OpcjePg.xaml;Pages\Startowa.xaml;Strona_Startowa.xaml;Windows\PauseWindow.xaml;Windows\Wybor_postaci.xaml;Windows\Wybor_poziomu.xaml;
 
 True
 
