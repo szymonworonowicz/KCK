@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "uDYj02a50yKUeQDOreuFzmgiAMmTLTwWYbGTAyYZ1JcHySR0AomCzDjNdeZXjU1JN0Jc3wy2pYeTm5hx2ArCXQ==",
+  "dgSpecHash": "ypOZ5++YdP2Q4yFEIk9oRrc4GpaOjkO97hyT2tksA2krr8Dn0NXiWkCI+f5xOSHXoEljjPm27P7w+upI1VtEKA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Julia\\Source\\Repos\\KCK\\KCKProjektWPF\\KCKProjektWPF.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Julia\\.nuget\\packages\\wpfanimatedgif\\2.0.0\\wpfanimatedgif.2.0.0.nupkg.sha512",
     "C:\\Users\\Julia\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
     "C:\\Users\\Julia\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512"
   ],

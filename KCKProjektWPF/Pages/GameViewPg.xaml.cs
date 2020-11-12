@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfAnimatedGif;
 using Key = KCKProjectAPI.Key;
 
 namespace KCKProjektWPF.Pages
@@ -30,7 +31,11 @@ namespace KCKProjektWPF.Pages
         private Rectangle player;
         private ImageBrush transformImageBrush;
         private bool left = false;
-
+        private List<Key> keys;
+        private List<Door> doors;
+        private List<Coin> coins;
+        private List<Key> ownedKeys;
+        private List<Rectangle> coinsTransform = new List<Rectangle>();
         public GameViewPg(string postacUrl, int poziom)
         {
             this.postacUrl = postacUrl;
@@ -41,6 +46,31 @@ namespace KCKProjektWPF.Pages
             canvas = m.getMap() as Canvas;
             MainWindow window = (MainWindow)Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
             window.KeyDown += CanvasKeyPreview;
+
+            keys = new List<Key>();
+            doors = new List<Door>();
+            coins = new List<Coin>();
+
+            m.GetElems(ref keys, ref doors, ref coins);
+
+
+            foreach(var coin in coins)
+            {
+                Image img = new Image()
+                {
+                    Height = 20,
+                    Width = 10
+                };
+                var image = new BitmapImage();
+                image.BeginInit();
+                image.UriSource = new Uri(@"pack://application:,,,/KCKProjektWPF;component/Image/coin2.gif");
+                image.EndInit();
+                ImageBehavior.SetAnimatedSource(img, image);
+                canvas.Children.Add(img);
+                img.SetValue(Canvas.TopProperty, coin.y * 20.0 + 1);
+                img.SetValue(Canvas.LeftProperty, coin.y * 10.0 + 1);
+            }
+
 
             ImageSource imageSource = new BitmapImage(new Uri(postacUrl));
             transformImageBrush.ImageSource = imageSource;
@@ -93,8 +123,6 @@ namespace KCKProjektWPF.Pages
 
             window.Height = (double)m.HeightMap * 23;
             window.Width = (double)m.WidthMap * 10.5;
-            //this.Height = canvas.Height;
-            //this.Width = canvas.Width;
             window.ResizeMode = ResizeMode.CanMinimize;
             mygrid.Children.Add(canvas);
 

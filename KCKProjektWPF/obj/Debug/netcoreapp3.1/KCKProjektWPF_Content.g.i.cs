@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("image/coin.gif")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("image/coin2.gif")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("image/logo.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("image/mario.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("image/pacman.png")]
