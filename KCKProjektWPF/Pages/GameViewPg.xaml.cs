@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -107,124 +108,141 @@ namespace KCKProjektWPF.Pages
             switch (e.Key)
             {
                 case System.Windows.Input.Key.Left:
-                    foreach (Rectangle rectangle in canvas.Children)
-                    {
-                        double y = (double)rectangle.GetValue(Canvas.TopProperty);
-                        double x = (double)rectangle.GetValue(Canvas.LeftProperty);
-                        if (y == Y && x == X - 10)
-                        {
-                            try
-                            {
-                                if (((SolidColorBrush)rectangle.Fill).Color == Colors.Black)
-                                {
-                                    if (!left)
-                                    {
-                                        ScaleTransform scale = new ScaleTransform();
-                                        scale.CenterX = 5;
-                                        scale.CenterY = 10;
-                                        scale.ScaleX = -1;
-
-                                        transformImageBrush.Transform = scale;
-
-                                        player.Fill = transformImageBrush;
-                                        left = true;
-                                    }
-                                    player.SetValue(Canvas.LeftProperty, X - 10);
-                                }
-                            }
-                            catch (InvalidCastException)
-                            {
-                                return;
-                            }
-
-                        }
-                    }
+                    TransformPlayerLeft(Y, X);
 
                     break;
                 case System.Windows.Input.Key.Right:
-                    foreach (Rectangle rectangle in canvas.Children)
-                    {
-                        double y = (double)rectangle.GetValue(Canvas.TopProperty);
-                        double x = (double)rectangle.GetValue(Canvas.LeftProperty);
-                        if (y == Y && x == X + 10)
-                        {
-                            try
-                            {
-                                if (((SolidColorBrush)rectangle.Fill).Color == Colors.Black)
-                                {
-                                    if (left)
-                                    {
-                                        ScaleTransform scale = new ScaleTransform();
-                                        scale.CenterX = 5;
-                                        scale.CenterY = 10;
-                                        scale.ScaleX = 1;
-
-                                        transformImageBrush.Transform = scale;
-
-                                        player.Fill = transformImageBrush;
-                                        left = false;
-                                    }
-                                    player.SetValue(Canvas.LeftProperty, X + 10);
-                                }
-                            }
-                            catch (InvalidCastException)
-                            {
-                                return;
-                            }
-
-                        }
-                    }
+                    TransformPlayerRight(X, Y);
 
                     break;
                 case System.Windows.Input.Key.Down:
-                    foreach (Rectangle rectangle in canvas.Children)
-                    {
-                        double y = (double)rectangle.GetValue(Canvas.TopProperty);
-                        double x = (double)rectangle.GetValue(Canvas.LeftProperty);
-                        if (y == Y + 20 && x == X)
-                        {
-                            try
-                            {
-                                if (((SolidColorBrush)rectangle.Fill).Color == Colors.Black)
-                                {
-                                    player.SetValue(Canvas.TopProperty, Y + 20);
-                                }
-                            }
-                            catch (InvalidCastException)
-                            {
-                                return;
-                            }
-
-                        }
-                    }
+                    TransformPlayerDown(Y, X);
                     break;
                 case System.Windows.Input.Key.Up:
-                    foreach (Rectangle rectangle in canvas.Children)
-                    {
-                        double y = (double)rectangle.GetValue(Canvas.TopProperty);
-                        double x = (double)rectangle.GetValue(Canvas.LeftProperty);
-                        if (y == Y - 20 && x == X)
-                        {
-                            try
-                            {
-                                if (((SolidColorBrush)rectangle.Fill).Color == Colors.Black)
-                                {
-                                    player.SetValue(Canvas.TopProperty, Y - 20);
-                                }
-                            }
-                            catch (InvalidCastException)
-                            {
-                                return;
-                            }
-
-                        }
-                    }
+                    TransformPlayerUp(Y, X);
 
                     break;
             }
+            Thread.Sleep(50);
 
         }
 
+        private void TransformPlayerUp(double Y, double X)
+        {
+            foreach (Rectangle rectangle in canvas.Children)
+            {
+                double y = (double) rectangle.GetValue(Canvas.TopProperty);
+                double x = (double) rectangle.GetValue(Canvas.LeftProperty);
+                if (y == Y - 20 && x == X)
+                {
+                    try
+                    {
+                        if (((SolidColorBrush) rectangle.Fill).Color == Colors.Black)
+                        {
+                            player.SetValue(Canvas.TopProperty, Y - 20);
+                        }
+                    }
+                    catch (InvalidCastException)
+                    {
+                        return;
+                    }
+                }
+            }
+        }
 
+        private void TransformPlayerDown(double Y, double X)
+        {
+            foreach (Rectangle rectangle in canvas.Children)
+            {
+                double y = (double) rectangle.GetValue(Canvas.TopProperty);
+                double x = (double) rectangle.GetValue(Canvas.LeftProperty);
+                if (y == Y + 20 && x == X)
+                {
+                    try
+                    {
+                        if (((SolidColorBrush) rectangle.Fill).Color == Colors.Black)
+                        {
+                            player.SetValue(Canvas.TopProperty, Y + 20);
+                        }
+                    }
+                    catch (InvalidCastException)
+                    {
+                        return;
+                    }
+                }
+            }
+        }
+
+        private void TransformPlayerLeft(double Y, double X)
+        {
+            foreach (Rectangle rectangle in canvas.Children)
+            {
+                double y = (double) rectangle.GetValue(Canvas.TopProperty);
+                double x = (double) rectangle.GetValue(Canvas.LeftProperty);
+                if (y == Y && x == X - 10)
+                {
+                    try
+                    {
+                        if (((SolidColorBrush) rectangle.Fill).Color == Colors.Black)
+                        {
+                            if (!left)
+                            {
+                                ScaleTransform scale = new ScaleTransform();
+                                scale.CenterX = 5;
+                                scale.CenterY = 10;
+                                scale.ScaleX = -1;
+
+                                transformImageBrush.Transform = scale;
+
+                                player.Fill = transformImageBrush;
+                                left = true;
+                            }
+
+                            player.SetValue(Canvas.LeftProperty, X - 10);
+                        }
+                    }
+                    catch (InvalidCastException)
+                    {
+                        return;
+                    }
+                }
+            }
+        }
+
+        private void TransformPlayerRight(double X, double Y)
+        {
+            foreach (Rectangle rectangle in canvas.Children)
+            {
+                double y = (double) rectangle.GetValue(Canvas.TopProperty);
+                double x = (double) rectangle.GetValue(Canvas.LeftProperty);
+                if (y == Y && x == X + 10)
+                {
+                    try
+                    {
+                        if (((SolidColorBrush) rectangle.Fill).Color == Colors.Black)
+                        {
+                            if (left)
+                            {
+                                ScaleTransform scale = new ScaleTransform();
+                                scale.CenterX = 5;
+                                scale.CenterY = 10;
+                                scale.ScaleX = 1;
+
+                                transformImageBrush.Transform = scale;
+
+                                player.Fill = transformImageBrush;
+                                left = false;
+                            }
+
+                            player.SetValue(Canvas.LeftProperty, X + 10);
+                        }
+                    }
+                    catch (InvalidCastException)
+                    {
+                        return;
+                    }
+                }
+            }
+        }
     }
 }
