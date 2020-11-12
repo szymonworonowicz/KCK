@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Key = KCKProjectAPI.Key;
 
 namespace KCKProjektWPF.Pages
 {
@@ -23,23 +24,50 @@ namespace KCKProjektWPF.Pages
     {
 
         private Canvas canvas { get; set; }
+        private string postacUrl;
+        private int poziom;
+        private Rectangle player;
+        private ImageBrush transformImageBrush;
+        private bool left = false;
 
-        public GameViewPg()
+        public GameViewPg(string postacUrl, int poziom)
         {
+            this.postacUrl = postacUrl;
+            this.poziom = poziom;
+            transformImageBrush = new ImageBrush();
             InitializeComponent();
             Map m = new Map("map2", new WPFBuilder());
             canvas = m.getMap() as Canvas;
+            MainWindow window = (MainWindow)Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
+            window.KeyDown += CanvasKeyPreview;
+
+            ImageSource imageSource = new BitmapImage(new Uri(postacUrl));
+            transformImageBrush.ImageSource = imageSource;
+            player = new Rectangle
+            {
+                Fill = new ImageBrush()
+                {
+                    ImageSource = imageSource,
+                    Stretch = Stretch.UniformToFill
+                },
+                Width = 10,
+                Height = 20
+            };
+            canvas.Children.Add(player);
+            player.SetValue(Canvas.TopProperty, 201.0);
+            player.SetValue(Canvas.LeftProperty, 21.0);
+
             double scale = (double)m.WidthMap / (double)m.HeightMap;
             for (int i = 0; i < 3; i++)
             {
                 var row = new RowDefinition();
-                if(i%2==0)
+                if (i % 2 == 0)
                 {
                     row.Height = new GridLength(1, GridUnitType.Star);
                 }
                 else
                 {
-                    row.Height = new GridLength(m.HeightMap-2, GridUnitType.Star);
+                    row.Height = new GridLength(m.HeightMap - 2, GridUnitType.Star);
                 }
                 mygrid.RowDefinitions.Add(row);
 
@@ -61,15 +89,142 @@ namespace KCKProjektWPF.Pages
 
             canvas.SetValue(Grid.ColumnProperty, 1);
             canvas.SetValue(Grid.RowProperty, 1);
-            var window = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
 
-            window.Height = (double)m.HeightMap * 23 ;
-            window.Width = (double)m.WidthMap * 10.5 ;
+            window.Height = (double)m.HeightMap * 23;
+            window.Width = (double)m.WidthMap * 10.5;
             //this.Height = canvas.Height;
             //this.Width = canvas.Width;
             window.ResizeMode = ResizeMode.CanMinimize;
             mygrid.Children.Add(canvas);
 
         }
+
+        private void CanvasKeyPreview(object sender, KeyEventArgs e)
+        {
+            double Y = (double)player.GetValue(Canvas.TopProperty);
+            double X = (double)player.GetValue(Canvas.LeftProperty);
+
+            switch (e.Key)
+            {
+                case System.Windows.Input.Key.Left:
+                    foreach (Rectangle rectangle in canvas.Children)
+                    {
+                        double y = (double)rectangle.GetValue(Canvas.TopProperty);
+                        double x = (double)rectangle.GetValue(Canvas.LeftProperty);
+                        if (y == Y && x == X - 10)
+                        {
+                            try
+                            {
+                                if (((SolidColorBrush)rectangle.Fill).Color == Colors.Black)
+                                {
+                                    if (!left)
+                                    {
+                                        ScaleTransform scale = new ScaleTransform();
+                                        scale.CenterX = 5;
+                                        scale.CenterY = 10;
+                                        scale.ScaleX = -1;
+
+                                        transformImageBrush.Transform = scale;
+
+                                        player.Fill = transformImageBrush;
+                                        left = true;
+                                    }
+                                    player.SetValue(Canvas.LeftProperty, X - 10);
+                                }
+                            }
+                            catch (InvalidCastException)
+                            {
+                                return;
+                            }
+
+                        }
+                    }
+
+                    break;
+                case System.Windows.Input.Key.Right:
+                    foreach (Rectangle rectangle in canvas.Children)
+                    {
+                        double y = (double)rectangle.GetValue(Canvas.TopProperty);
+                        double x = (double)rectangle.GetValue(Canvas.LeftProperty);
+                        if (y == Y && x == X + 10)
+                        {
+                            try
+                            {
+                                if (((SolidColorBrush)rectangle.Fill).Color == Colors.Black)
+                                {
+                                    if (left)
+                                    {
+                                        ScaleTransform scale = new ScaleTransform();
+                                        scale.CenterX = 5;
+                                        scale.CenterY = 10;
+                                        scale.ScaleX = 1;
+
+                                        transformImageBrush.Transform = scale;
+
+                                        player.Fill = transformImageBrush;
+                                        left = false;
+                                    }
+                                    player.SetValue(Canvas.LeftProperty, X + 10);
+                                }
+                            }
+                            catch (InvalidCastException)
+                            {
+                                return;
+                            }
+
+                        }
+                    }
+
+                    break;
+                case System.Windows.Input.Key.Down:
+                    foreach (Rectangle rectangle in canvas.Children)
+                    {
+                        double y = (double)rectangle.GetValue(Canvas.TopProperty);
+                        double x = (double)rectangle.GetValue(Canvas.LeftProperty);
+                        if (y == Y + 20 && x == X)
+                        {
+                            try
+                            {
+                                if (((SolidColorBrush)rectangle.Fill).Color == Colors.Black)
+                                {
+                                    player.SetValue(Canvas.TopProperty, Y + 20);
+                                }
+                            }
+                            catch (InvalidCastException)
+                            {
+                                return;
+                            }
+
+                        }
+                    }
+                    break;
+                case System.Windows.Input.Key.Up:
+                    foreach (Rectangle rectangle in canvas.Children)
+                    {
+                        double y = (double)rectangle.GetValue(Canvas.TopProperty);
+                        double x = (double)rectangle.GetValue(Canvas.LeftProperty);
+                        if (y == Y - 20 && x == X)
+                        {
+                            try
+                            {
+                                if (((SolidColorBrush)rectangle.Fill).Color == Colors.Black)
+                                {
+                                    player.SetValue(Canvas.TopProperty, Y - 20);
+                                }
+                            }
+                            catch (InvalidCastException)
+                            {
+                                return;
+                            }
+
+                        }
+                    }
+
+                    break;
+            }
+
+        }
+
+
     }
 }

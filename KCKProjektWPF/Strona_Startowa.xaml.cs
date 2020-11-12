@@ -20,6 +20,8 @@ namespace KCKProjektWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        public string postacUrl = "pack://application:,,,/KCKProjektWPF;component/Image/mario.png";
+        public int poziom = 1;
         public MainWindow()
         {
 

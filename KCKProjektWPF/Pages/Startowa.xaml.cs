@@ -20,6 +20,7 @@ namespace KCKProjektWPF
     /// </summary>
     public partial class Startowa : Page
     {
+
         public Startowa()
         {
             InitializeComponent();
@@ -33,13 +34,13 @@ namespace KCKProjektWPF
         {
             var window = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
             window.Content = new OpcjePg();
-
         }
 
         private void start_game(object sender, RoutedEventArgs e)
         {
-            var window = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
-            window.Content = new GameViewPg();
+            MainWindow window =(MainWindow) Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
+            
+            window.Content = new GameViewPg(window.postacUrl,window.poziom);
         }
     }
 }

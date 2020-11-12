@@ -20,8 +20,8 @@ namespace KCKProjektWPF
     /// </summary>
     public partial class OpcjePg : Page
     {
-        private string postacUrl = "";
-        private int poziomTTrudnosci = 1;
+        public string postacUrl = "";
+        public int poziomTTrudnosci = 1;
         public OpcjePg()
         {
             InitializeComponent();
@@ -36,24 +36,25 @@ namespace KCKProjektWPF
 
         private void Wybor_Postaci_Click(object sender, RoutedEventArgs e)
         {
-            var window = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
+            MainWindow window =(MainWindow) Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
             Wybor_postaci win = new Wybor_postaci()
             {
                 Owner = window,
             };
             win.ShowDialog();
-            postacUrl = win.postacUrl;
+            window.postacUrl = win.postacUrl;
         }
 
         private void Poziom_Trudnosci_Click(object sender, RoutedEventArgs e)
         {
-            var window = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
+            MainWindow window =(MainWindow) Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
             Wybor_poziomu win = new Wybor_poziomu()
             {
                 Owner = window,
             };
             win.ShowDialog();
-            poziomTTrudnosci = win.poziom ;
+            //poziomTTrudnosci = win.poziom ;
+            window.poziom = win.poziom;
         }
     }
 }
