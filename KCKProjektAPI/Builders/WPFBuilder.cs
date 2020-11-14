@@ -24,13 +24,13 @@ namespace KCKProjectAPI.Builders
         }
         public override void AddPath(int x, int y)
         {
-            Rectangle obj = new Rectangle();
-            obj.Fill = new SolidColorBrush(Colors.Black);
-            obj.Width = 10;
-            obj.Height = 20;
-            mymap.Children.Add(obj);
-            obj.SetValue(Canvas.TopProperty, y==0?1.0:y*20+1);
-            obj.SetValue(Canvas.LeftProperty, x == 0 ? 1.0 : x * 10 + 1);
+            //Rectangle obj = new Rectangle();
+            //obj.Fill = new SolidColorBrush(Colors.Black);
+            //obj.Width = 10;
+            //obj.Height = 20;
+            //mymap.Children.Add(obj);
+            //obj.SetValue(Canvas.TopProperty, y==0?1.0:y*20+1);
+            //obj.SetValue(Canvas.LeftProperty, x == 0 ? 1.0 : x * 10 + 1);
 
         }
 
