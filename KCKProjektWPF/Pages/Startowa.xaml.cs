@@ -42,5 +42,12 @@ namespace KCKProjektWPF
             
             window.Content = new GameViewPg(window.postacUrl,window.poziom);
         }
+
+        private void Autorzy_click(object sender, RoutedEventArgs e)
+        {
+            var window = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
+
+            window.Content = new AboutPg();
+        }
     }
 }

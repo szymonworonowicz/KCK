@@ -8,14 +8,27 @@
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
       Title="GameViewPg"
-      Background="White">
+      Background="White" Loaded="OnLoaded">
 
     <Grid Background="Black">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition ></RowDefinition>
         </Grid.RowDefinitions>
-        <Label Foreground="White"  Grid.Row="0" HorizontalAlignment="Center" VerticalContentAlignment="Top" >Nacisnij P w celu pauzy gry , Q w celu wyjscia do menu</Label>
+        <DockPanel  Grid.Row="0">
+            <WrapPanel Margin="5" DockPanel.Dock="Right">
+                <Image Name="CoinResult" Width="20" Height="30"/>
+                <Label Name="coinCount" Foreground="White" FontSize="20" FontFamily="Italic" Padding="5" Margin="3" Background="Black" BorderBrush="Black">0</Label>
+            </WrapPanel>
+            <WrapPanel Margin="5" DockPanel.Dock="Right">
+                <Image Name="KeyResult" Width="20" Height="30"/>
+                <Label Name="keyCount"  Foreground="White" FontSize="20" FontFamily="Italic" Padding="5" Margin="3" Background="Black" BorderBrush="Black">0</Label>
+            </WrapPanel>
+
+            <Label DockPanel.Dock="Top" Foreground="White"  VerticalAlignment="Center"  HorizontalAlignment="Center" VerticalContentAlignment="Top" Margin="5" Padding="10,0 10,0">Nacisnij P w celu pauzy gry , Q w celu wyjscia do menu</Label>
+
+        </DockPanel>
+        
         <Grid Name="mygrid" Background="Black" Grid.Row="1">
             
         </Grid>

@@ -31,6 +31,7 @@
                 <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
             </Grid.RowDefinitions>
             <Image Grid.ColumnSpan="2" Margin="5" gif:ImageBehavior.AnimatedSource="pack://application:,,,/KCKProjektWPF;component/Image/escape.gif" Height="200" Width="200"></Image>
 
@@ -60,7 +61,7 @@
             </TextBlock>
 
 
-            <Button Click="start_game" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="50,10,50,10" Background="Black" Foreground="White" BorderBrush="Black" FontSize="24" FontFamily="Italic" Content="Nowa Gra">
+            <Button Click="start_game" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="50,10,50,10" Background="Black" Foreground="White" BorderBrush="Black" FontSize="24" FontFamily="Italic" Content="New Game">
                 <Button.RenderTransform>
                     <ScaleTransform x:Name="Scaleb1" ScaleX="0.96" ScaleY="1.06"></ScaleTransform>
                 </Button.RenderTransform>
@@ -83,7 +84,7 @@
                     </EventTrigger>
                 </Button.Triggers>
             </Button>
-            <Button Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="50,10,50,10" Background="Black" Foreground="White" BorderBrush="Black" FontSize="24" FontFamily="Italic" Content="Opcje" Click="Option_Click">
+            <Button Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="50,10,50,10" Background="Black" Foreground="White" BorderBrush="Black" FontSize="24" FontFamily="Italic" Content="Options" Click="Option_Click">
                 <Button.RenderTransform>
                     <ScaleTransform x:Name="Scaleb2" ScaleX="0.96" ScaleY="1.06"></ScaleTransform>
                 </Button.RenderTransform>
@@ -106,7 +107,30 @@
                     </EventTrigger>
                 </Button.Triggers>
             </Button>
-            <Button Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="50,10,50,10" Background="Black" Foreground="White" BorderBrush="Black" FontSize="24" FontFamily="Italic" Click="Exit_Click" Content="Exit">
+            <Button Click="Autorzy_click" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="50,10,50,10" Background="Black" Foreground="White" BorderBrush="Black" FontSize="24" FontFamily="Italic" Content="Authors">
+                <Button.RenderTransform>
+                    <ScaleTransform x:Name="Scaleb6" ScaleX="0.96" ScaleY="1.06"></ScaleTransform>
+                </Button.RenderTransform>
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="Image.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation
+                                   Storyboard.TargetName="Scaleb6"
+                                    Storyboard.TargetProperty="ScaleX"
+                                    From="0.96" To="1.06" Duration="0:0:0.5"                                    
+                                    AutoReverse="True" RepeatBehavior="Forever"/>
+                                <DoubleAnimation
+                                   Storyboard.TargetName="Scaleb6"
+                                    Storyboard.TargetProperty="ScaleY"
+                                    From="0.96" To="1.06" Duration="0:0:0.5"                                    
+                                    AutoReverse="True" RepeatBehavior="Forever"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Button.Triggers>
+            </Button>
+            <Button Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="50,10,50,10" Background="Black" Foreground="White" BorderBrush="Black" FontSize="24" FontFamily="Italic" Click="Exit_Click" Content="Exit">
                 <Button.RenderTransform>
                     <ScaleTransform x:Name="Scaleb3" ScaleX="0.96" ScaleY="1.06"></ScaleTransform>
                 </Button.RenderTransform>

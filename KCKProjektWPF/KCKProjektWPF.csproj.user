@@ -7,6 +7,18 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Controls\CoinControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\DoorControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\KeyControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\AboutPg.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Pages\GameViewPg.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -21,6 +33,18 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Controls\CoinControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\DoorControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\KeyControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\AboutPg.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Pages\GameViewPg.xaml">
       <SubType>Designer</SubType>
     </Page>

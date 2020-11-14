@@ -5,6 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KCKProjektWPF"
         mc:Ignorable="d"
-        Title="Ucieczka z pb" Height="650" Width="800" Background="Black">
+        Title="Ucieczka z pb" Height="650" Width="800" Background="Black" FontSize="24" FontFamily="Italic" Foreground="White">
 
 </Window>

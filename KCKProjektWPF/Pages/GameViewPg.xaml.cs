@@ -1,5 +1,6 @@
 ﻿using KCKProjectAPI;
 using KCKProjectAPI.Builders;
+using KCKProjektWPF.Controls;
 using KCKProjektWPF.Windows;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,8 @@ namespace KCKProjektWPF.Pages
     {
 
         private Canvas canvas { get; set; }
+        private int Coins { get; set; } =0;
+        private int Keys { get; set; } = 0;
         private string postacUrl;
         private int poziom;
         private Rectangle player;
@@ -36,6 +39,8 @@ namespace KCKProjektWPF.Pages
         private List<Door> doors;
         private List<Coin> coins;
         private List<Key> ownedKeys;
+        private const string coinpath = @"pack://application:,,,/KCKProjektWPF;component/Image/coin.gif";
+        private const string keypath = @"pack://application:,,,/KCKProjektWPF;component/Image/key3.gif";
 
         public GameViewPg(string postacUrl, int poziom)
         {
@@ -51,11 +56,12 @@ namespace KCKProjektWPF.Pages
             keys = new List<Key>();
             doors = new List<Door>();
             coins = new List<Coin>();
+            ownedKeys = new List<Key>();
 
             m.GetElems(ref keys, ref doors, ref coins);
 
-            SetAnimationElement(coins, @"pack://application:,,,/KCKProjektWPF;component/Image/coin.gif");
-            SetAnimationElement(keys, @"pack://application:,,,/KCKProjektWPF;component/Image/key3.gif");
+            SetCoin(coinpath);
+            SetKeys(keypath);
             SetDors();
 
             ImageSource imageSource = new BitmapImage(new Uri(postacUrl));
@@ -108,7 +114,7 @@ namespace KCKProjektWPF.Pages
             canvas.SetValue(Grid.ColumnProperty, 1);
             canvas.SetValue(Grid.RowProperty, 1);
 
-            window.Height = (double)m.HeightMap * 23;
+            window.Height = (double)m.HeightMap * 25;
             window.Width = (double)m.WidthMap * 10.5;
             window.ResizeMode = ResizeMode.CanMinimize;
             mygrid.Children.Add(canvas);
@@ -119,41 +125,38 @@ namespace KCKProjektWPF.Pages
         {
             foreach (Door door in doors)
             {
-                Image img = new Image()
-                {
-                    Source = new BitmapImage(new Uri(@"pack://application:,,,/KCKProjektWPF;component/Image/drzwi.png")),
-                    Width = 10,
-                    Height = 20
-                };
-                canvas.Children.Add(img);
-                img.SetValue(Canvas.TopProperty, door.y * 20.0 + 1);
-                img.SetValue(Canvas.LeftProperty, door.x * 10.0 + 1);
+                DoorControl control = new DoorControl();
+                canvas.Children.Add(control);
+                control.SetValue(Canvas.TopProperty, door.y * 20.0 + 1);
+                control.SetValue(Canvas.LeftProperty, door.x * 10.0 + 1);
             }
         }
 
-        private void SetAnimationElement<T>(List<T> listofElems, string pathToElem) where T : IPickup
+        private void SetKeys(string path)
         {
-            foreach (T elem in listofElems)
+            foreach (Key elem in keys)
             {
-                Image img = new Image()
-                {
-                    Height = 30,
-                    Width = 20
-                };
-                var image = new BitmapImage();
-                image.BeginInit();
-                image.UriSource = new Uri(pathToElem);
-                image.EndInit();
-                ImageBehavior.SetAnimatedSource(img, image);
-                canvas.Children.Add(img);
-                img.SetValue(Canvas.TopProperty, elem.y * 20.0 + 1);
-                img.SetValue(Canvas.LeftProperty, elem.x * 10.0 + 1);
+                KeyControl key = new KeyControl(path);
+                canvas.Children.Add(key);
+                key.SetValue(Canvas.TopProperty, elem.y * 20.0 + 1);
+                key.SetValue(Canvas.LeftProperty, elem.x * 10.0 + 1);
+            }
+        }
+
+        private void SetCoin(string path)
+        {
+            foreach (Coin elem in coins)
+            {
+                CoinControl key = new CoinControl(path);
+                canvas.Children.Add(key);
+                key.SetValue(Canvas.TopProperty, elem.y * 20.0 + 1);
+                key.SetValue(Canvas.LeftProperty, elem.x * 10.0 + 1);
             }
         }
 
         private void CanvasKeyPreview(object sender, KeyEventArgs e)
         {
-            double Y = (double)player.GetValue(Canvas.TopProperty);
+            double Y = (double)player.GetValue(Canvas.TopProperty);//pozycja przed ruchem
             double X = (double)player.GetValue(Canvas.LeftProperty);
 
             switch (e.Key)
@@ -173,7 +176,7 @@ namespace KCKProjektWPF.Pages
                     TransformPlayerUp(Y, X);
                     break;
                 case System.Windows.Input.Key.Q:
-                    MainWindow window= e.OriginalSource as MainWindow;
+                    MainWindow window = e.OriginalSource as MainWindow;
                     window.Content = new Startowa();
                     window.KeyDown -= CanvasKeyPreview;
                     break;
@@ -182,9 +185,42 @@ namespace KCKProjektWPF.Pages
                     pause.ShowDialog();
                     break;
             }
-            Thread.Sleep(50);
 
+            Y = (double)player.GetValue(Canvas.TopProperty); // pozycja po ruchu
+            X = (double)player.GetValue(Canvas.LeftProperty);
+
+
+            UserControl control = (UserControl)canvas.Children.OfType<UserControl>().FirstOrDefault(x =>
+            {
+                double controlx = (double)x.GetValue(Canvas.LeftProperty);
+                double controly = (double)x.GetValue(Canvas.TopProperty);
+                if (Y == controly && X == controlx)
+                    return true;
+                return false;
+            });
+
+            if(control is CoinControl coin)
+            {
+                Coins++;
+                this.coinCount.Content = Coins.ToString();
+                canvas.Children.Remove(coin);
+            }
+            else if (control is KeyControl key)
+            {
+                int keyy = (int)(Y - 1.0) / 20;
+                int keyx = (int)(X - 1.0) / 10;
+
+                Key collectkey = keys.FirstOrDefault(x => x.x == keyx && x.y == keyy);
+
+                ownedKeys.Add(collectkey);
+                Keys++;
+                this.keyCount.Content = Keys.ToString();
+                canvas.Children.Remove(key);
+
+            }
+            Thread.Sleep(50);
         }
+
 
         private void TransformPlayerUp(double Y, double X)
         {
@@ -318,6 +354,25 @@ namespace KCKProjektWPF.Pages
                 }
 
             }
+        }
+
+        private void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            Image coinImage = this.CoinResult;
+
+            var coinSource = new BitmapImage();
+            coinSource.BeginInit();
+            coinSource.UriSource = new Uri(coinpath);
+            coinSource.EndInit();
+            ImageBehavior.SetAnimatedSource(coinImage, coinSource);
+
+            Image keyImage = this.KeyResult;
+
+            var keySouce = new BitmapImage();
+            keySouce.BeginInit();
+            keySouce.UriSource = new Uri(keypath);
+            keySouce.EndInit();
+            ImageBehavior.SetAnimatedSource(keyImage, keySouce);
         }
     }
 }
