@@ -22,3 +22,4 @@ C:\Users\user\source\repos\KCKProjekt\KCKProjektAPI\obj\Debug\netcoreapp3.1\KCKP
 C:\Users\user\source\repos\KCKProjekt\KCKProjektAPI\obj\Debug\netcoreapp3.1\KCKProjektAPI.AssemblyInfo.cs
 C:\Users\user\source\repos\KCKProjekt\KCKProjektAPI\obj\Debug\netcoreapp3.1\KCKProjektAPI.dll
 C:\Users\user\source\repos\KCKProjekt\KCKProjektAPI\obj\Debug\netcoreapp3.1\KCKProjektAPI.pdb
+C:\Users\Julia\Source\Repos\KCK\KCKProjektAPI\obj\Debug\netcoreapp3.1\KCKProjektAPI.csprojAssemblyReference.cache

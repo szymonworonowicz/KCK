@@ -10,16 +10,22 @@ namespace KCKProjectAPI
     public class ThreadProcClass
     {
        
-        public static void ThreadProcCoin(Coin coin,ref object writer)
+        public static void ThreadProcCoin(List<Coin> coins,ref object writer)
         {
+            int numberOFCoins = coins.Count;
             while (true)
             {
-                lock (writer)
+                lock (writer)//wypisywanie
                 {
-                    
-                    coin.Rotate();
+                    for(int i=0;i< coins.Count; i++)
+                    {
+                        coins[i].Rotate();
+                        Thread.Sleep(50);
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Cursor.CursorFun(coins[i].x, coins[i].y, coins[i].type[0]);
+                    }
+
                     Thread.Sleep(100);
-                    Cursor.CursorFun(coin.x,coin.y,coin.type[0]);
                 }
 
             }
@@ -35,6 +41,7 @@ namespace KCKProjectAPI
                 ConsoleKey key = Console.ReadKey(true).Key;
                 lock (mutex)
                 {
+
                     if (key == ConsoleKey.UpArrow)
                     {
                         if (readmap[player.Y - 1].ElementAt(player.X) is Path)

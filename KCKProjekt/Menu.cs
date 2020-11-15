@@ -13,7 +13,16 @@ namespace KCKProjektConsole
 {
     public static class Menu
     {
-        private delegate void TestDelegate(int x, int y, List<string>logo, ref napis[] napisy);
+        private delegate void menuAction<T>(int x , int y, List<string> logo, ref T map);
+        private static menuAction<napis[]> menuprinter;
+        private delegate int optionAction(int id);
+        private static optionAction optionprinter;
+        private static int levelid = 1;
+        static Menu()
+        {
+            menuprinter = new menuAction<napis[]>(printMenu);
+            optionprinter = new optionAction(ChooseOptionMenu);
+        }
         private struct napis
         {
             public int x;
@@ -85,10 +94,7 @@ namespace KCKProjektConsole
         }
 
         public static int getMenu(int poziom = 1)
-        {
-            
-        string[] menus = { "main menu","difficulties","about","game","pause" };
-            
+        {           
             object mutex = new object();//mutex
             Console.CursorVisible = false;
             List<string> logo = new List<string>();
@@ -103,37 +109,12 @@ namespace KCKProjektConsole
             }
             int y = 36, x = 100;
             napis[] napisy = new napis[4];
-            //printMenu(x, y, logo, ref napisy);
-            //printDifficulties(x, y, logo, ref napisy);
-            /*List<object> list = new List<object>();
-            list.Add(x);
-            list.Add(y);
-            list.Add(logo);
-            list.Add(ref napisy);*/
-            //typeof(Menu).GetMethod("printDifficulties").Invoke(null, new object[] { x, y, logo,  napisy });
-            /*System.Reflection.MethodInfo m = typeof(Menu).GetMethod("printMenu");
-            TestDelegate td = (TestDelegate)Delegate.CreateDelegate(typeof(TestDelegate), typeof(Menu), m);
-            td.Invoke(x,y,logo,ref napisy);*/
-            string currentMenu = "main menu";
-            switch (currentMenu)
-            {
-                case "main menu":
-                    
-                    printMenu(x, y, logo, ref napisy);
-                    break;
-                    
-                case "difficulties":
-                    
-                    printDifficulties(x, y, logo, ref napisy);
-                    break;
-                case "about":
-                    printAbout(x, y, logo, ref napisy);
-                    break;
-            }
+            menuprinter(x, y, logo, ref napisy);
             ConsoleKey key;
             int id = 0;
             CancellationTokenSource cancel = new CancellationTokenSource();
-            Thread mainmenu = new Thread(() => UpdateConsoleMenuSize(ref x, ref y, ref mutex, ref logo, ref napisy, ref id, cancel,currentMenu));//zmieniaanie asynchronicznie szerokosci okna
+
+            Thread mainmenu = new Thread(() => UpdateConsoleMenuSize(menuprinter,ref x, ref y, ref mutex, ref logo, ref napisy, ref id, cancel));//zmieniaanie asynchronicznie szerokosci okna
 
             mainmenu.Start();
 
@@ -167,37 +148,71 @@ namespace KCKProjektConsole
 
             } while (key != ConsoleKey.Enter);
             cancel.Cancel();
-            return ChooseOption(id);
+            return optionprinter(id);
         }
 
-        private static int ChooseOption(int id)
+        private static int ChooseOptionMenu(int id)
         {
-            if (id == 0)
+            switch(id)
             {
-                return 1;
+                case 0:
+                    return levelid;
+                case 1:
+                    levelid =  Option();
+                    break;
+                case 2:
+                    About();
+                    break;
+                case 3:
+                    Environment.Exit(0);
+                    break;
             }
-            else if (id == 1)
+            return levelid;
+        }
+        private static int ChooseOptionOption(int id)
+        {
+            switch(id)
             {
-                return Option();
+                case 0:
+                    levelid= 1;
+                    break;
+                case 1:
+                    levelid = 2;
+                    break;
+                case 2:
+                    levelid = 3;
+                    break;
             }
-            else if (id == 2)
-            {
-                About();
-                getMenu();
-            }
-            else if (id == 3)
-            {
-                Environment.Exit(0);
-            }
-            return 1;
+            return MenuOption();
+        }
+        private static int MenuOption()
+        {
+            Console.Clear();
+            menuprinter = new menuAction<napis[]>(printMenu);
+            optionprinter = new optionAction(ChooseOptionMenu);
+
+            return getMenu();
         }
         private static int Option()
         {
-            return 1;
-        }
-        private static void About()
-        {
+            Console.Clear();
+            menuprinter = new menuAction<napis[]>(printDifficulties);
+            optionprinter = new optionAction(ChooseOptionOption);
 
+            return getMenu();
+        }
+
+        private static int ChooseOptionAbout(int id) // parametr tylko poto zeby pod delegata moc podpiac
+        {
+            return MenuOption();
+        }
+        private static int About()
+        {
+            Console.Clear();
+            menuprinter = new menuAction<napis[]>(printAbout);
+            optionprinter = new optionAction(ChooseOptionAbout);
+
+            return getMenu();
         }
         
         private static void printMenu(int x, int y, List<string> logo, ref napis[] napisy)
@@ -237,7 +252,7 @@ namespace KCKProjektConsole
         {
             Console.SetWindowSize(x, y);
             Console.ForegroundColor = ConsoleColor.Magenta;
-
+            
             int ox = x / 2;
             int oy = y / 2;
             int logoWidth = logo[0].Length;
@@ -257,15 +272,13 @@ namespace KCKProjektConsole
             }
 
             ConsoleHelper.SetCurrentFont("Consolas", 24);
-            napisy[0] = new napis(ox - 4, oy - 3, "autorzy");
+            napisy[0] = new napis(ox - 8, oy - 3, "Szymon Woronowicz");
             napisy[1] = new napis(ox - 6, oy - 1, "Julia Gejdel");
             napisy[2] = new napis(ox - 7, oy + 1, "Paweł Krzywosz");
-            napisy[2] = new napis(ox - 8, oy + 1, "Szymon Woronowicz");
             napisy[3] = new napis(ox - 3, oy + 3, "Wyjscie");
-            Cursor.writeString(ox - 4, oy - 3, "autorzy");
+            Cursor.writeString(ox - 8, oy - 3, "Szymon Woronowicz");
             Cursor.writeString(ox - 6, oy - 1, "Julia Gejdel");
             Cursor.writeString(ox - 7, oy + 1, "Paweł Krzywosz");
-            Cursor.writeString(ox - 8, oy + 1, "Szymon Woronowicz");
             Cursor.writeString(ox - 3, oy + 3, "Wyjscie");
         }
         private static void printDifficulties(int x, int y, List<string> logo, ref napis[] napisy)
@@ -301,7 +314,7 @@ namespace KCKProjektConsole
             Cursor.writeString(ox - 3, oy + 1, "trudny");
             Cursor.writeString(ox - 3, oy + 3, "Wyjscie");
         }
-        private static void UpdateConsoleMenuSize(ref int x, ref int y, ref object mutex, ref List<string> logo, ref napis[] napisy, ref int id, CancellationTokenSource cancel,string currentmenu)
+        private static void UpdateConsoleMenuSize(menuAction<napis[]> menu, ref int x, ref int y, ref object mutex, ref List<string> logo, ref napis[] napisy, ref int id, CancellationTokenSource cancel)
         {
             while (true)
             {
@@ -311,27 +324,30 @@ namespace KCKProjektConsole
                     {
                         try
                         {
+                            Console.CursorVisible = false;
                             Console.Clear();
                             Thread.Sleep(10);
                             Console.ForegroundColor = ConsoleColor.White;
 
                             //printMenu(Console.WindowWidth, Console.WindowHeight, logo, ref napisy);
-                            
-                            switch (currentmenu)
-                            {
-                                case "main menu":
 
-                                    printMenu(x, y, logo, ref napisy);
-                                    break;
 
-                                case "difficulties":
+                            menu(x, y, logo, ref napisy);
+                            //switch (currentmenu)
+                            //{
+                            //    case "main menu":
 
-                                    printDifficulties(x, y, logo, ref napisy);
-                                    break;
-                                case "about":
-                                    printAbout(x, y, logo, ref napisy);
-                                    break;
-                            }
+                            //        printMenu(x, y, logo, ref napisy);
+                            //        break;
+
+                            //    case "difficulties":
+
+                            //        printDifficulties(x, y, logo, ref napisy);
+                            //        break;
+                            //    case "about":
+                            //        printAbout(x, y, logo, ref napisy);
+                            //        break;
+                            //}
                             //printDifficulties(Console.WindowWidth, Console.WindowHeight, logo, ref napisy);
                             Console.ForegroundColor = ConsoleColor.Yellow;
                             Cursor.writeString(napisy[id].x - 2, napisy[id].y, "->");

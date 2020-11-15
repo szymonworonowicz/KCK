@@ -63,27 +63,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Geoff\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Julia\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Geoff\\Source\\Repos\\KCK\\KCKProjektWPF\\KCKProjektWPF.csproj",
+      "projectUniqueName": "C:\\Users\\Julia\\Source\\Repos\\KCK\\KCKProjektWPF\\KCKProjektWPF.csproj",
       "projectName": "KCKProjektWPF",
-      "projectPath": "C:\\Users\\Geoff\\Source\\Repos\\KCK\\KCKProjektWPF\\KCKProjektWPF.csproj",
-      "packagesPath": "C:\\Users\\Geoff\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Geoff\\Source\\Repos\\KCK\\KCKProjektWPF\\obj\\",
+      "projectPath": "C:\\Users\\Julia\\Source\\Repos\\KCK\\KCKProjektWPF\\KCKProjektWPF.csproj",
+      "packagesPath": "C:\\Users\\Julia\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Julia\\Source\\Repos\\KCK\\KCKProjektWPF\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Geoff\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\Julia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -95,8 +88,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Geoff\\Source\\Repos\\KCK\\KCKProjektAPI\\KCKProjektAPI.csproj": {
-              "projectPath": "C:\\Users\\Geoff\\Source\\Repos\\KCK\\KCKProjektAPI\\KCKProjektAPI.csproj"
+            "C:\\Users\\Julia\\Source\\Repos\\KCK\\KCKProjektAPI\\KCKProjektAPI.csproj": {
+              "projectPath": "C:\\Users\\Julia\\Source\\Repos\\KCK\\KCKProjektAPI\\KCKProjektAPI.csproj"
             }
           }
         }
@@ -125,6 +118,16 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[3.1.0, 3.1.0]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[3.1.0, 3.1.0]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
@@ -133,7 +136,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

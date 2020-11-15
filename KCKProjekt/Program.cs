@@ -20,9 +20,6 @@ namespace KCKProjekt
         private static List<ThreadInfo> coinThreads = new List<ThreadInfo>();
 
         private static int points = 0;
-        //private static ConditionVariable
-        private static int x = 0;
-        private static int y = 0;
         List<IField> listf = new List<IField>();
        
         
@@ -48,6 +45,14 @@ namespace KCKProjekt
             {
                 foreach (var elem in map[i])
                 {
+                    if(elem is KCKProjectAPI.Path)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Black;
+                    }
+                    else if (elem is Wall)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    }
                     Console.Write(elem);
                 }
                 Console.Write('\n');
@@ -62,32 +67,17 @@ namespace KCKProjekt
 
             foreach (var door in doors)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.DarkGray;
                 Cursor.CursorFun(door.x, door.y, 'D');
             }
 
-            //Thread[] threadArray = new Thread[coins.Count];
-            foreach (var coin in coins)
-            {
-                ThreadInfo info = new ThreadInfo()
-                {
-                    CoinId = coin.id,
-                    Thread = new Thread(() => ThreadProcClass.ThreadProcCoin(coin, ref writer))
-                };
-                info.Thread.Start();
-                coinThreads.Add(info);
-            }
+
+            Thread coin = new Thread(() => ThreadProcClass.ThreadProcCoin(coins, ref writer));
+            coin.Start();
 
             Console.ForegroundColor = ConsoleColor.White;
 
             Console.CursorVisible = false;
-
-            ///Console.Out.WriteLine(mlist.ToString());
-            /*for (int i = -10; i < 5; ++i)
-            {
-                Console.Out.WriteLine(mlist.FragmentToString(-10, i, 15));
-            }*/
-
 
 
             Player p = new Player { X = 2, Y = 9 };
@@ -98,15 +88,7 @@ namespace KCKProjekt
             player.Start();
             List<string> prevMap = new List<string>();
             List<string> currentMap = new List<string>();
-            //for(int i = 0;i<height;++i)
-            //{
-            //    currentMap.Add(new String());
-            //    for(int u = 0;u<height;++u)
-            //    {
 
-            //    }
-            //}
-            //Cursor c = new Cursor();
             Cursor.CursorFun(p.X, p.Y, 'P');
             Player prev = new Player(p);
             while (true)
@@ -120,34 +102,18 @@ namespace KCKProjekt
                     {
                         lock (writer)
                         {
+                            Console.ForegroundColor = ConsoleColor.White;
                             Cursor.CursorFun(prev.X, prev.Y, ' ');
-                        Cursor.CursorFun(p.X, p.Y, 'P');
-                        prev = new Player(p);
-                        change = false;
+                            Cursor.CursorFun(p.X, p.Y, 'P');
+                            prev = new Player(p);
+                            change = false;
                         }
                     }
                     else
                     {
                         p = new Player(prev);
                     }
-                    //NIE DOKONCZONE NIE DZIALA JESZCZE
-                    /* int consoleX = 0;
-                     int consoleY = 0;
-                     for ( int i = p.Y - 10; i < p.Y + 10; ++i)
-                     {
-                         currentMap[consoleY] = mlist.FragmentToString(x, i, 21);
-                         for(int u=0;u<currentMap[i].Length;++i)
-                         {
-                             if (currentMap[consoleY][consoleX] != prevMap[consoleY][consoleX])
-                             {
-                                 Cursor.CursorFun(consoleX, consoleY, currentMap[consoleY][consoleX]);
-                             }
-                             consoleY++;
-                         }
-                         consoleX++;
-
-                     }*/
-                    //Thread.Sleep(100);
+                   
                 }
 
                 if (!player.IsAlive)
@@ -156,48 +122,6 @@ namespace KCKProjekt
                 }
 
             }
-
-
-            //Key k = new Key(10, 1, 1);
-            //keys.Add(k);
-
-            //k = new Key(7, 2, 2);
-            //keys.Add(k);
-
-            //Door d = new Door(10, 3, 3);
-            //doors.Add(d);
-
-            //d = new Door(7, 5, 5);
-
-            //doors.Add(d);
-
-            //PickUps pick = new PickUps();
-            ////zbierz klucz z mapy
-
-            ////sprawdz czy mozesz otworzyc drzwi
-            //IPickup own = pick.PickupKey(1, 1, keys);
-            //ownedKeys.Add((Key)own);
-            //Console.Out.WriteLine(keys.ToStringExtend());
-            //Console.Out.WriteLine(ownedKeys.ToStringExtend());
-            //Console.Out.WriteLine(doors.ToStringExtend());
-
-            //pick.unlockTheDoor(3, 3, doors, ownedKeys);
-
-            //Console.Out.WriteLine(keys.ToStringExtend());
-            //Console.Out.WriteLine(ownedKeys.ToStringExtend());
-            //Console.Out.WriteLine(doors.ToStringExtend());
-
-            //pick.unlockTheDoor(5, 5, doors, ownedKeys);
-
-            //Console.Out.WriteLine(keys.ToString());
-            //Console.Out.WriteLine(ownedKeys.ToString());
-            //Console.Out.WriteLine(doors.ToString());
-
-
-
-
-
-
             Console.In.ReadLine();
         }
     }

@@ -17,7 +17,7 @@ namespace KCKProjectAPI.Extensions
                 return temp.id;
 
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 
                 throw new KeyNotFoundException("nie znaleziono elementu o danym id");
@@ -36,7 +36,7 @@ namespace KCKProjectAPI.Extensions
                 return temp;
             }
             
-            catch(Exception e)
+            catch(Exception)
             {
                 throw new KeyNotFoundException("nie znaleziono elementu o danym id");
             }
@@ -51,7 +51,7 @@ namespace KCKProjectAPI.Extensions
                 IPickup temp = list.FirstOrDefault(item => item.x == x && item.y == y);
                 return temp;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw new KeyNotFoundException("nie znaleziono elementu o danym id");
             }

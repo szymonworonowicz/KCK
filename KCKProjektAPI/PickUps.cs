@@ -35,7 +35,7 @@ namespace KCKProjectAPI
                     return 1;
                 
             }
-            catch(KeyNotFoundException ex)
+            catch(KeyNotFoundException )
             {
 
                 return 0;
@@ -52,7 +52,7 @@ namespace KCKProjectAPI
                 //Console.Out.WriteLine(id);
                 return key;
             }   
-            catch(KeyNotFoundException ex)
+            catch(KeyNotFoundException )
             {
                 return null;
             }
@@ -71,7 +71,7 @@ namespace KCKProjectAPI
                     ownedKeys.GetById(DoorId); // jesli exc nie mozna przejsc -true
 
                 }
-                catch(KeyNotFoundException e)
+                catch(KeyNotFoundException )
                 {
                     return true;
                 }
@@ -82,7 +82,7 @@ namespace KCKProjectAPI
                 ownedKeys.RemoveById(DoorId);
                 return false;
             }
-            catch(KeyNotFoundException ex)
+            catch(KeyNotFoundException )
             {
                 return false;
             }
