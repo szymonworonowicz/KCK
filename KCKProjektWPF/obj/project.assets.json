@@ -63,24 +63,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\user\\.nuget\\packages\\": {},
+    "C:\\Users\\Geoff\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\source\\repos\\KCKProjekt\\KCKProjektWPF\\KCKProjektWPF.csproj",
+      "projectUniqueName": "C:\\Users\\Geoff\\Source\\Repos\\KCK\\KCKProjektWPF\\KCKProjektWPF.csproj",
       "projectName": "KCKProjektWPF",
-      "projectPath": "C:\\Users\\user\\source\\repos\\KCKProjekt\\KCKProjektWPF\\KCKProjektWPF.csproj",
-      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\source\\repos\\KCKProjekt\\KCKProjektWPF\\obj\\",
+      "projectPath": "C:\\Users\\Geoff\\Source\\Repos\\KCK\\KCKProjektWPF\\KCKProjektWPF.csproj",
+      "packagesPath": "C:\\Users\\Geoff\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Geoff\\Source\\Repos\\KCK\\KCKProjektWPF\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Geoff\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -92,8 +95,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\user\\source\\repos\\KCKProjekt\\KCKProjektAPI\\KCKProjektAPI.csproj": {
-              "projectPath": "C:\\Users\\user\\source\\repos\\KCKProjekt\\KCKProjektAPI\\KCKProjektAPI.csproj"
+            "C:\\Users\\Geoff\\Source\\Repos\\KCK\\KCKProjektAPI\\KCKProjektAPI.csproj": {
+              "projectPath": "C:\\Users\\Geoff\\Source\\Repos\\KCK\\KCKProjektAPI\\KCKProjektAPI.csproj"
             }
           }
         }
@@ -130,7 +133,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

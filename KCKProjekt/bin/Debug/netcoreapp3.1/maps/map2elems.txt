@@ -11,3 +11,4 @@ Door 5 41 24
 Coin 1 32 22
 Coin 2 15 15
 Coin 3 25 25
+Coin 4 6 6
