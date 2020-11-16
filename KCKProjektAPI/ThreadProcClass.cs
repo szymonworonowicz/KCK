@@ -33,7 +33,7 @@ namespace KCKProjectAPI
 
        
         
-        public static void ThreadProcPlayer(ref Player player,ref object mutex,ref bool change,ref Map map,ref List<Key> ownedKeys, ref List<Key>keys,ref List<Door>doors,ref List<Coin>coins,ref List<ThreadInfo>threads)
+        public static void ThreadProcPlayer(ref Player player,ref object mutex,ref bool change,ref Map map,ref List<Key> ownedKeys, ref List<Key>keys,ref List<Door>doors,ref List<Coin>coins)
         {
             var readmap = map.builder.getMap() as List<LinkedList<IField>>;
             while (true)
@@ -47,7 +47,7 @@ namespace KCKProjectAPI
                         if (readmap[player.Y - 1].ElementAt(player.X) is Path)
                         {
 
-                            if(PickUps.PickUpCoin(player.X , player.Y - 1,coins,threads)==1)
+                            if(PickUps.PickUpCoin(player.X , player.Y - 1,coins)==1)
                             {
                                 
                                 /*points ++*/
@@ -90,7 +90,7 @@ namespace KCKProjectAPI
                     {
                         if (readmap[player.Y + 1].ElementAt(player.X) is Path)
                         {
-                            if (PickUps.PickUpCoin(player.X , player.Y+1, coins,threads) == 1)
+                            if (PickUps.PickUpCoin(player.X , player.Y+1, coins) == 1)
                             {
                                 /*points ++*/
                             }
@@ -118,7 +118,7 @@ namespace KCKProjectAPI
                     {
                         if (readmap[player.Y].ElementAt(player.X - 1) is Path)
                         {
-                            if (PickUps.PickUpCoin(player.X - 1, player.Y, coins,threads) == 1)
+                            if (PickUps.PickUpCoin(player.X - 1, player.Y, coins) == 1)
                             {
                                 /*points ++*/
                             }
@@ -145,7 +145,7 @@ namespace KCKProjectAPI
                     {
                         if (readmap[player.Y].ElementAt(player.X + 1) is Path)
                         {
-                            if (PickUps.PickUpCoin(player.X + 1, player.Y, coins,threads) == 1)
+                            if (PickUps.PickUpCoin(player.X + 1, player.Y, coins) == 1)
                             {
                                 /*points ++*/
                             }

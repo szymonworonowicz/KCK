@@ -12,10 +12,7 @@ namespace KCKProjectAPI.Builders
 {
     public class WPFBuilder : IBuilder
     {
-
-
         Canvas mymap { get; set; }
-
 
         public WPFBuilder() : base()
         {

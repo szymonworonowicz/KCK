@@ -10,7 +10,7 @@ namespace KCKProjectAPI
 {
     public class PickUps
     {
-        public static int PickUpCoin(int x, int y ,List<Coin> coins,List<ThreadInfo>threads)
+        public static int PickUpCoin(int x, int y ,List<Coin> coins)
         {
             try
             {

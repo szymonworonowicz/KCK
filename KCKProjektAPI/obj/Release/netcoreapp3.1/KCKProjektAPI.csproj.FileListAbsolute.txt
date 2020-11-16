@@ -1,7 +1,6 @@
 C:\Users\Julia\Source\Repos\KCK\KCKProjektAPI\bin\Release\netcoreapp3.1\KCKProjektAPI.deps.json
 C:\Users\Julia\Source\Repos\KCK\KCKProjektAPI\bin\Release\netcoreapp3.1\KCKProjektAPI.dll
 C:\Users\Julia\Source\Repos\KCK\KCKProjektAPI\bin\Release\netcoreapp3.1\KCKProjektAPI.pdb
-C:\Users\Julia\Source\Repos\KCK\KCKProjektAPI\obj\Release\netcoreapp3.1\KCKProjektAPI.csprojAssemblyReference.cache
 C:\Users\Julia\Source\Repos\KCK\KCKProjektAPI\obj\Release\netcoreapp3.1\KCKProjektAPI.csproj.CoreCompileInputs.cache
 C:\Users\Julia\Source\Repos\KCK\KCKProjektAPI\obj\Release\netcoreapp3.1\KCKProjektAPI.AssemblyInfoInputs.cache
 C:\Users\Julia\Source\Repos\KCK\KCKProjektAPI\obj\Release\netcoreapp3.1\KCKProjektAPI.AssemblyInfo.cs

@@ -76,7 +76,6 @@ C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\Pages\Game
 C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\bin\Debug\netcoreapp3.1\Image\coin.gif
 C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\bin\Debug\netcoreapp3.1\WpfAnimatedGif.dll
 C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\KCKProjektWPF.csproj.CoreCompileInputs.cache
-C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\bin\Debug\netcoreapp3.1\Image\key.gif
 C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\bin\Debug\netcoreapp3.1\Image\key3.gif
 C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\bin\Debug\netcoreapp3.1\Image\drzwi.png
 C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\Windows\PauseWindow.g.cs
@@ -90,7 +89,6 @@ C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\Controls\C
 C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\Controls\KeyControl.baml
 C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\Pages\AboutPg.g.cs
 C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\Pages\AboutPg.baml
-C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\bin\Debug\netcoreapp3.1\Image\black.png
 C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\bin\Debug\netcoreapp3.1\Image\coin.gif
 C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\bin\Debug\netcoreapp3.1\Image\drzwi.png
 C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\bin\Debug\netcoreapp3.1\Image\escape.gif
@@ -157,3 +155,6 @@ C:\Users\Geoff\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\Controls\D
 C:\Users\Geoff\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\Controls\KeyControl.baml
 C:\Users\Geoff\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\Pages\AboutPg.baml
 C:\Users\Geoff\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\Windows\PauseWindow.baml
+C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\bin\Debug\netcoreapp3.1\Image\wyjsciowe.png
+C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\Controls\EscapeDoor.g.cs
+C:\Users\Julia\Source\Repos\KCK\KCKProjektWPF\obj\Debug\netcoreapp3.1\Controls\EscapeDoor.baml

@@ -15,6 +15,7 @@
     <None Remove="Image\mario.png" />
     <None Remove="Image\pacman.png" />
     <None Remove="Image\sonic.png" />
+    <None Remove="Image\wyjsciowe.png" />
     <None Remove="logo.png" />
   </ItemGroup>
 
@@ -41,6 +42,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Image\sonic.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Image\wyjsciowe.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="logo.png">

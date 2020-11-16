@@ -52,7 +52,7 @@ namespace KCKProjektWPF.Pages
             canvas = m.getMap() as Canvas;
             MainWindow window = (MainWindow)Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
             window.KeyDown += CanvasKeyPreview;
-
+                
             keys = new List<Key>();
             doors = new List<Door>();
             coins = new List<Coin>();
@@ -63,6 +63,20 @@ namespace KCKProjektWPF.Pages
             SetCoin(coinpath);
             SetKeys(keypath);
             SetDors();
+
+            EscapeDoor escape = new EscapeDoor();//wyjsciowe drzwi
+            canvas.Children.Add(escape);
+            escape.SetValue(Canvas.LeftProperty, 1.0);
+            escape.SetValue(Canvas.TopProperty, 20.0 * 16 + 1.0);
+            //robienie dziury na wyjsciowe drzwi
+            canvas.Children.Remove(canvas.Children.OfType<Rectangle>().FirstOrDefault(x =>
+            {
+                double controlx = (double)x.GetValue(Canvas.LeftProperty);
+                double controly = (double)x.GetValue(Canvas.TopProperty);
+                if (20.0*16+1 == controly && 1.0 == controlx)
+                    return true;
+                return false;
+            }));
 
             ImageSource imageSource = new BitmapImage(new Uri(postacUrl));
             transformImageBrush.ImageSource = imageSource;
@@ -156,24 +170,24 @@ namespace KCKProjektWPF.Pages
 
         private void CanvasKeyPreview(object sender, KeyEventArgs e)
         {
-            double Y = (double)player.GetValue(Canvas.TopProperty);//pozycja przed ruchem
-            double X = (double)player.GetValue(Canvas.LeftProperty);
+            double beforeY = (double)player.GetValue(Canvas.TopProperty);//pozycja przed ruchem
+            double beforeX = (double)player.GetValue(Canvas.LeftProperty);
 
             switch (e.Key)
             {
                 case System.Windows.Input.Key.Left:
-                    TransformPlayerLeft(Y, X);
+                    TransformPlayerLeft(beforeY, beforeX);
 
                     break;
                 case System.Windows.Input.Key.Right:
-                    TransformPlayerRight(X, Y);
+                    TransformPlayerRight(beforeX, beforeY);
 
                     break;
                 case System.Windows.Input.Key.Down:
-                    TransformPlayerDown(Y, X);
+                    TransformPlayerDown(beforeY, beforeX);
                     break;
                 case System.Windows.Input.Key.Up:
-                    TransformPlayerUp(Y, X);
+                    TransformPlayerUp(beforeY, beforeX);
                     break;
                 case System.Windows.Input.Key.Q:
                     MainWindow window = e.OriginalSource as MainWindow;
@@ -186,18 +200,19 @@ namespace KCKProjektWPF.Pages
                     break;
             }
 
-            Y = (double)player.GetValue(Canvas.TopProperty); // pozycja po ruchu
-            X = (double)player.GetValue(Canvas.LeftProperty);
+            double afterY = (double)player.GetValue(Canvas.TopProperty); // pozycja po ruchu
+            double afterX = (double)player.GetValue(Canvas.LeftProperty);
 
 
             UserControl control = (UserControl)canvas.Children.OfType<UserControl>().FirstOrDefault(x =>
             {
                 double controlx = (double)x.GetValue(Canvas.LeftProperty);
                 double controly = (double)x.GetValue(Canvas.TopProperty);
-                if (Y == controly && X == controlx)
+                if (afterY == controly && afterX == controlx)
                     return true;
                 return false;
             });
+
 
             if (control is CoinControl coin)
             {
@@ -207,16 +222,34 @@ namespace KCKProjektWPF.Pages
             }
             else if (control is KeyControl key)
             {
-                int keyy = (int)(Y - 1.0) / 20;
-                int keyx = (int)(X - 1.0) / 10;
+                int keyy = (int)(afterY - 1.0) / 20;
+                int keyx = (int)(afterX - 1.0) / 10;
 
-                Key collectkey = keys.FirstOrDefault(x => x.x == keyx && x.y == keyy);
+                // Key collectkey = keys.FirstOrDefault(x => x.x == keyx && x.y == keyy);
+                Key collectkey = PickUps.PickupKey(keyx, keyy, keys) as Key;
 
                 ownedKeys.Add(collectkey);
                 Keys++;
                 this.keyCount.Content = Keys.ToString();
                 canvas.Children.Remove(key);
-
+            }
+            else if (control is DoorControl door)
+            {
+                int doory = (int)(afterY - 1.0) / 20;
+                int doorx = (int)(afterX - 1.0) / 10;
+                if (!PickUps.unlockTheDoor(doorx, doory, doors, ownedKeys))
+                {
+                    canvas.Children.Remove(door);
+                }
+                else
+                {
+                    player.SetValue(Canvas.TopProperty, beforeY);
+                    player.SetValue(Canvas.LeftProperty, beforeX);
+                }
+            }
+            else if(control is EscapeDoor escape)
+            {
+                ;//odpalanie ekranu koncowego wygrales
             }
             Thread.Sleep(50);
         }

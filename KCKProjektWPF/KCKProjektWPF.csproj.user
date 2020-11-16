@@ -13,6 +13,9 @@
     <Compile Update="Controls\DoorControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Controls\EscapeDoor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Controls\KeyControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -37,6 +40,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Controls\DoorControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\EscapeDoor.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Controls\KeyControl.xaml">
