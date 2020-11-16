@@ -59,7 +59,7 @@
                         </EventTrigger>
                     </Image.Triggers>
                 </Image>
-                <Label Grid.Row="3" Grid.Column="1" Margin="5" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="22" FontWeight="Bold" Content="Konserwator">
+                <Label Grid.Row="3" Grid.Column="1" Margin="5" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="22" FontWeight="Bold" Content="Conservator">
                     <Label.RenderTransform>
                         <ScaleTransform x:Name="Label1" ScaleX="0.96" ScaleY="1.06"></ScaleTransform>
                     </Label.RenderTransform>
@@ -108,7 +108,7 @@
                         </EventTrigger>
                     </Image.Triggers>
                 </Image>
-                <Label Grid.Row="3" Grid.Column="3" Margin="5" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="22" FontWeight="Bold" Content="Wykladowca">
+                <Label Grid.Row="3" Grid.Column="3" Margin="5" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="22" FontWeight="Bold" Content="Lecturer">
                     <Label.RenderTransform>
                         <ScaleTransform x:Name="Label2" ScaleX="0.96" ScaleY="1.06"></ScaleTransform>
                     </Label.RenderTransform>

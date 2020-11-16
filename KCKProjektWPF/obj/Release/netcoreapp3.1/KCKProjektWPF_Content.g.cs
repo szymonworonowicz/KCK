@@ -14,8 +14,10 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("image/key3.gif")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("image/logo.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("image/mario.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("image/open.gif")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("image/pacman.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("image/sonic.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("image/winning.gif")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("image/wyjsciowe.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("logo.png")]
 

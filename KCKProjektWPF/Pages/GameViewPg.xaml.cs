@@ -5,16 +5,12 @@ using KCKProjektWPF.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfAnimatedGif;
 using Key = KCKProjectAPI.Key;
@@ -45,7 +41,7 @@ namespace KCKProjektWPF.Pages
         public GameViewPg(string postacUrl, int poziom)
         {
             this.postacUrl = postacUrl;
-            this.poziom = poziom;
+            this.poziom = poziom;//dodac switch na poziomie na mapy
             transformImageBrush = new ImageBrush();
             InitializeComponent();
             Map m = new Map("map2", new WPFBuilder());
@@ -193,6 +189,7 @@ namespace KCKProjektWPF.Pages
                     MainWindow window = e.OriginalSource as MainWindow;
                     window.Content = new Startowa();
                     window.KeyDown -= CanvasKeyPreview;
+                    window.ResizeMode = ResizeMode.CanResize;
                     break;
                 case System.Windows.Input.Key.P:
                     PauseWindow pause = new PauseWindow();
@@ -239,6 +236,8 @@ namespace KCKProjektWPF.Pages
                 int doorx = (int)(afterX - 1.0) / 10;
                 if (!PickUps.unlockTheDoor(doorx, doory, doors, ownedKeys))
                 {
+                    Keys--;
+                    keyCount.Content = Keys.ToString();
                     canvas.Children.Remove(door);
                 }
                 else
@@ -249,7 +248,9 @@ namespace KCKProjektWPF.Pages
             }
             else if(control is EscapeDoor escape)
             {
-                ;//odpalanie ekranu koncowego wygrales
+                MainWindow window = (MainWindow)Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
+                window.KeyDown -= CanvasKeyPreview;
+                window.Content = new EscapePg();
             }
             Thread.Sleep(50);
         }

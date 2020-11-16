@@ -25,7 +25,7 @@
                 <Label Name="keyCount"  Foreground="White" FontSize="20" FontFamily="Italic" Padding="5" Margin="3" Background="Black" BorderBrush="Black">0</Label>
             </WrapPanel>
 
-            <Label DockPanel.Dock="Top" Foreground="White"  VerticalAlignment="Center"  HorizontalAlignment="Center" VerticalContentAlignment="Top" Margin="5" Padding="10,0 10,0">Nacisnij P w celu pauzy gry , Q w celu wyjscia do menu</Label>
+            <Label DockPanel.Dock="Top" Foreground="White"  VerticalAlignment="Center"  HorizontalAlignment="Center" VerticalContentAlignment="Top" Margin="5" Padding="10,0 10,0">Press P to pause game, Q to go to Menu</Label>
 
         </DockPanel>
         

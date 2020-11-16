@@ -84,7 +84,7 @@ namespace KCKProjekt
             object mutex = new object();
 
             bool change = false;
-            Thread player = new Thread(() => ThreadProcClass.ThreadProcPlayer(ref p, ref mutex, ref change, ref mlist, ref ownedKeys, ref keys, ref doors, ref coins, ref coinThreads));
+            Thread player = new Thread(() => ThreadProcClass.ThreadProcPlayer(ref p, ref mutex, ref change, ref mlist, ref ownedKeys, ref keys, ref doors, ref coins));
             player.Start();
             List<string> prevMap = new List<string>();
             List<string> currentMap = new List<string>();
