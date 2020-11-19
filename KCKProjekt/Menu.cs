@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 using System.Drawing;
 using System.Threading;
 using System.Diagnostics;
-using KCKProjectAPI.directory;
 using KCKProjectAPI;
 
 namespace KCKProjektConsole
@@ -35,59 +34,7 @@ namespace KCKProjektConsole
                 this.text = napis;
             }
         }
-        public static string getMap(int beginRow)
-        {
-            MapsFiles mf = new MapsFiles();
-            mf.initFolders();
-            string path = "";
-
-
-
-            int id = 0;
-            while (path == "")
-            {
-
-                for (int i = beginRow; i < beginRow + 5; i++)
-                {
-                    Console.ForegroundColor = ConsoleColor.White;
-                    string s = mf.getMapByID(i + id - beginRow);
-                    if (i == beginRow + 2)
-                    {
-
-                        Console.ForegroundColor = ConsoleColor.Yellow;
-                    }
-                    Cursor.writeString(0, i, s);
-                    if (s == null)
-                    {
-                        Cursor.writeString(0, i, "                                                 ");
-                    }
-                    else
-                        Cursor.writeString(s.Length, i, "                                                 ");
-
-
-                }
-                ConsoleKey key = Console.ReadKey(true).Key;
-                if (key == ConsoleKey.UpArrow)
-                {
-
-                    if (id > -2)
-                        id--;
-                }
-                else if (key == ConsoleKey.DownArrow)
-                {
-                    if (mf.getMapByID(id + 3) != null)
-
-                        id++;
-                }
-                else if (key == ConsoleKey.Enter)
-                {
-                    path = mf.getMapByID(id + 2);
-                }
-            }
-            Console.Out.WriteLine("read completed :" + path);
-            Cursor.setCursorPosition(0, 0);
-            return path;
-        }
+        
         public static void printMessage(string s)
         {
             Cursor.writeString(0, 0, s);
@@ -248,7 +195,38 @@ namespace KCKProjektConsole
             Cursor.writeString(ox - 2, oy + 1, "O grze");
             Cursor.writeString(ox - 3, oy + 3, "Wyjscie");
         }
-        private static void printAbout(int x, int y, List<string> logo, ref napis[] napisy)
+        private static void printGameEnd(int x, int y, List<string> logo, ref napis[] napisy)
+        {
+            Console.SetWindowSize(x, y);
+            Console.ForegroundColor = ConsoleColor.Magenta;
+
+            int ox = x / 2;
+            int oy = y / 2;
+            int logoWidth = logo[0].Length;
+            int logoHeight = logo.Count;
+            try
+            {
+                for (int i = 0; i < logo.Count; i++)
+                {
+
+                    Cursor.writeString(ox - logoWidth / 2, oy - 10 + i, logo[i]);
+                }
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+
+                throw ex;
+            }
+
+            ConsoleHelper.SetCurrentFont("Consolas", 24);
+            napisy[0] = new napis(ox - 12, oy - 3, "Ukończyłeś/ukończyłaś grę");
+            napisy[1] = new napis(ox - 3, oy - 1, "Wyjście");
+
+            Cursor.writeString(ox - 12, oy - 3, "Ukończyłeś/ukończyłaś grę");
+            Cursor.writeString(ox - 3, oy - 1, "Wyjście");
+
+        }
+            private static void printAbout(int x, int y, List<string> logo, ref napis[] napisy)
         {
             Console.SetWindowSize(x, y);
             Console.ForegroundColor = ConsoleColor.Magenta;

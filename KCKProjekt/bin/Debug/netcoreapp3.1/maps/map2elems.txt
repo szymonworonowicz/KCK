@@ -14,4 +14,4 @@ Coin 3 25 25
 Coin 4 6 6
 Coin 5 10 10
 Coin 6 13 5
-Exit -1 0 16
+Exit -1 1 16

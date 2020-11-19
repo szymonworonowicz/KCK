@@ -1,5 +1,6 @@
 ﻿using KCKProjectAPI;
 using KCKProjectAPI.Builders;
+using KCKProjektAPI.Items.fields;
 using KCKProjektWPF.Controls;
 using KCKProjektWPF.Windows;
 using System;
@@ -35,6 +36,7 @@ namespace KCKProjektWPF.Pages
         private List<Door> doors;
         private List<Coin> coins;
         private List<Key> ownedKeys;
+        private Exit exit;
         private const string coinpath = @"pack://application:,,,/KCKProjektWPF;component/Image/coin.gif";
         private const string keypath = @"pack://application:,,,/KCKProjektWPF;component/Image/key3.gif";
 

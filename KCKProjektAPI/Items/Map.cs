@@ -90,7 +90,7 @@ namespace KCKProjectAPI
             }
             return builder.getMap();
         }
-        public void GetElems(ref List<Key> keys, ref List<Door> doors, ref List<Coin> coins,ref Exit e)
+        public void GetElems(ref List<Key> keys, ref List<Door> doors, ref List<Coin> coins)
         {
             using (StreamReader str = new StreamReader($"./maps/{path}elems.txt"))
             {
@@ -114,9 +114,30 @@ namespace KCKProjectAPI
                         case "Coin":
                             coins.Add(new Coin(id,x,y));
                             break;
+                       
+                    }
+                }
+            }
+        }
+        public void GetExit(ref Exit exit)
+        {
+            using (StreamReader str = new StreamReader($"./maps/{path}elems.txt"))
+            {
+                string line="";
+
+                while ((line = str.ReadLine()) != null)
+                {
+                    var elems = line.Split(' ');
+
+                    int.TryParse(elems[1], out int id);
+                    int.TryParse(elems[2], out int x);
+                    int.TryParse(elems[3], out int y);
+                    switch (elems[0])
+                    {
                         case "Exit":
-                            e = new Exit(x, y);
+                            exit = new Exit(x, y);
                             break;
+                       
                     }
                 }
             }

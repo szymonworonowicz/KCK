@@ -5,17 +5,20 @@ using System.Text;
 using System.Threading;
 using KCKProjectAPI.Extensions;
 using KCKProjectAPI.Items;
+using KCKProjektAPI.Items.fields;
 
 namespace KCKProjectAPI
 {
     public class PickUps
     {
-        public static int PickUpCoin(int x, int y ,List<Coin> coins)
+        public static int PickUpCoin(int x, int y ,List<Coin> coins,ref object coinLock)
         {
+            lock(coinLock)
             try
             {
 
                 int id = coins.GetId(x, y);
+                   if( System.Windows.Application.Current == null )
                 Cursor.writeString(x, y, " ");
                 coins.RemoveById(id);
                 
@@ -44,14 +47,25 @@ namespace KCKProjectAPI
             }
 
         }
-
+        public static bool getExit(int x, int y , ref Exit e)
+        {
+            
+            
+                if(x==e.x && y==e.y)
+                {
+                    return true;
+                }
+                return false;
+            
+        }
         public static  IPickup PickupKey(int x, int y, List<Key> keys) 
         {
             try
             {
               //  int id = keys.GetId(x, y);
                 IPickup key = keys.GetByCoords(x, y);
-                Cursor.writeString(x, y, " ");
+                if (System.Windows.Application.Current == null)
+                    Cursor.writeString(x, y, " ");
                 //Console.Out.WriteLine(id);
                 return key;
             }   
@@ -79,8 +93,8 @@ namespace KCKProjectAPI
                     return true;
                 }
 
-
-                Cursor.writeString(x, y, " ");
+                if (System.Windows.Application.Current == null)
+                    Cursor.writeString(x, y, " ");
                 doors.RemoveById(DoorId);
                 ownedKeys.RemoveById(DoorId);
                 return false;

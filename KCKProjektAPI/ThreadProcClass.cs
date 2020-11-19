@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using KCKProjectAPI.Extensions;
 using KCKProjectAPI.Items;
+using KCKProjektAPI.Items.fields;
 
 namespace KCKProjectAPI
 {
@@ -31,14 +32,21 @@ namespace KCKProjectAPI
             }
         }
 
-       
-        
-        public static void ThreadProcPlayer(ref Player player,ref object mutex,ref bool change,ref Map map,ref List<Key> ownedKeys, ref List<Key>keys,ref List<Door>doors,ref List<Coin>coins)
+
+
+        public static void ThreadProcPlayer(ref Player player, ref object mutex, ref bool change, ref Map map, ref List<Key> ownedKeys, ref List<Key> keys, ref List<Door> doors, ref List<Coin> coins, ref Exit e, ref object CoinLock)
         {
             var readmap = map.builder.getMap() as List<LinkedList<IField>>;
             while (true)
             {
-                ConsoleKey key = Console.ReadKey(true).Key;
+                ConsoleKey key;
+                key = Console.ReadKey(true).Key;
+                while (Console.KeyAvailable)
+                {
+                   Console.ReadKey(false);
+                    //break;
+                }
+                
                 lock (mutex)
                 {
 
@@ -47,7 +55,7 @@ namespace KCKProjectAPI
                         if (readmap[player.Y - 1].ElementAt(player.X) is Path)
                         {
 
-                            if(PickUps.PickUpCoin(player.X , player.Y - 1,coins)==1)
+                            if(PickUps.PickUpCoin(player.X , player.Y - 1,coins,ref CoinLock)==1)
                             {
                                 
                                 /*points ++*/
@@ -67,21 +75,16 @@ namespace KCKProjectAPI
                                     
                                         continue;
                                 }
+                                
+                                
                             }
                             
-                            
+
                             player.Y--;
                             change = true;
-/*                            try
-                            {
-                                Key key = (Key)keys.GetId(player.Y, player.X);
-                                ownedKeys.Add(key);
-                            }
-                            catch(Exception e)
-                            {
-                                
-                            }*/
-                            
+                           
+                                                 
+
                         }
                         
 
@@ -90,7 +93,7 @@ namespace KCKProjectAPI
                     {
                         if (readmap[player.Y + 1].ElementAt(player.X) is Path)
                         {
-                            if (PickUps.PickUpCoin(player.X , player.Y+1, coins) == 1)
+                            if (PickUps.PickUpCoin(player.X , player.Y+1, coins,ref CoinLock) == 1)
                             {
                                 /*points ++*/
                             }
@@ -108,7 +111,10 @@ namespace KCKProjectAPI
                                     if (status == true)
                                         continue;
                                 }
+                                
+                               
                             }
+                            
                             player.Y++;
                             change = true;
                         }
@@ -118,7 +124,7 @@ namespace KCKProjectAPI
                     {
                         if (readmap[player.Y].ElementAt(player.X - 1) is Path)
                         {
-                            if (PickUps.PickUpCoin(player.X - 1, player.Y, coins) == 1)
+                            if (PickUps.PickUpCoin(player.X - 1, player.Y, coins,ref CoinLock) == 1)
                             {
                                 /*points ++*/
                             }
@@ -136,8 +142,11 @@ namespace KCKProjectAPI
                                     if (status == true)
                                         continue;
                                 }
+                                
+                                
                             }
                             player.X--;
+                            
                             change = true;
                         }
                     }
@@ -145,7 +154,7 @@ namespace KCKProjectAPI
                     {
                         if (readmap[player.Y].ElementAt(player.X + 1) is Path)
                         {
-                            if (PickUps.PickUpCoin(player.X + 1, player.Y, coins) == 1)
+                            if (PickUps.PickUpCoin(player.X + 1, player.Y, coins,ref CoinLock) == 1)
                             {
                                 /*points ++*/
                             }
@@ -163,9 +172,11 @@ namespace KCKProjectAPI
                                     if (status == true)
                                         continue;
                                 }
+                                
                             }
                             player.X++;
                             change = true;
+                           
                         }
 
                     }
@@ -173,7 +184,10 @@ namespace KCKProjectAPI
                     {
                         break;
                     }
-
+                    if (PickUps.getExit(player.X, player.Y, ref e))
+                    {
+                        break;
+                    }
                 }
                 
             }
