@@ -9,6 +9,8 @@ using KCKProjectAPI.Extensions;
 using KCKProjectAPI.Items;
 using KCKProjectAPI.directory;
 using KCKProjektConsole;
+using KCKProjektAPI.Items.fields;
+
 namespace KCKProjekt
 {
     class Program
@@ -18,7 +20,7 @@ namespace KCKProjekt
         private static List<Door> doors = new List<Door>();
         private static List<Coin> coins = new List<Coin>();
         private static List<ThreadInfo> coinThreads = new List<ThreadInfo>();
-
+        private static Exit exit;
         private static int points = 0;
         List<IField> listf = new List<IField>();
        
@@ -27,16 +29,16 @@ namespace KCKProjekt
         static void Main(string[] args)
         {
             int level =  Menu.getMenu();
-            Menu.printMessage("proszę wybrać mapę");
-            string path = Menu.getMap(8);
+           // Menu.printMessage("proszę wybrać mapę");
+           // string path = Menu.getMap(8);
             
             object writer = new object(); // mutex do wyisywania
             IBuilder builder = new ConsoleBuilder();
-            Map mlist = new Map(path, builder);
+            Map mlist = new Map("map2", builder);
 
 
             var map = mlist.getMap() as List<LinkedList<IField>>;
-            mlist.GetElems(ref keys, ref doors, ref coins);
+            mlist.GetElems(ref keys, ref doors, ref coins,ref exit);
 
             Console.Clear();
             Console.SetWindowSize(150, 30);
@@ -57,7 +59,8 @@ namespace KCKProjekt
                 }
                 Console.Write('\n');
             }
-
+            Console.ForegroundColor = ConsoleColor.White;
+            Cursor.CursorFun(exit.x, exit.y, 'E');
             //write elems
             foreach (var key in keys)
             {

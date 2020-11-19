@@ -27,7 +27,7 @@ namespace KCKProjectAPI.Extensions
 
             
         }
-
+        
         public static IPickup GetById<T>(this List<T> list, int id) where T : IPickup
         {
             try
@@ -48,7 +48,7 @@ namespace KCKProjectAPI.Extensions
         {
             try
             {
-                IPickup temp = list.FirstOrDefault(item => item.x == x && item.y == y);
+                IPickup temp = list.First(item => item.x == x && item.y == y);
                 return temp;
             }
             catch (Exception)
@@ -61,7 +61,9 @@ namespace KCKProjectAPI.Extensions
         }
         public static void RemoveById<T>(this List<T> list, int id) where T : IPickup
         {
+            
             list.RemoveAll(item => item.id == id);
+
         }
         public static void RemoveByCoord<T>(this List<T> list, int x, int y) where T :IPickup
         {

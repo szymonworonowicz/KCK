@@ -16,7 +16,9 @@ namespace KCKProjectAPI
             {
 
                 int id = coins.GetId(x, y);
+                Cursor.writeString(x, y, " ");
                 coins.RemoveById(id);
+                
                 /*try
                 {
                     ThreadInfo t = threads.First(item => item.CoinId == id);
@@ -49,6 +51,7 @@ namespace KCKProjectAPI
             {
               //  int id = keys.GetId(x, y);
                 IPickup key = keys.GetByCoords(x, y);
+                Cursor.writeString(x, y, " ");
                 //Console.Out.WriteLine(id);
                 return key;
             }   
@@ -69,15 +72,15 @@ namespace KCKProjectAPI
                 try
                 {
                     ownedKeys.GetById(DoorId); // jesli exc nie mozna przejsc -true
-
+                    
                 }
                 catch(KeyNotFoundException )
                 {
                     return true;
                 }
-                
-              
-                
+
+
+                Cursor.writeString(x, y, " ");
                 doors.RemoveById(DoorId);
                 ownedKeys.RemoveById(DoorId);
                 return false;

@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using KCKProjectAPI.Builders;
+using KCKProjektAPI.Items.fields;
 
 namespace KCKProjectAPI
 {
@@ -89,7 +90,7 @@ namespace KCKProjectAPI
             }
             return builder.getMap();
         }
-        public void GetElems(ref List<Key> keys, ref List<Door> doors, ref List<Coin> coins)
+        public void GetElems(ref List<Key> keys, ref List<Door> doors, ref List<Coin> coins,ref Exit e)
         {
             using (StreamReader str = new StreamReader($"./maps/{path}elems.txt"))
             {
@@ -112,6 +113,9 @@ namespace KCKProjectAPI
                             break;
                         case "Coin":
                             coins.Add(new Coin(id,x,y));
+                            break;
+                        case "Exit":
+                            e = new Exit(x, y);
                             break;
                     }
                 }
