@@ -40,3 +40,4 @@ C:\Users\Geoff\Source\Repos\KCK21_11\KCKProjektAPI\obj\Debug\netcoreapp3.1\KCKPr
 C:\Users\Geoff\Source\Repos\KCK21_11\KCKProjektAPI\obj\Debug\netcoreapp3.1\KCKProjektAPI.csproj.CoreCompileInputs.cache
 C:\Users\Geoff\Source\Repos\KCK21_11\KCKProjektAPI\obj\Debug\netcoreapp3.1\KCKProjektAPI.dll
 C:\Users\Geoff\Source\Repos\KCK21_11\KCKProjektAPI\obj\Debug\netcoreapp3.1\KCKProjektAPI.pdb
+C:\Users\Julia\Source\Repos\KCK\KCKProjektAPI\obj\Debug\netcoreapp3.1\KCKProjektAPI.csprojAssemblyReference.cache

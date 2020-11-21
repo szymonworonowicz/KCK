@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "xNlxq1nEyz/pyvymDzk5QShN0gWYD6jl0QcEuWl+AioKeUqqFD0sDvyDlz0c7vRzjmzQCyTbP9JyJzrJfhnUrA==",
+  "dgSpecHash": "I8aAewopqlhePVZXJi9qtVwOAGG2iQQay/vnvYu+cQTdqPWRH6sufX9j646Ob7uWpf7ltu94ahQn5t/yqdqnIw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Geoff\\Source\\Repos\\KCK21_11\\KCKProjekt\\KCKProjektConsole.csproj",
+  "projectFilePath": "C:\\Users\\Julia\\Source\\Repos\\KCK\\KCKProjekt\\KCKProjektConsole.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Geoff\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
-    "C:\\Users\\Geoff\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
-    "C:\\Users\\Geoff\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512"
+    "C:\\Users\\Julia\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\Julia\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\Julia\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using KCKProjectAPI.Extensions;
-using KCKProjectAPI.Items;
 using KCKProjektAPI.Items.fields;
 
 namespace KCKProjectAPI
@@ -21,21 +20,6 @@ namespace KCKProjectAPI
                     if (System.Windows.Application.Current == null)
                         Cursor.CursorFun(x, y,' ' ) ;
                 coins.RemoveById(id);
-                
-                /*try
-                {
-                    ThreadInfo t = threads.First(item => item.CoinId == id);
-                    t.Thread.Abort();
-
-                }
-                catch(Exception e)
-                {
-                    //throw new Exception("thread not found");
-                }
-                finally
-                {
-
-                }*/
                 
                     return 1;
                 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KCKProjectAPI
 {
-    public abstract class IPickup : ICloneable
+    public abstract class IPickup 
     {
         public int id { get; set; }
         public  string type { get; set; }
@@ -19,12 +19,6 @@ namespace KCKProjectAPI
             this.y = _y;
             this.type = _type;
         }
-
-        public object Clone()
-        {
-            return this.MemberwiseClone();
-        }
-
         public override string ToString()
         {
             return $"{type}{id}";

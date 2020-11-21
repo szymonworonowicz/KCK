@@ -6,8 +6,6 @@ using System.Threading;
 using KCKProjectAPI;
 using KCKProjectAPI.Builders;
 using KCKProjectAPI.Extensions;
-using KCKProjectAPI.Items;
-
 using KCKProjektConsole;
 using KCKProjektAPI.Items.fields;
 
@@ -19,7 +17,6 @@ namespace KCKProjekt
         private static List<Key> ownedKeys = new List<Key>();
         private static List<Door> doors = new List<Door>();
         private static List<Coin> coins = new List<Coin>();
-        private static List<ThreadInfo> coinThreads = new List<ThreadInfo>();
         private static Exit exit;
         private static int points = 0;
         List<IField> listf = new List<IField>();
@@ -89,46 +86,13 @@ namespace KCKProjekt
                 Player p = new Player { X = 2, Y = 9 }; ///2 9. -- 1 19
                 object mutex = new object();
 
-                bool change = false;
-                Thread player = new Thread(() => ThreadProcClass.ThreadProcPlayer(ref p, ref mutex, ref change, ref mlist, ref ownedKeys, ref keys, ref doors, ref coins, ref exit, ref writer,ref points));
+                Thread player = new Thread(() => ThreadProcClass.ThreadProcPlayer(ref p, ref mlist, ref ownedKeys, ref keys, ref doors, ref coins, ref exit, ref writer,ref points));
                 player.Start();
                 List<string> prevMap = new List<string>();
                 List<string> currentMap = new List<string>();
 
-                Cursor.CursorFun(p.X, p.Y, 'P');
-                Player prev = new Player(p);
-                while (true)
-                {
-                    // prevMap = currentMap;
-                    //currentMap = new List<string>();
-                    lock (mutex)
-                    {
 
-                        if (change == true)
-                        {
-                            lock (writer)
-                            {
-                                Console.ForegroundColor = ConsoleColor.White;
-                                Cursor.CursorFun(prev.X, prev.Y, ' ');
-                                Cursor.CursorFun(p.X, p.Y, 'P');
-                                prev = new Player(p);
-                                change = false;
-                            }
-                        }
-                        else
-                        {
-                            p = new Player(prev);
-                        }
-
-                    }
-
-                    if (!player.IsAlive)
-                    {
-                        break;
-                    }
-
-
-                }
+                player.Join();
                 lock (writer)
                 {
 
@@ -139,7 +103,6 @@ namespace KCKProjekt
                 Console.Clear();
             }
             
-            Console.In.ReadLine();
         }
 
     }

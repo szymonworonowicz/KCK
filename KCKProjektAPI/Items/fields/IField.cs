@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KCKProjectAPI
 {
-    public abstract class IField: ICloneable
+    public abstract class IField
     {
         public int x { get; set; }
         public int y { get; set; }
@@ -19,10 +19,6 @@ namespace KCKProjectAPI
             this.type = _type;
         }
 
-        public object Clone()
-        {
-            return this.MemberwiseClone();
-        }
 
         public override string ToString()
         {

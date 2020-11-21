@@ -50,7 +50,7 @@ namespace KCKProjektWPF.Pages
             canvas = m.getMap() as Canvas;
             MainWindow window = (MainWindow)Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
             window.KeyDown += CanvasKeyPreview;
-                
+
             keys = new List<Key>();
             doors = new List<Door>();
             coins = new List<Coin>();
@@ -71,7 +71,7 @@ namespace KCKProjektWPF.Pages
             {
                 double controlx = (double)x.GetValue(Canvas.LeftProperty);
                 double controly = (double)x.GetValue(Canvas.TopProperty);
-                if (20.0*16+1 == controly && 1.0 == controlx)
+                if (20.0 * 16 + 1 == controly && 1.0 == controlx)
                     return true;
                 return false;
             }));
@@ -248,11 +248,20 @@ namespace KCKProjektWPF.Pages
                     player.SetValue(Canvas.LeftProperty, beforeX);
                 }
             }
-            else if(control is EscapeDoor escape)
+            else if (control is EscapeDoor escape)
             {
-                MainWindow window = (MainWindow)Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
-                window.KeyDown -= CanvasKeyPreview;
-                window.Content = new EscapePg();
+                if (Coins == coins.Count)
+                {
+                    MainWindow window = (MainWindow)Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
+                    window.KeyDown -= CanvasKeyPreview;
+                    window.Content = new EscapePg();
+                }
+                else
+                {
+                    player.SetValue(Canvas.TopProperty, beforeY);
+                    player.SetValue(Canvas.LeftProperty, beforeX);
+                }
+
             }
             Thread.Sleep(50);
         }
@@ -298,7 +307,7 @@ namespace KCKProjektWPF.Pages
             {
                 double controlx = (double)x.GetValue(Canvas.LeftProperty);
                 double controly = (double)x.GetValue(Canvas.TopProperty);
-                if (Y  == controly && X - 10 == controlx)
+                if (Y == controly && X - 10 == controlx)
                     return true;
                 return false;
             });
@@ -327,7 +336,7 @@ namespace KCKProjektWPF.Pages
             {
                 double controlx = (double)x.GetValue(Canvas.LeftProperty);
                 double controly = (double)x.GetValue(Canvas.TopProperty);
-                if (Y  == controly && X + 10 == controlx)
+                if (Y == controly && X + 10 == controlx)
                     return true;
                 return false;
             });
@@ -347,7 +356,7 @@ namespace KCKProjektWPF.Pages
                     left = false;
                 }
             }
-           
+
         }
 
         private void OnLoaded(object sender, RoutedEventArgs e)

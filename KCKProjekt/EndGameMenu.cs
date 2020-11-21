@@ -142,7 +142,7 @@ namespace KCKProjektConsole
             
             Cursor.writeString(ox - 4, oy - 1, "punkty: " + points.ToString());
             
-            Cursor.writeString(ox - 6, oy + 3, "Wróć do genu");
+            Cursor.writeString(ox - 6, oy + 3, "Wróć do menu");
         }
         private static void printGameEnd(int x, int y, List<string> logo, ref napis[] napisy)
         {
