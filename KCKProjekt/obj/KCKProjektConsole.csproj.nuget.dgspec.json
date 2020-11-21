@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Geoff\\Source\\Repos\\KCK19_11\\KCKProjekt\\KCKProjektConsole.csproj": {}
+    "C:\\Users\\Geoff\\Source\\Repos\\KCK21_11\\KCKProjekt\\KCKProjektConsole.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Geoff\\Source\\Repos\\KCK19_11\\KCKProjektAPI\\KCKProjektAPI.csproj": {
+    "C:\\Users\\Geoff\\Source\\Repos\\KCK21_11\\KCKProjektAPI\\KCKProjektAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Geoff\\Source\\Repos\\KCK19_11\\KCKProjektAPI\\KCKProjektAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Geoff\\Source\\Repos\\KCK21_11\\KCKProjektAPI\\KCKProjektAPI.csproj",
         "projectName": "KCKProjektAPI",
-        "projectPath": "C:\\Users\\Geoff\\Source\\Repos\\KCK19_11\\KCKProjektAPI\\KCKProjektAPI.csproj",
+        "projectPath": "C:\\Users\\Geoff\\Source\\Repos\\KCK21_11\\KCKProjektAPI\\KCKProjektAPI.csproj",
         "packagesPath": "C:\\Users\\Geoff\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Geoff\\Source\\Repos\\KCK19_11\\KCKProjektAPI\\obj\\",
+        "outputPath": "C:\\Users\\Geoff\\Source\\Repos\\KCK21_11\\KCKProjektAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -64,14 +64,14 @@
         }
       }
     },
-    "C:\\Users\\Geoff\\Source\\Repos\\KCK19_11\\KCKProjekt\\KCKProjektConsole.csproj": {
+    "C:\\Users\\Geoff\\Source\\Repos\\KCK21_11\\KCKProjekt\\KCKProjektConsole.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Geoff\\Source\\Repos\\KCK19_11\\KCKProjekt\\KCKProjektConsole.csproj",
+        "projectUniqueName": "C:\\Users\\Geoff\\Source\\Repos\\KCK21_11\\KCKProjekt\\KCKProjektConsole.csproj",
         "projectName": "KCKProjektConsole",
-        "projectPath": "C:\\Users\\Geoff\\Source\\Repos\\KCK19_11\\KCKProjekt\\KCKProjektConsole.csproj",
+        "projectPath": "C:\\Users\\Geoff\\Source\\Repos\\KCK21_11\\KCKProjekt\\KCKProjektConsole.csproj",
         "packagesPath": "C:\\Users\\Geoff\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Geoff\\Source\\Repos\\KCK19_11\\KCKProjekt\\obj\\",
+        "outputPath": "C:\\Users\\Geoff\\Source\\Repos\\KCK21_11\\KCKProjekt\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -92,8 +92,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\Geoff\\Source\\Repos\\KCK19_11\\KCKProjektAPI\\KCKProjektAPI.csproj": {
-                "projectPath": "C:\\Users\\Geoff\\Source\\Repos\\KCK19_11\\KCKProjektAPI\\KCKProjektAPI.csproj"
+              "C:\\Users\\Geoff\\Source\\Repos\\KCK21_11\\KCKProjektAPI\\KCKProjektAPI.csproj": {
+                "projectPath": "C:\\Users\\Geoff\\Source\\Repos\\KCK21_11\\KCKProjektAPI\\KCKProjektAPI.csproj"
               }
             }
           }

@@ -34,7 +34,7 @@ namespace KCKProjectAPI
 
 
 
-        public static void ThreadProcPlayer(ref Player player, ref object mutex, ref bool change, ref Map map, ref List<Key> ownedKeys, ref List<Key> keys, ref List<Door> doors, ref List<Coin> coins, ref Exit e, ref object CoinLock)
+        public static void ThreadProcPlayer(ref Player player, ref object mutex, ref bool change, ref Map map, ref List<Key> ownedKeys, ref List<Key> keys, ref List<Door> doors, ref List<Coin> coins, ref Exit e, ref object CoinLock, ref int points)
         {
             var readmap = map.builder.getMap() as List<LinkedList<IField>>;
             while (true)
@@ -57,8 +57,8 @@ namespace KCKProjectAPI
 
                             if(PickUps.PickUpCoin(player.X , player.Y - 1,coins,ref CoinLock)==1)
                             {
-                                
-                                /*points ++*/
+
+                                ++points;
                             }
                             else
                             {
@@ -95,7 +95,7 @@ namespace KCKProjectAPI
                         {
                             if (PickUps.PickUpCoin(player.X , player.Y+1, coins,ref CoinLock) == 1)
                             {
-                                /*points ++*/
+                                ++points;
                             }
                             else
                             {
@@ -126,7 +126,7 @@ namespace KCKProjectAPI
                         {
                             if (PickUps.PickUpCoin(player.X - 1, player.Y, coins,ref CoinLock) == 1)
                             {
-                                /*points ++*/
+                                ++points;
                             }
                             else
                             {
@@ -156,7 +156,7 @@ namespace KCKProjectAPI
                         {
                             if (PickUps.PickUpCoin(player.X + 1, player.Y, coins,ref CoinLock) == 1)
                             {
-                                /*points ++*/
+                                ++points;
                             }
                             else
                             {
@@ -182,6 +182,7 @@ namespace KCKProjectAPI
                     }
                     else if (key == ConsoleKey.P)
                     {
+                        
                         break;
                     }
                     if (PickUps.getExit(player.X, player.Y, ref e))

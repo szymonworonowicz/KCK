@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Geoff\\Source\\Repos\\KCK19_11\\KCKProjektAPI\\KCKProjektAPI.csproj": {}
+    "C:\\Users\\Geoff\\Source\\Repos\\KCK21_11\\KCKProjektAPI\\KCKProjektAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Geoff\\Source\\Repos\\KCK19_11\\KCKProjektAPI\\KCKProjektAPI.csproj": {
+    "C:\\Users\\Geoff\\Source\\Repos\\KCK21_11\\KCKProjektAPI\\KCKProjektAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Geoff\\Source\\Repos\\KCK19_11\\KCKProjektAPI\\KCKProjektAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Geoff\\Source\\Repos\\KCK21_11\\KCKProjektAPI\\KCKProjektAPI.csproj",
         "projectName": "KCKProjektAPI",
-        "projectPath": "C:\\Users\\Geoff\\Source\\Repos\\KCK19_11\\KCKProjektAPI\\KCKProjektAPI.csproj",
+        "projectPath": "C:\\Users\\Geoff\\Source\\Repos\\KCK21_11\\KCKProjektAPI\\KCKProjektAPI.csproj",
         "packagesPath": "C:\\Users\\Geoff\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Geoff\\Source\\Repos\\KCK19_11\\KCKProjektAPI\\obj\\",
+        "outputPath": "C:\\Users\\Geoff\\Source\\Repos\\KCK21_11\\KCKProjektAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tntgzDA0zEASpzFdS8N168EvxZT/qQWlcaj3xH7Gpu0t2tYccft7SqG87NsEdRT9EwMLJBHSVYum1Uc5nOKhow==",
+  "dgSpecHash": "WWcse7lTiQXs+e/EbanOB0X/xTXSX8rYslCaX9YTCp0fvvJ9wcmRsIr19DO1e910M+adZmJZNiprppMAxpkZUw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Geoff\\Source\\Repos\\KCK19_11\\KCKProjektWPF\\KCKProjektWPF.csproj",
+  "projectFilePath": "C:\\Users\\Geoff\\Source\\Repos\\KCK21_11\\KCKProjektWPF\\KCKProjektWPF.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Geoff\\.nuget\\packages\\wpfanimatedgif\\2.0.0\\wpfanimatedgif.2.0.0.nupkg.sha512"
   ],

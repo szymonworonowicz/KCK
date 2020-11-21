@@ -54,7 +54,7 @@ namespace KCKProjektWPF.Windows {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/KCKProjektWPF;component/windows/pausewindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/KCKProjektWPF;V1.0.0.0;component/windows/pausewindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Windows\PauseWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

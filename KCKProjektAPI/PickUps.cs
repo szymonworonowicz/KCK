@@ -18,8 +18,8 @@ namespace KCKProjectAPI
             {
 
                 int id = coins.GetId(x, y);
-                   if( System.Windows.Application.Current == null )
-                Cursor.writeString(x, y, " ");
+                    if (System.Windows.Application.Current == null)
+                        Cursor.CursorFun(x, y,' ' ) ;
                 coins.RemoveById(id);
                 
                 /*try
@@ -65,7 +65,7 @@ namespace KCKProjectAPI
               //  int id = keys.GetId(x, y);
                 IPickup key = keys.GetByCoords(x, y);
                 if (System.Windows.Application.Current == null)
-                    Cursor.writeString(x, y, " ");
+                    Cursor.CursorFun(x, y,' ');
                 //Console.Out.WriteLine(id);
                 return key;
             }   
@@ -94,7 +94,7 @@ namespace KCKProjectAPI
                 }
 
                 if (System.Windows.Application.Current == null)
-                    Cursor.writeString(x, y, " ");
+                    Cursor.CursorFun(x, y,' ');
                 doors.RemoveById(DoorId);
                 ownedKeys.RemoveById(DoorId);
                 return false;

@@ -62,7 +62,7 @@ namespace KCKProjektWPF.Controls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/KCKProjektWPF;component/controls/coincontrol.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/KCKProjektWPF;V1.0.0.0;component/controls/coincontrol.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Controls\CoinControl.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

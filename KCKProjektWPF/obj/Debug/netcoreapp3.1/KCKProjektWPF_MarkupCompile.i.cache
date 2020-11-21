@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Geoff\Source\Repos\KCK19_11\KCKProjektWPF\obj\Debug\netcoreapp3.1\
+C:\Users\Geoff\Source\Repos\KCK21_11\KCKProjektWPF\obj\Debug\netcoreapp3.1\
 KCKProjektWPF
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
-C:\Users\Geoff\Source\Repos\KCK19_11\KCKProjektWPF\App.xaml
+C:\Users\Geoff\Source\Repos\KCK21_11\KCKProjektWPF\App.xaml
 13-1543040673
 12-1256845003
 17-1384545634
-1941820169047
+194-862226602
 Controls\CoinControl.xaml;Controls\DoorControl.xaml;Controls\EscapeDoor.xaml;Controls\KeyControl.xaml;Pages\AboutPg.xaml;Pages\EscapePg.xaml;Pages\GameViewPg.xaml;Pages\OpcjePg.xaml;Pages\Startowa.xaml;Strona_Startowa.xaml;Windows\PauseWindow.xaml;Windows\Wybor_postaci.xaml;Windows\Wybor_poziomu.xaml;
 
-True
+False
 

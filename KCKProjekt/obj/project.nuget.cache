@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LKGz85SmzdVe8ZyNlvrUExuZyUorelfGBCPcCKf8CYPDRs6hnx6M4LcJzqlFmrftuO7LsvdXnkkFzDgckWvh4w==",
+  "dgSpecHash": "xNlxq1nEyz/pyvymDzk5QShN0gWYD6jl0QcEuWl+AioKeUqqFD0sDvyDlz0c7vRzjmzQCyTbP9JyJzrJfhnUrA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Geoff\\Source\\Repos\\KCK19_11\\KCKProjekt\\KCKProjektConsole.csproj",
+  "projectFilePath": "C:\\Users\\Geoff\\Source\\Repos\\KCK21_11\\KCKProjekt\\KCKProjektConsole.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Geoff\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Geoff\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",

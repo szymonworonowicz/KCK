@@ -70,11 +70,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Geoff\\Source\\Repos\\KCK19_11\\KCKProjektWPF\\KCKProjektWPF.csproj",
+      "projectUniqueName": "C:\\Users\\Geoff\\Source\\Repos\\KCK21_11\\KCKProjektWPF\\KCKProjektWPF.csproj",
       "projectName": "KCKProjektWPF",
-      "projectPath": "C:\\Users\\Geoff\\Source\\Repos\\KCK19_11\\KCKProjektWPF\\KCKProjektWPF.csproj",
+      "projectPath": "C:\\Users\\Geoff\\Source\\Repos\\KCK21_11\\KCKProjektWPF\\KCKProjektWPF.csproj",
       "packagesPath": "C:\\Users\\Geoff\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Geoff\\Source\\Repos\\KCK19_11\\KCKProjektWPF\\obj\\",
+      "outputPath": "C:\\Users\\Geoff\\Source\\Repos\\KCK21_11\\KCKProjektWPF\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -95,8 +95,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Geoff\\Source\\Repos\\KCK19_11\\KCKProjektAPI\\KCKProjektAPI.csproj": {
-              "projectPath": "C:\\Users\\Geoff\\Source\\Repos\\KCK19_11\\KCKProjektAPI\\KCKProjektAPI.csproj"
+            "C:\\Users\\Geoff\\Source\\Repos\\KCK21_11\\KCKProjektAPI\\KCKProjektAPI.csproj": {
+              "projectPath": "C:\\Users\\Geoff\\Source\\Repos\\KCK21_11\\KCKProjektAPI\\KCKProjektAPI.csproj"
             }
           }
         }
