@@ -110,7 +110,17 @@ namespace KCKProjektConsole
 
         private static void printMenu(int x, int y, List<string> logo, ref napis[] napisy,int points)
         {
-            Console.SetWindowSize(x, y);
+            try
+            {
+                Console.SetWindowSize(x, y);
+
+            }
+            catch (Exception e)
+            {
+                Console.SetWindowSize(150, 100);
+                x = 100;
+                y = 50;
+            }
             Console.ForegroundColor = ConsoleColor.Magenta;
 
             int ox = x / 2;
