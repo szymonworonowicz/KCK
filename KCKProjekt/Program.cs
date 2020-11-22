@@ -63,6 +63,9 @@ namespace KCKProjekt
                     Console.Write('\n');
                 }
                 Console.ForegroundColor = ConsoleColor.White;
+                Cursor.writeString(map[0].Count+3, 1, "Punkty: 0");
+                Cursor.writeString(map[0].Count+3, 2, "Klucze: 0");
+                Console.ForegroundColor = ConsoleColor.White;
                 Cursor.CursorFun(exit.x, exit.y, 'E');
                 //write elems
                 foreach (var key in keys)

@@ -60,8 +60,9 @@ namespace KCKProjectConsole
 
                         if (PickUps.PickUpCoin(player.X, player.Y - 1, coins, ref CoinLock) == 1)
                         {
-
                             ++points;
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Cursor.writeString(readmap[0].Count + 11, 1, points.ToString());
                         }
                         else
                         {
@@ -69,7 +70,8 @@ namespace KCKProjectConsole
                             if (mapKey != null)
                             {
                                 ownedKeys.Add(mapKey as Key);
-
+                                Console.ForegroundColor = ConsoleColor.White;
+                                Cursor.writeString(readmap[0].Count + 11, 2, ownedKeys.Count.ToString());
                             }
                             else
                             {
@@ -77,6 +79,11 @@ namespace KCKProjectConsole
                                 if (status == true)
 
                                     continue;
+                                else
+                                {
+                                    Console.ForegroundColor = ConsoleColor.White;
+                                    Cursor.writeString(readmap[0].Count + 11, 2, ownedKeys.Count.ToString()+" ");
+                                }
                             }
 
                         }
@@ -95,6 +102,8 @@ namespace KCKProjectConsole
                         if (PickUps.PickUpCoin(player.X, player.Y + 1, coins, ref CoinLock) == 1)
                         {
                             ++points;
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Cursor.writeString(readmap[0].Count + 11, 1, points.ToString());
                         }
                         else
                         {
@@ -102,13 +111,19 @@ namespace KCKProjectConsole
                             if (mapKey != null)
                             {
                                 ownedKeys.Add(mapKey as Key);
-
+                                Console.ForegroundColor = ConsoleColor.White;
+                                Cursor.writeString(readmap[0].Count + 11, 2, ownedKeys.Count.ToString());
                             }
                             else
                             {
                                 bool status = PickUps.unlockTheDoor(player.X, player.Y + 1, doors, ownedKeys);
                                 if (status == true)
                                     continue;
+                                else
+                                {
+                                    Console.ForegroundColor = ConsoleColor.White;
+                                    Cursor.writeString(readmap[0].Count + 11, 2, ownedKeys.Count.ToString() + " ");
+                                }
                             }
 
 
@@ -125,6 +140,8 @@ namespace KCKProjectConsole
                         if (PickUps.PickUpCoin(player.X - 1, player.Y, coins, ref CoinLock) == 1)
                         {
                             ++points;
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Cursor.writeString(readmap[0].Count + 11, 1, points.ToString());
                         }
                         else
                         {
@@ -132,13 +149,19 @@ namespace KCKProjectConsole
                             if (mapKey != null)
                             {
                                 ownedKeys.Add(mapKey as Key);
-
+                                Console.ForegroundColor = ConsoleColor.White;
+                                Cursor.writeString(readmap[0].Count + 11, 2, ownedKeys.Count.ToString());
                             }
                             else
                             {
                                 bool status = PickUps.unlockTheDoor(player.X - 1, player.Y, doors, ownedKeys);
                                 if (status == true)
                                     continue;
+                                else
+                                {
+                                    Console.ForegroundColor = ConsoleColor.White;
+                                    Cursor.writeString(readmap[0].Count + 11, 2, ownedKeys.Count.ToString() + " ");
+                                }
                             }
 
 
@@ -155,6 +178,8 @@ namespace KCKProjectConsole
                         if (PickUps.PickUpCoin(player.X + 1, player.Y, coins, ref CoinLock) == 1)
                         {
                             ++points;
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Cursor.writeString(readmap[0].Count + 11, 1, points.ToString());
                         }
                         else
                         {
@@ -162,6 +187,8 @@ namespace KCKProjectConsole
                             if (mapKey != null)
                             {
                                 ownedKeys.Add(mapKey as Key);
+                                Console.ForegroundColor = ConsoleColor.White;
+                                Cursor.writeString(readmap[0].Count + 11, 2, ownedKeys.Count.ToString());
 
                             }
                             else
@@ -169,6 +196,11 @@ namespace KCKProjectConsole
                                 bool status = PickUps.unlockTheDoor(player.X + 1, player.Y, doors, ownedKeys);
                                 if (status == true)
                                     continue;
+                                else
+                                {
+                                    Console.ForegroundColor = ConsoleColor.White;
+                                    Cursor.writeString(readmap[0].Count + 11, 2, ownedKeys.Count.ToString() + " ");
+                                }
                             }
 
                         }
