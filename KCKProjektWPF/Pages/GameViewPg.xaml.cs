@@ -1,5 +1,6 @@
 ﻿using KCKProjectAPI;
 using KCKProjectAPI.Builders;
+using KCKProjectWPF;
 using KCKProjektAPI.Items.fields;
 using KCKProjektWPF.Controls;
 using KCKProjektWPF.Windows;

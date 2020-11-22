@@ -9,6 +9,8 @@ using KCKProjectAPI.Extensions;
 
 using KCKProjektConsole;
 using KCKProjektAPI.Items.fields;
+using KCKProjecConsole;
+using KCKProjectConsole;
 
 namespace KCKProjekt
 {

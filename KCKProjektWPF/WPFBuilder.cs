@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KCKProjectAPI.Builders;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -8,7 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace KCKProjectAPI.Builders
+namespace KCKProjectWPF
 {
     public class WPFBuilder : IBuilder
     {

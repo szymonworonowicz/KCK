@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using KCKProjectAPI;
 using KCKProjectAPI.Extensions;
 using KCKProjektAPI.Items.fields;
 
-namespace KCKProjectAPI
+namespace KCKProjectConsole
 {
     public class ThreadProcClass
     {

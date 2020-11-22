@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using KCKProjectAPI;
+using KCKProjectAPI.Builders;
 
-namespace KCKProjectAPI.Builders
+namespace KCKProjecConsole
 {
     public class ConsoleBuilder : IBuilder
     {

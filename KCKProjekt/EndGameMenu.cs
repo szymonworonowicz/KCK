@@ -112,10 +112,10 @@ namespace KCKProjektConsole
         {
             try
             {
-                Console.SetWindowSize(x, y);
+            Console.SetWindowSize(x, y);
 
             }
-            catch (Exception e)
+            catch(Exception e)
             {
                 Console.SetWindowSize(150, 100);
                 x = 100;
@@ -143,7 +143,7 @@ namespace KCKProjektConsole
 
             ConsoleHelper.SetCurrentFont("Consolas", 24);
             
-            napisy[0] = new napis(ox - 4, oy - 1, "punkty: "+points.ToString());
+            napisy[0] = new napis(ox - 4, oy - 1, "punkty: "+ points.ToString() );
             
             napisy[1] = new napis(ox - 6, oy + 3, "Wróć do menu");
 
