@@ -61,7 +61,7 @@ namespace KCKProjektWPF.Controls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/KCKProjektWPF;component/controls/doorcontrol.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/KCKProjektWPF;V1.0.0.0;component/controls/doorcontrol.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Controls\DoorControl.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

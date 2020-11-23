@@ -110,7 +110,7 @@ namespace KCKProjektWPF {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/KCKProjektWPF;component/pages/startowa.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/KCKProjektWPF;V1.0.0.0;component/pages/startowa.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Pages\Startowa.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

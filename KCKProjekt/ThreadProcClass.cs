@@ -5,12 +5,19 @@ using System.Threading;
 using KCKProjectAPI;
 using KCKProjectAPI.Extensions;
 using KCKProjektAPI.Items.fields;
+using KCKProjektConsole;
 
 namespace KCKProjectConsole
 {
     public class ThreadProcClass
     {
-
+        private static bool pause;
+        private static bool areCoinsPaused;
+        static ThreadProcClass()
+        {
+            areCoinsPaused = false;
+            pause = false;
+        }
         public static void ThreadProcCoin(List<Coin> coins, ref object writer)
         {
             int numberOFCoins = coins.Count;
@@ -25,8 +32,22 @@ namespace KCKProjectConsole
                         Console.ForegroundColor = ConsoleColor.DarkYellow;
                         Cursor.CursorFun(coins[i].x, coins[i].y, coins[i].type[0]);
                     }
+                    if(pause==true)
+                    {
+                        areCoinsPaused = true;
+                        while (pause == true)
+                        {
+                            Thread.Sleep(100);
+                        
+                        }
+                        areCoinsPaused = false;
+                    }
                 }
-
+                
+                if(coins.Count==0)
+                {
+                    break;
+                }
                 Thread.Sleep(100);
 
             }
@@ -213,8 +234,63 @@ namespace KCKProjectConsole
                 else if (key == ConsoleKey.P)
                 {
 
-                    break;
+                    pause = true;
+                    while(areCoinsPaused==false)
+                    {
+                        Thread.Sleep(50);
+                    }
+                    int result = PauseMenu.getMenu(points);
+                    Console.Clear();
+                    Console.SetWindowSize(150, 30);
+                    
+                    if (result == 0)
+                    {
+                        
+                        for (int i = 0; i < readmap.Count; i++)
+                        {
+                            foreach (var elem in readmap[i])
+                            {
+                                if (elem is KCKProjectAPI.Path)
+                                {
+                                    Console.ForegroundColor = ConsoleColor.Black;
+                                }
+                                else if (elem is Wall)
+                                {
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                }
+                                Console.Write(elem);
+                            }
+                            Console.Write('\n');
+                        }
+                        Cursor.CursorFun(player.X, player.Y, 'P');
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Cursor.writeString(readmap[0].Count + 3, 1, "Punkty: "+points.ToString());
+                        Cursor.writeString(readmap[0].Count + 3, 2, "Klucze: "+ownedKeys.Count.ToString());
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Cursor.CursorFun(e.x, e.y, 'E');
+                        //write elems
+                        foreach (var Mapkey in keys)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Blue;
+                            Cursor.CursorFun(Mapkey.x, Mapkey.y, 'K');
+                        }
+
+                        foreach (var door in doors)
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkGray;
+                            Cursor.CursorFun(door.x, door.y, 'D');
+                        }
+                        pause = false;
+                    }
+                    else if(result ==1)
+                    {
+                        pause = false;
+                        break;
+                    }
+                    
+                    
                 }
+                
                 if (PickUps.getExit(player.X, player.Y, ref e))
                 {
                     break;

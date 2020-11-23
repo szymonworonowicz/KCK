@@ -87,6 +87,7 @@ namespace KCKProjectAPI
                     y++;
                     //map.Add(temp);
                 }
+                str.Close();
             }
             return builder.getMap();
         }

@@ -53,6 +53,7 @@ namespace KCKProjektConsole
                 {
                     logo.Add(line);
                 }
+                str.Close();
             }
             int y = 36, x = 100;
             napis[] napisy = new napis[4];
@@ -205,37 +206,7 @@ namespace KCKProjektConsole
             Cursor.writeString(ox - 2, oy + 1, "O grze");
             Cursor.writeString(ox - 3, oy + 3, "Wyjscie");
         }
-        private static void printGameEnd(int x, int y, List<string> logo, ref napis[] napisy)
-        {
-            Console.SetWindowSize(x, y);
-            Console.ForegroundColor = ConsoleColor.Magenta;
-
-            int ox = x / 2;
-            int oy = y / 2;
-            int logoWidth = logo[0].Length;
-            int logoHeight = logo.Count;
-            try
-            {
-                for (int i = 0; i < logo.Count; i++)
-                {
-
-                    Cursor.writeString(ox - logoWidth / 2, oy - 10 + i, logo[i]);
-                }
-            }
-            catch (ArgumentOutOfRangeException ex)
-            {
-
-                throw ex;
-            }
-
-            ConsoleHelper.SetCurrentFont("Consolas", 24);
-            napisy[0] = new napis(ox - 12, oy - 3, "Ukończyłeś/ukończyłaś grę");
-            napisy[1] = new napis(ox - 3, oy - 1, "Wyjście");
-
-            Cursor.writeString(ox - 12, oy - 3, "Ukończyłeś/ukończyłaś grę");
-            Cursor.writeString(ox - 3, oy - 1, "Wyjście");
-
-        }
+      
             private static void printAbout(int x, int y, List<string> logo, ref napis[] napisy)
         {
             Console.SetWindowSize(x, y);

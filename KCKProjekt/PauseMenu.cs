@@ -10,14 +10,14 @@ using KCKProjectAPI;
 
 namespace KCKProjektConsole
 {
-    public static class EndGameMenu
+    public static class PauseMenu
     {
         private delegate void menuAction<T>(int x, int y, List<string> logo, ref T map,int points);
         private static menuAction<napis[]> menuprinter;
         private delegate int optionAction(int id);
         private static optionAction optionprinter;
         private static int levelid = 1;
-        static EndGameMenu()
+        static PauseMenu()
         {
             menuprinter = new menuAction<napis[]>(printMenu);
             //optionprinter = new optionAction(ChooseOptionMenu);
@@ -55,8 +55,8 @@ namespace KCKProjektConsole
                 }
                 str.Close();
             }
-            logo.Add(" ");
-            logo.Add(" ");
+            
+            logo.Add("");
             int y = 36, x = 100;
             napis[] napisy = new napis[4];
             menuprinter(x, y, logo, ref napisy,points);
@@ -76,7 +76,7 @@ namespace KCKProjektConsole
                 Cursor.writeString(napisy[id].x + napisy[id].text.Length, napisy[id].y, "<-");
                 key = Console.ReadKey(true).Key;
 
-               /* 
+                
 
                 lock (mutex)
                 {
@@ -84,24 +84,26 @@ namespace KCKProjektConsole
                     {
 
                         case ConsoleKey.DownArrow:
-                            //Cursor.writeString(napisy[id].x - 2, napisy[id].y, "  ");
-                            //Cursor.writeString(napisy[id].x + napisy[id].text.Length, napisy[id].y, "  ");
-                            //id = (id + 1) == 4 ? 0 : id + 1;
+                            Cursor.writeString(napisy[id].x - 2, napisy[id].y, "  ");
+                            Cursor.writeString(napisy[id].x + napisy[id].text.Length, napisy[id].y, "  ");
+                            id = (id + 1) == 2 ? 0 : id + 1;
                             break;
                         case ConsoleKey.UpArrow:
-                            //Cursor.writeString(napisy[id].x - 2, napisy[id].y, "  ");
-                            //Cursor.writeString(napisy[id].x + napisy[id].text.Length, napisy[id].y, "  ");
-                            //id = (id - 1) < 0 ? 3 : id - 1;
+                            Cursor.writeString(napisy[id].x - 2, napisy[id].y, "  ");
+                            Cursor.writeString(napisy[id].x + napisy[id].text.Length, napisy[id].y, "  ");
+                            id = (id - 1) < 0 ? 1 : id - 1;
                             break;
                     }
-                }*/
+                }
 
 
 
             } while (key != ConsoleKey.Enter);
-            
             cancel.Cancel();
-            return 1;
+
+            return id;
+            
+            //return 1;
         }
 
    
@@ -125,6 +127,7 @@ namespace KCKProjektConsole
                 x = 100;
                 y = 50;
             }
+            Console.Clear();
             Console.ForegroundColor = ConsoleColor.Magenta;
 
             int ox = x / 2;
@@ -132,22 +135,19 @@ namespace KCKProjektConsole
             int logoWidth = logo[0].Length;
             int logoHeight = logo.Count;
             string pointsString = "";
-            string gameendString = "";
-            for(int i = 0;i<logoWidth/2-5;++i)
+            for (int i = 0; i < logoWidth / 2 - 5; ++i)
             {
                 pointsString += " ";
-                gameendString +=" ";
             }
-            gameendString += "gra skończona";
             pointsString += "punkty: " + points.ToString();
-            logo[logo.Count-1] =pointsString;
-            logo[logo.Count - 2] = gameendString;
+            logo[logo.Count - 1] = pointsString;
             try
             {
                 for (int i = 0; i < logo.Count; i++)
                 {
 
                     Cursor.writeString(ox - logoWidth / 2, oy - 10 + i, logo[i]);
+
                 }
             }
             catch (ArgumentOutOfRangeException ex)
@@ -160,112 +160,19 @@ namespace KCKProjektConsole
             
             //napisy[0] = new napis(ox - 4, oy - 1, "punkty: "+ points.ToString() );
             
-            napisy[0] = new napis(ox - 6, oy + 3, "Wróć do menu");
+            napisy[0] = new napis(ox - 6, oy -1, "Wróć do gry");
+            napisy[1] = new napis(ox - 6, oy + 1, "Wróć do menu");
 
 
 
             
             //Cursor.writeString(ox - 4, oy - 1, "punkty: " + points.ToString());
-            
-            Cursor.writeString(ox - 6, oy + 3, "Wróć do menu");
+            Cursor.writeString(ox - 6, oy - 1, "Wróć do gry");
+            Cursor.writeString(ox - 6, oy + 1, "Wróć do menu");
         }
-        private static void printGameEnd(int x, int y, List<string> logo, ref napis[] napisy)
-        {
-            Console.SetWindowSize(x, y);
-            Console.ForegroundColor = ConsoleColor.Magenta;
-
-            int ox = x / 2;
-            int oy = y / 2;
-            int logoWidth = logo[0].Length;
-            int logoHeight = logo.Count;
-            try
-            {
-                for (int i = 0; i < logo.Count; i++)
-                {
-
-                    Cursor.writeString(ox - logoWidth / 2, oy - 10 + i, logo[i]);
-                }
-            }
-            catch (ArgumentOutOfRangeException ex)
-            {
-
-                throw ex;
-            }
-
-            ConsoleHelper.SetCurrentFont("Consolas", 24);
-            napisy[0] = new napis(ox - 12, oy - 3, "Ukończyłeś/ukończyłaś grę");
-            napisy[1] = new napis(ox - 3, oy - 1, "Wyjście");
-
-            Cursor.writeString(ox - 12, oy - 3, "Ukończyłeś/ukończyłaś grę");
-            Cursor.writeString(ox - 3, oy - 1, "Wyjście");
-
-        }
-        private static void printAbout(int x, int y, List<string> logo, ref napis[] napisy)
-        {
-            Console.SetWindowSize(x, y);
-            Console.ForegroundColor = ConsoleColor.Magenta;
-
-            int ox = x / 2;
-            int oy = y / 2;
-            int logoWidth = logo[0].Length;
-            int logoHeight = logo.Count;
-            try
-            {
-                for (int i = 0; i < logo.Count; i++)
-                {
-
-                    Cursor.writeString(ox - logoWidth / 2, oy - 10 + i, logo[i]);
-                }
-            }
-            catch (ArgumentOutOfRangeException ex)
-            {
-
-                throw ex;
-            }
-
-            ConsoleHelper.SetCurrentFont("Consolas", 24);
-            napisy[0] = new napis(ox - 8, oy - 3, "Szymon Woronowicz");
-            napisy[1] = new napis(ox - 6, oy - 1, "Julia Gejdel");
-            napisy[2] = new napis(ox - 7, oy + 1, "Paweł Krzywosz");
-            napisy[3] = new napis(ox - 3, oy + 3, "Wyjscie");
-            Cursor.writeString(ox - 8, oy - 3, "Szymon Woronowicz");
-            Cursor.writeString(ox - 6, oy - 1, "Julia Gejdel");
-            Cursor.writeString(ox - 7, oy + 1, "Paweł Krzywosz");
-            Cursor.writeString(ox - 3, oy + 3, "Wyjscie");
-        }
-        private static void printDifficulties(int x, int y, List<string> logo, ref napis[] napisy)
-        {
-            Console.SetWindowSize(x, y);
-            Console.ForegroundColor = ConsoleColor.Magenta;
-
-            int ox = x / 2;
-            int oy = y / 2;
-            int logoWidth = logo[0].Length;
-            int logoHeight = logo.Count;
-            try
-            {
-                for (int i = 0; i < logo.Count; i++)
-                {
-
-                    Cursor.writeString(ox - logoWidth / 2, oy - 10 + i, logo[i]);
-                }
-            }
-            catch (ArgumentOutOfRangeException ex)
-            {
-
-                throw ex;
-            }
-
-            ConsoleHelper.SetCurrentFont("Consolas", 24);
-            napisy[0] = new napis(ox - 3, oy - 3, "łatwy");
-            napisy[1] = new napis(ox - 3, oy - 1, "średni");
-            napisy[2] = new napis(ox - 3, oy + 1, "trudny");
-            napisy[3] = new napis(ox - 3, oy + 3, "Wyjscie");
-            Cursor.writeString(ox - 3, oy - 3, "łatwy");
-            Cursor.writeString(ox - 3, oy - 1, "średni");
-            Cursor.writeString(ox - 3, oy + 1, "trudny");
-            Cursor.writeString(ox - 3, oy + 3, "Wyjscie");
-        }
+       
+      
+        
         private static void UpdateConsoleMenuSize(menuAction<napis[]> menu, ref int x, ref int y, ref object mutex, ref List<string> logo, ref napis[] napisy, ref int id, CancellationTokenSource cancel,int points)
         {
             while (true)

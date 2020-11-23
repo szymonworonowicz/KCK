@@ -45,6 +45,7 @@ namespace KCKProjekt
                 mlist.GetExit(ref exit);
                 Console.Clear();
                 Console.SetWindowSize(150, 30);
+                Console.Clear();
                 //write map
                 for (int i = 0; i < map.Count; i++)
                 {
@@ -97,8 +98,8 @@ namespace KCKProjekt
                 List<string> prevMap = new List<string>();
                 List<string> currentMap = new List<string>();
 
-
                 player.Join();
+               
                 lock (writer)
                 {
 
