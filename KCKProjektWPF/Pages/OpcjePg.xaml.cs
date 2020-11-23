@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using KCKProjektAPI;
 
 namespace KCKProjektWPF
 {
@@ -20,8 +21,8 @@ namespace KCKProjektWPF
     /// </summary>
     public partial class OpcjePg : Page
     {
-        public string postacUrl = "";
-        public int poziomTTrudnosci = 1;
+        public string _HeroUrl = "";
+        public LevelEnum Level = LevelEnum.Easy;
         public OpcjePg()
         {
             InitializeComponent();
@@ -42,7 +43,7 @@ namespace KCKProjektWPF
                 Owner = window,
             };
             win.ShowDialog();
-            window.postacUrl = win.postacUrl;
+            window._HeroUrl = win.postacUrl;
         }
 
         private void Poziom_Trudnosci_Click(object sender, RoutedEventArgs e)
@@ -53,8 +54,7 @@ namespace KCKProjektWPF
                 Owner = window,
             };
             win.ShowDialog();
-            //poziomTTrudnosci = win.poziom ;
-            window.poziom = win.poziom;
+            window.Level = win.Level;
         }
     }
 }

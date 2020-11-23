@@ -13,6 +13,6 @@
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Image Margin="5" gif:ImageBehavior.AnimatedSource="pack://application:,,,/KCKProjektWPF;component/Image/escape.gif"></Image>
-        <Label Foreground="White" Grid.Row="1" HorizontalAlignment="Center" Margin="5">Wcisnij ESC zeby wrocic do Gry</Label>
+        <Label Foreground="White" Grid.Row="1" HorizontalAlignment="Center" Margin="5">Press ESC to return to game</Label>
     </Grid>
 </Window>

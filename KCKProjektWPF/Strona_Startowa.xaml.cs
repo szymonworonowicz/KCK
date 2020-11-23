@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using KCKProjektAPI;
 
 namespace KCKProjektWPF
 {
@@ -20,8 +21,8 @@ namespace KCKProjektWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        public string postacUrl = "pack://application:,,,/KCKProjektWPF;component/Image/mario.png";
-        public int poziom = 1;
+        public string _HeroUrl = "pack://application:,,,/KCKProjektWPF;component/Image/mario.png";
+        public LevelEnum Level = LevelEnum.Easy;
         public MainWindow()
         {
 

@@ -11,10 +11,10 @@ false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
 C:\Users\user\source\repos\KCKProjekt\KCKProjektWPF\App.xaml
 13-1543040673
-12-1256845003
+8-1985678122
 16-269110299
 1941911438846
 Controls\CoinControl.xaml;Controls\DoorControl.xaml;Controls\EscapeDoor.xaml;Controls\KeyControl.xaml;Pages\AboutPg.xaml;Pages\EscapePg.xaml;Pages\GameViewPg.xaml;Pages\OpcjePg.xaml;Pages\Startowa.xaml;Strona_Startowa.xaml;Windows\PauseWindow.xaml;Windows\Wybor_postaci.xaml;Windows\Wybor_poziomu.xaml;
 
-True
+False
 

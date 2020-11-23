@@ -12,22 +12,22 @@ namespace KCKProjectAPI
     {
         public static int PickUpCoin(int x, int y ,List<Coin> coins,ref object coinLock)
         {
-            lock(coinLock)
-            try
+            lock (coinLock)
             {
+                try
+                {
 
-                int id = coins.GetId(x, y);
-                   // if (System.Windows.Application.Current == null)
-                       // Cursor.CursorFun(x, y,' ' ) ;
-                coins.RemoveById(id);
-                
+                    int id = coins.GetId(x, y);
+                    coins.RemoveById(id);
+
                     return 1;
-                
-            }
-            catch(KeyNotFoundException )
-            {
 
-                return 0;
+                }
+                catch (KeyNotFoundException)
+                {
+
+                    return 0;
+                }
             }
 
         }
@@ -46,11 +46,7 @@ namespace KCKProjectAPI
         {
             try
             {
-              //  int id = keys.GetId(x, y);
                 IPickup key = keys.GetByCoords(x, y);
-                //if (System.Windows.Application.Current == null)
-                //Cursor.CursorFun(x, y,' ');
-                //Console.Out.WriteLine(id);
                 keys.RemoveByCoord(x, y);
                 return key;
             }   
@@ -67,19 +63,16 @@ namespace KCKProjectAPI
             
             try
             {
-                int DoorId = doors.GetId(x, y); //if exc mozna przejsc - false
+                int DoorId = doors.GetId(x, y);
                 try
                 {
-                    ownedKeys.GetById(DoorId); // jesli exc nie mozna przejsc -true
+                    ownedKeys.GetById(DoorId);
                     
                 }
                 catch(KeyNotFoundException )
                 {
                     return true;
                 }
-
-               // if (System.Windows.Application.Current == null)
-                 //   Cursor.CursorFun(x, y,' ');
                 doors.RemoveById(DoorId);
                 ownedKeys.RemoveById(DoorId);
                 return false;

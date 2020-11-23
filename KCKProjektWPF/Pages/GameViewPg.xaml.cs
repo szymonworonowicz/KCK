@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using KCKProjektAPI;
 using WpfAnimatedGif;
 using Key = KCKProjectAPI.Key;
 
@@ -26,28 +27,24 @@ namespace KCKProjektWPF.Pages
     {
 
         private Canvas canvas { get; set; }
-        private int Coins { get; set; } = 0;
-        private int Keys { get; set; } = 0;
-        private string postacUrl;
-        private int poziom;
+        private int Coins { get; set; } 
+        private int Keys { get; set; } 
         private Rectangle player;
         private ImageBrush transformImageBrush;
-        private bool left = false;
+        private bool _left = false;
         private List<Key> keys;
         private List<Door> doors;
         private List<Coin> coins;
         private List<Key> ownedKeys;
         private Exit exit;
-        private const string coinpath = @"pack://application:,,,/KCKProjektWPF;component/Image/coin.gif";
-        private const string keypath = @"pack://application:,,,/KCKProjektWPF;component/Image/key3.gif";
+        private const string Coinpath = @"pack://application:,,,/KCKProjektWPF;component/Image/coin.gif";
+        private const string Keypath = @"pack://application:,,,/KCKProjektWPF;component/Image/key3.gif";
 
-        public GameViewPg(string postacUrl, int poziom)
+        public GameViewPg(string heroUrl, LevelEnum level)
         {
-            this.postacUrl = postacUrl;
-            this.poziom = poziom;//dodac switch na poziomie na mapy
             transformImageBrush = new ImageBrush();
             InitializeComponent();
-            Map m = new Map("map2", new WPFBuilder());
+            Map m = new Map(level,new WPFBuilder());
             canvas = m.getMap() as Canvas;
             MainWindow window = (MainWindow)Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
             window.KeyDown += CanvasKeyPreview;
@@ -57,27 +54,68 @@ namespace KCKProjektWPF.Pages
             coins = new List<Coin>();
             ownedKeys = new List<Key>();
 
-            m.GetElems(ref keys, ref doors, ref coins);
+            m.GetElems(ref keys, ref doors, ref coins, ref exit);
 
-            SetCoin(coinpath);
-            SetKeys(keypath);
+            SetCoin(Coinpath);
+            SetKeys(Keypath);
             SetDors();
 
-            EscapeDoor escape = new EscapeDoor();//wyjsciowe drzwi
+            EscapeDoor escape = new EscapeDoor();
             canvas.Children.Add(escape);
-            escape.SetValue(Canvas.LeftProperty, 1.0);
-            escape.SetValue(Canvas.TopProperty, 20.0 * 16 + 1.0);
-            //robienie dziury na wyjsciowe drzwi
-            canvas.Children.Remove(canvas.Children.OfType<Rectangle>().FirstOrDefault(x =>
-            {
-                double controlx = (double)x.GetValue(Canvas.LeftProperty);
-                double controly = (double)x.GetValue(Canvas.TopProperty);
-                if (20.0 * 16 + 1 == controly && 1.0 == controlx)
-                    return true;
-                return false;
-            }));
+            escape.SetValue(Canvas.LeftProperty, exit.x * 10.0 + 1.0);
+            escape.SetValue(Canvas.TopProperty, 20.0 * exit.y + 1.0);
 
-            ImageSource imageSource = new BitmapImage(new Uri(postacUrl));
+
+            InitializePlayer(heroUrl);
+
+            InitializeMainGrid(m);
+
+            canvas.SetValue(Grid.ColumnProperty, 1);
+            canvas.SetValue(Grid.RowProperty, 1);
+
+            window.Height = m.HeightMap * 25.0;
+            window.Width = m.WidthMap * 10.5;
+            window.ResizeMode = ResizeMode.CanMinimize;
+            mygrid.Children.Add(canvas);
+
+        }
+
+        private void InitializeMainGrid(Map m)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                var row = new RowDefinition();
+                if (i % 2 == 0)
+                {
+                    row.Height = new GridLength(1, GridUnitType.Star);
+                }
+                else
+                {
+                    row.Height = new GridLength(m.HeightMap - 2, GridUnitType.Star);
+                }
+
+                mygrid.RowDefinitions.Add(row);
+            }
+
+            for (int i = 0; i < 3; i++)
+            {
+                var column = new ColumnDefinition();
+                if (i % 2 == 0)
+                {
+                    column.Width = new GridLength(1, GridUnitType.Star);
+                }
+                else
+                {
+                    column.Width = new GridLength(m.WidthMap - 2, GridUnitType.Star);
+                }
+
+                mygrid.ColumnDefinitions.Add(column);
+            }
+        }
+
+        private void InitializePlayer(string _heroUrl)
+        {
+            ImageSource imageSource = new BitmapImage(new Uri(_heroUrl));
             transformImageBrush.ImageSource = imageSource;
             player = new Rectangle
             {
@@ -93,45 +131,6 @@ namespace KCKProjektWPF.Pages
             canvas.Children.Add(player);
             player.SetValue(Canvas.TopProperty, 201.0);
             player.SetValue(Canvas.LeftProperty, 21.0);
-
-            double scale = (double)m.WidthMap / (double)m.HeightMap;
-            for (int i = 0; i < 3; i++)
-            {
-                var row = new RowDefinition();
-                if (i % 2 == 0)
-                {
-                    row.Height = new GridLength(1, GridUnitType.Star);
-                }
-                else
-                {
-                    row.Height = new GridLength(m.HeightMap - 2, GridUnitType.Star);
-                }
-                mygrid.RowDefinitions.Add(row);
-
-            }
-            for (int i = 0; i < 3; i++)
-            {
-                var column = new ColumnDefinition();
-                if (i % 2 == 0)
-                {
-                    column.Width = new GridLength(1, GridUnitType.Star);
-                }
-                else
-                {
-                    column.Width = new GridLength(m.WidthMap - 2, GridUnitType.Star);
-                }
-                mygrid.ColumnDefinitions.Add(column);
-
-            }
-
-            canvas.SetValue(Grid.ColumnProperty, 1);
-            canvas.SetValue(Grid.RowProperty, 1);
-
-            window.Height = (double)m.HeightMap * 25;
-            window.Width = (double)m.WidthMap * 10.5;
-            window.ResizeMode = ResizeMode.CanMinimize;
-            mygrid.Children.Add(canvas);
-
         }
 
         private void SetDors()
@@ -172,6 +171,81 @@ namespace KCKProjektWPF.Pages
             double beforeY = (double)player.GetValue(Canvas.TopProperty);//pozycja przed ruchem
             double beforeX = (double)player.GetValue(Canvas.LeftProperty);
 
+            PlayerPositionTransform(e, beforeY, beforeX);
+
+            double afterY = (double)player.GetValue(Canvas.TopProperty);
+            double afterX = (double)player.GetValue(Canvas.LeftProperty);
+
+
+            UserControl control = (UserControl)canvas.Children.OfType<UserControl>().FirstOrDefault(x =>
+            {
+                double controlx = (double)x.GetValue(Canvas.LeftProperty);
+                double controly = (double)x.GetValue(Canvas.TopProperty);
+                if (afterY == controly && afterX == controlx)
+                    return true;
+                return false;
+            });
+
+
+            CheckEnterField(control, afterY, afterX, beforeY, beforeX);
+            Thread.Sleep(50);
+        }
+
+        private void CheckEnterField(UserControl control, double afterY, double afterX, double beforeY, double beforeX)
+        {
+            if (control is CoinControl coin)
+            {
+                Coins++;
+                this.coinCount.Content = Coins.ToString();
+                canvas.Children.Remove(coin);
+            }
+            else if (control is KeyControl key)
+            {
+                int keyy = (int) (afterY - 1.0) / 20;
+                int keyx = (int) (afterX - 1.0) / 10;
+
+                Key collectkey = PickUps.PickupKey(keyx, keyy, keys) as Key;
+
+                ownedKeys.Add(collectkey);
+                Keys++;
+                this.keyCount.Content = Keys.ToString();
+                canvas.Children.Remove(key);
+            }
+            else if (control is DoorControl door)
+            {
+                int doory = (int) (afterY - 1.0) / 20;
+                int doorx = (int) (afterX - 1.0) / 10;
+                if (!PickUps.unlockTheDoor(doorx, doory, doors, ownedKeys))
+                {
+                    Keys--;
+                    keyCount.Content = Keys.ToString();
+                    canvas.Children.Remove(door);
+                }
+                else
+                {
+                    player.SetValue(Canvas.TopProperty, beforeY);
+                    player.SetValue(Canvas.LeftProperty, beforeX);
+                }
+            }
+            else if (control is EscapeDoor escape)
+            {
+                if (Coins == coins.Count)
+                {
+                    MainWindow window =
+                        (MainWindow) Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
+                    window.KeyDown -= CanvasKeyPreview;
+                    window.Content = new EscapePg();
+                }
+                else
+                {
+                    player.SetValue(Canvas.TopProperty, beforeY);
+                    player.SetValue(Canvas.LeftProperty, beforeX);
+                }
+            }
+        }
+
+        private void PlayerPositionTransform(KeyEventArgs e, double beforeY, double beforeX)
+        {
             switch (e.Key)
             {
                 case System.Windows.Input.Key.Left:
@@ -199,72 +273,6 @@ namespace KCKProjektWPF.Pages
                     pause.ShowDialog();
                     break;
             }
-
-            double afterY = (double)player.GetValue(Canvas.TopProperty); // pozycja po ruchu
-            double afterX = (double)player.GetValue(Canvas.LeftProperty);
-
-
-            UserControl control = (UserControl)canvas.Children.OfType<UserControl>().FirstOrDefault(x =>
-            {
-                double controlx = (double)x.GetValue(Canvas.LeftProperty);
-                double controly = (double)x.GetValue(Canvas.TopProperty);
-                if (afterY == controly && afterX == controlx)
-                    return true;
-                return false;
-            });
-
-
-            if (control is CoinControl coin)
-            {
-                Coins++;
-                this.coinCount.Content = Coins.ToString();
-                canvas.Children.Remove(coin);
-            }
-            else if (control is KeyControl key)
-            {
-                int keyy = (int)(afterY - 1.0) / 20;
-                int keyx = (int)(afterX - 1.0) / 10;
-
-                // Key collectkey = keys.FirstOrDefault(x => x.x == keyx && x.y == keyy);
-                Key collectkey = PickUps.PickupKey(keyx, keyy, keys) as Key;
-
-                ownedKeys.Add(collectkey);
-                Keys++;
-                this.keyCount.Content = Keys.ToString();
-                canvas.Children.Remove(key);
-            }
-            else if (control is DoorControl door)
-            {
-                int doory = (int)(afterY - 1.0) / 20;
-                int doorx = (int)(afterX - 1.0) / 10;
-                if (!PickUps.unlockTheDoor(doorx, doory, doors, ownedKeys))
-                {
-                    Keys--;
-                    keyCount.Content = Keys.ToString();
-                    canvas.Children.Remove(door);
-                }
-                else
-                {
-                    player.SetValue(Canvas.TopProperty, beforeY);
-                    player.SetValue(Canvas.LeftProperty, beforeX);
-                }
-            }
-            else if (control is EscapeDoor escape)
-            {
-                if (Coins == coins.Count)
-                {
-                    MainWindow window = (MainWindow)Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
-                    window.KeyDown -= CanvasKeyPreview;
-                    window.Content = new EscapePg();
-                }
-                else
-                {
-                    player.SetValue(Canvas.TopProperty, beforeY);
-                    player.SetValue(Canvas.LeftProperty, beforeX);
-                }
-
-            }
-            Thread.Sleep(50);
         }
 
 
@@ -314,7 +322,7 @@ namespace KCKProjektWPF.Pages
             });
             if (control == null)
             {
-                if (!left)
+                if (!_left)
                 {
                     ScaleTransform scale = new ScaleTransform();
                     scale.CenterX = 5;
@@ -324,7 +332,7 @@ namespace KCKProjektWPF.Pages
                     transformImageBrush.Transform = scale;
 
                     player.Fill = transformImageBrush;
-                    left = true;
+                    _left = true;
                 }
                 player.SetValue(Canvas.LeftProperty, X - 10);
             }
@@ -344,7 +352,7 @@ namespace KCKProjektWPF.Pages
             if (control == null)
             {
                 player.SetValue(Canvas.LeftProperty, X + 10);
-                if (left)
+                if (_left)
                 {
                     ScaleTransform scale = new ScaleTransform();
                     scale.CenterX = 5;
@@ -354,7 +362,7 @@ namespace KCKProjektWPF.Pages
                     transformImageBrush.Transform = scale;
 
                     player.Fill = transformImageBrush;
-                    left = false;
+                    _left = false;
                 }
             }
 
@@ -366,7 +374,7 @@ namespace KCKProjektWPF.Pages
 
             var coinSource = new BitmapImage();
             coinSource.BeginInit();
-            coinSource.UriSource = new Uri(coinpath);
+            coinSource.UriSource = new Uri(Coinpath);
             coinSource.EndInit();
             ImageBehavior.SetAnimatedSource(coinImage, coinSource);
 
@@ -374,7 +382,7 @@ namespace KCKProjektWPF.Pages
 
             var keySouce = new BitmapImage();
             keySouce.BeginInit();
-            keySouce.UriSource = new Uri(keypath);
+            keySouce.UriSource = new Uri(Keypath);
             keySouce.EndInit();
             ImageBehavior.SetAnimatedSource(keyImage, keySouce);
         }

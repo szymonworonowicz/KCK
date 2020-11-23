@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace KCKProjektAPI.Items.fields
+namespace KCKProjektConsole
 {
-    class Begin
+    public enum PauseEnum
     {
+        Resume,
+        Exit
     }
 }

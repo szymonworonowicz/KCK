@@ -24,15 +24,15 @@ namespace KCKProjektWPF.Pages
         {
             InitializeComponent();
             window = (MainWindow)Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
-            window.KeyDown += KeyDown;
+            window.KeyDown += EscapeKeyDown;
             window.ResizeMode = ResizeMode.CanResize;
         }
 
-        private void KeyDown(object sender, KeyEventArgs e)
+        private void EscapeKeyDown(object sender, KeyEventArgs e)
         {
             if(e.Key == Key.Escape)
             {
-                window.KeyDown -= KeyDown;
+                window.KeyDown -= EscapeKeyDown;
                 window.Content = new Startowa();
             }
         }

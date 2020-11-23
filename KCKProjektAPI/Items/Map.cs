@@ -1,13 +1,9 @@
-﻿using System;
-using System.CodeDom;
+﻿using KCKProjectAPI.Builders;
+using KCKProjektAPI;
+using KCKProjektAPI.Items.fields;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using KCKProjectAPI.Builders;
-using KCKProjektAPI.Items.fields;
 
 namespace KCKProjectAPI
 {
@@ -16,59 +12,23 @@ namespace KCKProjectAPI
         public List<LinkedList<IField>> map { get; private set; }
         public int WidthMap { get; private set; }
         public int HeightMap { get; private set; }
-        private int dGenerator = 1;
-        private string path = "";
-        private int mapnr;
+        private const string Path = "map2";
+        private readonly int MapNr;
         public IBuilder builder;
-
-        public Map()
+        
+        public Map(LevelEnum level,IBuilder builder)
         {
-
-        }
-
-        public Map(string path,int mapnr,IBuilder builder)
-        {
-            this.mapnr = mapnr;
-            this.path = path;
+            this.MapNr = (int)level+1;
             this.builder = builder;
-            //this.path = path;
-            //int y = 0;
-            //using(StreamReader str = new StreamReader($"./maps/{path}.txt"))
-            //{
-            //    string line = "";
-            //    while((line=str.ReadLine())!=null)
-            //    {
-            //        //LinkedList<IField> temp = new LinkedList<IField>();
-                    
-            //        for(int i=0;i<line.Length;i++)
-            //        {
-            //            switch (line[i]) 
-            //            {
-            //                case '#':
-                                
-            //                    builder.AddWall(i, y);
-            //                    break;
-            //                case ' ':
-            //                    builder.AddPath(i, y);
-            //                    break;
-            //            }
-            //        }
-            //        y++;
-            //        //map.Add(temp);
-            //    }
-            //}
-            //map = builder.getMap();
-            
         }
         public object getMap()
         {
             int y = 0;
-            using (StreamReader str = new StreamReader($"./maps/{path}.txt"))
+            using (StreamReader str = new StreamReader($"./maps/{Path}.txt"))
             {
                 string line = "";
                 while ((line = str.ReadLine()) != null)
                 {
-                    //LinkedList<IField> temp = new LinkedList<IField>();
                     HeightMap++;
                     int i = 0;
                     for (i = 0; i < line.Length; i++)
@@ -95,7 +55,7 @@ namespace KCKProjectAPI
         }
         public void GetElems(ref List<Key> keys, ref List<Door> doors, ref List<Coin>coins,ref Exit exit)
         {
-            using (StreamReader str = new StreamReader($"./maps/{path}elems"+mapnr.ToString()+".txt"))
+            using (StreamReader str = new StreamReader($"./maps/{Path}elems"+MapNr.ToString()+".txt"))
             {
                 string line="";
 
@@ -125,113 +85,7 @@ namespace KCKProjectAPI
                 }
             }
         }
-        
 
-        private void AddField(IField f)
-        {
-            foreach(LinkedList<IField> list in map)
-            {
-                if(list.Last.Value.x<WidthMap-1)
-                {
-                    list.AddLast(f);
-                    return;
-                }
-            }
-            
-        }
-        public IField GetField(int x, int y)
-        {
-            IField f_to_return = null;
-            foreach (LinkedList<IField> list in map)
-            {
-                if (list.First.Value.y == y)
-                {
-                    foreach(IField f in list)
-                    {
-                        if(f.x==x)
-                        {
-                            f_to_return = f;
-                        }
-                        else if(f.x>x)
-                        {
-                           
-                        }
-                    }
-                }
-               
-            }
-            return f_to_return;
-        }
-
-        
-
-        /*public LinkedList<LinkedList<IField>> GetFrame()
-        {
-            
-            
-        }*/
-        public LinkedList<IField> GetFragmentLine(int x, int y, int len)
-        {
-
-            LinkedList<IField> fragment;
-            fragment = new LinkedList<IField>();
-            if(x > WidthMap || y> HeightMap || x+len>WidthMap || x<WidthMap || y < HeightMap)
-            {
-                //throw new Exception();
-            }
-            foreach(LinkedList<IField>fragList in map)
-            {
-                
-                /*Console.Out.WriteLine(fragList.First.Value.y);
-                Console.In.ReadLine();*/
-                if(fragList.First.Value.y==y)
-                {
-                    foreach(IField field in fragList)
-                    {
-                       /* Console.Out.WriteLine(field.x);
-                        Console.In.ReadLine();*/
-                        if (field.x<x+len && field.x>=x)
-                        {
-
-                            fragment.AddLast(field);
-                            
-                            if(field.x==x+len)
-                            {
-                                break;
-                            }
-                        }
-                        
-                    }
-                    break;
-                }
-            }
-            return fragment;
-        }
-       
-        public string FragmentToString(int x, int y, int len)
-        {
-            LinkedList<IField> fragment = GetFragmentLine(x, y, len);
-
-            string fragmentString = "";
-            if (fragment!=null)
-            {
-                fragmentString = String.Join("", fragment);
-
-                
-            }
-            int minus = x;
-            while(minus++ <0)
-            {
-                fragmentString = " " + fragmentString;
-            }
-            
-            
-            while(fragmentString.Length<len)
-            {
-                fragmentString += " ";
-            }
-            return fragmentString;
-        }
         public override string ToString()
         {
             string list = "";

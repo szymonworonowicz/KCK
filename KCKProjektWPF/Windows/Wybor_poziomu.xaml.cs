@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using KCKProjektAPI;
 
 namespace KCKProjektWPF.Windows
 {
@@ -17,7 +18,7 @@ namespace KCKProjektWPF.Windows
     /// </summary>
     public partial class Wybor_poziomu : Window
     {
-        public int poziom { get; set; } = 1;
+        public LevelEnum Level { get; set; } = LevelEnum.Easy;
         public Wybor_poziomu()
         {
             InitializeComponent();
@@ -30,13 +31,13 @@ namespace KCKProjektWPF.Windows
             switch (btn.Name)
             {
                 case "Latwy":
-                    poziom = 1;
+                    Level = LevelEnum.Easy;
                     break;
                 case "Sredni":
-                    poziom = 2;
+                    Level = LevelEnum.Mid;
                     break;
                 case "Trudny":
-                    poziom = 3;
+                    Level = LevelEnum.Hard;
                     break;
             }
 

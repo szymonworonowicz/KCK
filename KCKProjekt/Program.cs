@@ -11,6 +11,7 @@ using KCKProjektConsole;
 using KCKProjektAPI.Items.fields;
 using KCKProjecConsole;
 using KCKProjectConsole;
+using KCKProjektAPI;
 
 namespace KCKProjekt
 {
@@ -21,25 +22,21 @@ namespace KCKProjekt
         private static List<Door> doors = new List<Door>();
         private static List<Coin> coins = new List<Coin>();
         private static Exit exit;
-        private static int points = 0;
+        private static int points ;
         List<IField> listf = new List<IField>();
        
         
 
         static void Main(string[] args)
         {
-            while (1 == 1)
+            while (true)
             {
-
-                int level = Menu.getMenu();
+                points = 0;
+                LevelEnum level = Menu.GetMenu();
                 
-                
-                // Menu.printMessage("proszę wybrać mapę");
-                // string path = Menu.getMap(8);
-
-                object writer = new object(); // mutex do wyisywania
+                object writerMutex = new object(); 
                 IBuilder builder = new ConsoleBuilder();
-                Map mlist = new Map("map2",level, builder);
+                var mlist = new Map(level, builder);
 
 
                 var map = mlist.getMap() as List<LinkedList<IField>>;
@@ -47,7 +44,7 @@ namespace KCKProjekt
                 Console.Clear();
                 Console.SetWindowSize(150, 30);
                 Console.Clear();
-                //write map
+
                 for (int i = 0; i < map.Count; i++)
                 {
                     foreach (var elem in map[i])
@@ -65,11 +62,11 @@ namespace KCKProjekt
                     Console.Write('\n');
                 }
                 Console.ForegroundColor = ConsoleColor.White;
-                Cursor.writeString(map[0].Count+3, 1, "Punkty: 0");
-                Cursor.writeString(map[0].Count+3, 2, "Klucze: 0");
+                Cursor.WriteString(map[0].Count+3, 1, "Points: 0");
+                Cursor.WriteString(map[0].Count+3, 2, "Keys:   0");
                 Console.ForegroundColor = ConsoleColor.White;
                 Cursor.CursorFun(exit.x, exit.y, 'E');
-                //write elems
+
                 foreach (var key in keys)
                 {
                     Console.ForegroundColor = ConsoleColor.Blue;
@@ -83,23 +80,23 @@ namespace KCKProjekt
                 }
 
 
-                Thread coin = new Thread(() => ThreadProcClass.ThreadProcCoin(coins, ref writer));
-                coin.Start();
+                Thread CoinRotateThread = new Thread(() => ThreadProcClass.ThreadProcCoin(coins, ref writerMutex));
+                CoinRotateThread.Start();
 
                 Console.ForegroundColor = ConsoleColor.White;
 
                 Console.CursorVisible = false;
 
 
-                Player p = new Player { X = 2, Y = 9 }; ///2 9. -- 1 19
+                Player p = new Player { X = 2, Y = 9 };
                 object mutex = new object();
 
-                Thread player = new Thread(() => ThreadProcClass.ThreadProcPlayer(ref p, ref mlist, ref ownedKeys, ref keys, ref doors, ref coins, ref exit, ref writer,ref points));
-                player.Start();
+                Thread PlayerThread = new Thread(() => ThreadProcClass.ThreadProcPlayer(ref p, ref mlist, ref ownedKeys, ref keys, ref doors, ref coins, ref exit, ref writerMutex,ref points));
+                PlayerThread.Start();
 
-                player.Join();
+                PlayerThread.Join();
                
-                lock (writer)
+                lock (writerMutex)
                 {
 
                     coins.Clear();

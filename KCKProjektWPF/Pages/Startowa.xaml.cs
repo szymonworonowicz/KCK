@@ -40,7 +40,7 @@ namespace KCKProjektWPF
         {
             MainWindow window =(MainWindow) Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
             
-            window.Content = new GameViewPg(window.postacUrl,window.poziom);
+            window.Content = new GameViewPg(window._HeroUrl,window.Level);
         }
 
         private void Autorzy_click(object sender, RoutedEventArgs e)

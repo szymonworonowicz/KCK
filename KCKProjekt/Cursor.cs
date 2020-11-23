@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace KCKProjectAPI
+namespace KCKProjecConsole
 {
     public class Cursor
     {
@@ -11,7 +11,7 @@ namespace KCKProjectAPI
             Console.Out.Write(writeThis);
 
         }
-        public static void writeString (int x,int y,string writeThis)
+        public static void WriteString (int x,int y,string writeThis)
         {
             try
             {
@@ -25,10 +25,6 @@ namespace KCKProjectAPI
             }
 
 
-        }
-        public static void setCursorPosition(int x, int y)
-        {
-            Console.SetCursorPosition(x, y);
         }
     }
 }
