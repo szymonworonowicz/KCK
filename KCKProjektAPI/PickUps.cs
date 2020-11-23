@@ -49,8 +49,9 @@ namespace KCKProjectAPI
               //  int id = keys.GetId(x, y);
                 IPickup key = keys.GetByCoords(x, y);
                 //if (System.Windows.Application.Current == null)
-                    //Cursor.CursorFun(x, y,' ');
+                //Cursor.CursorFun(x, y,' ');
                 //Console.Out.WriteLine(id);
+                keys.RemoveByCoord(x, y);
                 return key;
             }   
             catch(KeyNotFoundException )

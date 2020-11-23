@@ -32,12 +32,14 @@ namespace KCKProjekt
             {
 
                 int level = Menu.getMenu();
+                
+                
                 // Menu.printMessage("proszę wybrać mapę");
                 // string path = Menu.getMap(8);
 
                 object writer = new object(); // mutex do wyisywania
                 IBuilder builder = new ConsoleBuilder();
-                Map mlist = new Map("map2", builder);
+                Map mlist = new Map("map2",level, builder);
 
 
                 var map = mlist.getMap() as List<LinkedList<IField>>;

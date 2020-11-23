@@ -18,6 +18,7 @@ namespace KCKProjectAPI
         public int HeightMap { get; private set; }
         private int dGenerator = 1;
         private string path = "";
+        private int mapnr;
         public IBuilder builder;
 
         public Map()
@@ -25,8 +26,9 @@ namespace KCKProjectAPI
 
         }
 
-        public Map(string path,IBuilder builder)
+        public Map(string path,int mapnr,IBuilder builder)
         {
+            this.mapnr = mapnr;
             this.path = path;
             this.builder = builder;
             //this.path = path;
@@ -91,9 +93,9 @@ namespace KCKProjectAPI
             }
             return builder.getMap();
         }
-        public void GetElems(ref List<Key> keys, ref List<Door> doors, ref List<Coin> coins)
+        public void GetElems(ref List<Key> keys, ref List<Door> doors, ref List<Coin>coins)
         {
-            using (StreamReader str = new StreamReader($"./maps/{path}elems.txt"))
+            using (StreamReader str = new StreamReader($"./maps/{path}elems"+mapnr.ToString()+".txt"))
             {
                 string line="";
 
@@ -122,7 +124,7 @@ namespace KCKProjectAPI
         }
         public void GetExit(ref Exit exit)
         {
-            using (StreamReader str = new StreamReader($"./maps/{path}elems.txt"))
+            using (StreamReader str = new StreamReader($"./maps/{path}elems"+mapnr.ToString()+".txt"))
             {
                 string line="";
 

@@ -290,7 +290,7 @@ namespace KCKProjectConsole
                     
                     
                 }
-                
+               
                 if (PickUps.getExit(player.X, player.Y, ref e))
                 {
                     break;
