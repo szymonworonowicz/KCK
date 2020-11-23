@@ -61,7 +61,7 @@ namespace KCKProjektWPF.Pages {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/KCKProjektWPF;V1.0.0.0;component/pages/aboutpg.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/KCKProjektWPF;component/pages/aboutpg.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Pages\AboutPg.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -53,7 +53,7 @@ namespace KCKProjektWPF.Controls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/KCKProjektWPF;V1.0.0.0;component/controls/escapedoor.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/KCKProjektWPF;component/controls/escapedoor.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Controls\EscapeDoor.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

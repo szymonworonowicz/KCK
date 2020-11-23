@@ -43,8 +43,7 @@ namespace KCKProjekt
 
 
                 var map = mlist.getMap() as List<LinkedList<IField>>;
-                mlist.GetElems(ref keys, ref doors, ref coins);
-                mlist.GetExit(ref exit);
+                mlist.GetElems(ref keys, ref doors, ref coins,ref exit);
                 Console.Clear();
                 Console.SetWindowSize(150, 30);
                 Console.Clear();
@@ -97,8 +96,6 @@ namespace KCKProjekt
 
                 Thread player = new Thread(() => ThreadProcClass.ThreadProcPlayer(ref p, ref mlist, ref ownedKeys, ref keys, ref doors, ref coins, ref exit, ref writer,ref points));
                 player.Start();
-                List<string> prevMap = new List<string>();
-                List<string> currentMap = new List<string>();
 
                 player.Join();
                
